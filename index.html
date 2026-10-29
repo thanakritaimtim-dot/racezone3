@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2283,6 +2283,164 @@ mark.search-kw {
   opacity: 1;
 }
 
+
+/* Fines Local Search Bar */
+.fines-search-bar {
+  margin: 20px 0 24px;
+}
+
+.fines-search-box:focus-within {
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 16px var(--neon-orange-glow);
+}
+
+.fines-clear-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.fines-clear-btn:hover {
+  color: var(--neon-orange);
+}
+
+.fines-search-status {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-racing);
+  margin-top: 6px;
+  padding-left: 4px;
+}
+
+
+/* Fines Featured Banner */
+
+.fines-featured-banner .pill-badge {
+  font: italic 700 1.7rem var(--font-racing) !important;
+  padding: 4px 20px 4px 14px !important;
+  border-radius: 0 !important;
+  clip-path: var(--slant) !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px !important;
+  display: inline-block !important;
+  line-height: 1.1 !important;
+}
+
+.fines-featured-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-top: 4px solid #ef4444;
+  border-radius: 6px;
+  padding: 20px 26px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.08);
+  transition: all 0.25s ease;
+}
+.fines-featured-banner:hover {
+  transform: translateY(-2px);
+  border-color: #ef4444;
+  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.18);
+}
+
+.fines-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fines-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fines-banner-tag {
+  font-family: var(--font-racing);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.fines-banner-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+.fines-banner-desc {
+  font-size: 0.92rem;
+  color: var(--text-slate);
+  line-height: 1.4;
+}
+
+.fines-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ef4444;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+  transition: all 0.2s ease;
+}
+.fines-featured-banner:hover .fines-banner-btn {
+  background: #dc2626;
+  transform: translateX(3px);
+}
+
+@media (max-width: 960px) {
+  .fines-featured-banner { flex-direction: column; align-items: flex-start; }
+  .fines-banner-btn { width: 100%; justify-content: center; }
+}
+
+
+/* Department Banner Photo Backgrounds */
+.banner-photo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.section-banner-card:hover .banner-photo-bg {
+  opacity: 0.32;
+  transform: scale(1.02);
+}
+
+.section-banner-card small,
+.section-banner-card h2,
+.section-banner-card p {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Hide giant number watermark when banner has photo background */
+.section-banner-card:has(.banner-photo-bg)::after {
+  display: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -2327,6 +2485,9 @@ mark.search-kw {
         <a href="#police"><span>กฎตำรวจ</span></a>
       </li>
       <li class="tab-skew-item">
+        <a href="#fine"><span>ค่าปรับ & จำคุก</span></a>
+      </li>
+      <li class="tab-skew-item">
         <a href="#medic"><span>กฎหมอ</span></a>
       </li>
       <li class="tab-skew-item">
@@ -2351,7 +2512,7 @@ mark.search-kw {
     <!-- Video Background (Nissan GT-R Drift) -->
     <div class="hero-bg-video-wrapper">
       <video id="heroBgVideo" class="hero-bg-video" autoplay muted playsinline preload="auto">
-        <source src="drift_animation.mp4" type="video/mp4">
+        <source src="nissan_gtr_drift.mp4" type="video/mp4">
         <source src="nissan_gtr_drift_with_sound (1).mp4" type="video/mp4">
       </video>
       <div class="hero-video-tint-overlay"></div>
@@ -2396,6 +2557,23 @@ mark.search-kw {
     <h3>เลือกอ่านกฎตามหมวดหมู่และอาชีพ</h3>
     <small>DIRECT SELECTION DIRECTORY</small>
   </div>
+
+    <!-- FEATURED BANNER: FINES & JAIL TIME (41 ฐานความผิด) -->
+    <a href="#fine" class="fines-featured-banner reveal-item">
+      <div class="fines-banner-left">
+        <div class="fines-banner-header">
+          <span class="pill-badge" style="background:#ef4444;">FINES</span>
+          <span class="fines-banner-tag">POLICE STATUTE DIRECTORY</span>
+        </div>
+        <div class="fines-banner-title">อัตราค่าปรับและระยะเวลาจำคุก (41 ฐานความผิด)</div>
+        <div class="fines-banner-desc">ประมวลกฎหมายงานดำ เจ้าหน้าที่รัฐ และประชาชน · ปรับสูงสุด $400,000 · จำคุกสูงสุด 30 นาที พร้อมช่องค้นหาเฉพาะหน้า</div>
+      </div>
+      <div class="fines-banner-btn">
+        <span>เปิดดูตารางค่าปรับ & จำคุก</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
   <div class="dept-quick-nav-pills">
     <a href="#city" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">CITY</span> <span>กฎเมือง & ใบเหลืองใบแดง</span></a>
     <a href="#race" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-orange);">RACE</span> <span>กติกาการแข่งขัน & ธง FIA</span></a>
@@ -2403,51 +2581,6 @@ mark.search-kw {
     <a href="#police" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">POLICE</span> <span>กฎงานดำตำรวจ (21 ข้อ)</span></a>
     <a href="#medic" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-orange);">MEDIC</span> <span>กฎหมอ & อัตราค่าชุบ</span></a>
     <a href="#mech" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">GARAGE</span> <span>กฎเหล็กช่าง & อัตราค่าบริการ</span></a>
-  </div>
-</div>
-
-<!-- QUICK SEARCH -->
-<div class="search-bar-wrapper">
-  <div class="search-input-box">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="ruleSearchInput" placeholder="พิมพ์ค้นหาข้อความกฎในหน้านี้ เช่น ยางแตก, Taser, หมอ, ช่าง, 5M, ธงเหลือง..." autocomplete="off">
-  </div>
-</div>
-
-<!-- ==========================================================================
-     MAIN SCROLL-DOWN SECTIONS WITH SIDE VEHICLE ZOOM ANIMATIONS
-     ========================================================================== -->
-<!-- ==========================================================================
-     LIVE SEARCH RESULTS DOCK (INSTANT ZERO-SCROLL SEARCH)
-     ========================================================================== -->
-<div id="searchResultsDock" class="search-results-dock" style="display: none;">
-  <div class="search-results-bar">
-    <div class="search-results-info">
-      <span class="search-count-pill" id="searchCountBadge">0</span>
-      <span class="search-results-label" id="searchQueryLabel">ผลการค้นหา</span>
-    </div>
-    <button type="button" class="search-clear-action" onclick="clearRuleSearch()">
-      ✕ ล้างการค้นหา
-    </button>
-  </div>
-
-  <div class="search-results-grid" id="searchResultsGrid">
-    <!-- Matched cards injected here dynamically -->
-  </div>
-
-  <div class="search-empty-state" id="searchEmptyState" style="display: none;">
-    <h4>ไม่พบหัวข้อที่ตรงกับคำค้นหา</h4>
-    <p>ลองค้นหาด้วยคำอื่น หรือคลิกเลือกคำค้นหาแนะนำด้านล่าง:</p>
-    <div class="search-quick-tags">
-      <span class="search-quick-tag" onclick="quickSearchTag('Taser')">Taser</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('ยางแตก')">ยางแตก</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('หมอ')">หมอ</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('ช่าง')">ช่าง</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('ธงเหลือง')">ธงเหลือง</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('ใบเตือน')">ใบเตือน</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('5M')">5M</span>
-      <span class="search-quick-tag" onclick="quickSearchTag('เงินเดิมพัน')">เงินเดิมพัน</span>
-    </div>
   </div>
 </div>
 
@@ -2475,7 +2608,7 @@ mark.search-kw {
     <div class="section-banner-card reveal-item" data-part="01">
       <small>Server Charter</small>
       <h2>กฎ Race zone (กฎเมือง & Roleplay)</h2>
-      <p>คัดลอกจาก Google Sites ทางการ · ผู้เล่นทุกคนต้องศึกษาและปฏิบัติตามอย่างเคร่งครัด</p>
+      <p>ผู้เล่นทุกคนต้องศึกษาและปฏิบัติตามอย่างเคร่งครัด</p>
     </div>
 
     <h3 class="section-sub-title reveal-item" id="terms">คำนิยามศัพท์บทบาทและข้อห้าม</h3>
@@ -2635,7 +2768,7 @@ mark.search-kw {
     <div class="section-banner-card reveal-item" data-part="02" style="border-left-color: var(--neon-cyan);">
       <small>Circuit Regulations</small>
       <h2>กติกาการแข่งขัน Race Zone</h2>
-      <p>คัดลอกจาก Google Sites ทางการ · ขั้นตอนการแข่ง ธงสัญญาณ มารยาท และบทลงโทษนักแข่ง</p>
+      <p>ขั้นตอนการแข่ง ธงสัญญาณ มารยาท และบทลงโทษนักแข่ง</p>
     </div>
 
     <!-- 4 ขั้นตอนการแข่งขันตาม Google Site -->
@@ -3028,7 +3161,7 @@ mark.search-kw {
     <div class="section-banner-card reveal-item" data-part="02.5" style="border-left-color: var(--neon-orange);">
       <small>Story Regulations</small>
       <h2>Story Race Zone (กฏการเปิด Story)</h2>
-      <p>คัดลอกจาก Google Sites ทางการ · กติกาทั่วไป รูปแบบการเกิดสตอรี่ และอัตราเงินเดิมพัน</p>
+      <p>กติกาทั่วไป รูปแบบการเกิดสตอรี่ และอัตราเงินเดิมพัน</p>
     </div>
 
     <!-- กติกาทั่วไป -->
@@ -3108,7 +3241,8 @@ mark.search-kw {
       </svg>
     </div>
 
-    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+    <div class="section-banner-card reveal-item" style="border-left-color: var(--line-cyan);">
+      <div class="banner-photo-bg" style="background-image: url('police.png');"></div>
       <small>Public Services</small>
       <h2>กฎตำรวจ (Police)</h2>
       <p>กฎหน่วยงาน (Public Departments)</p>
@@ -3123,101 +3257,876 @@ mark.search-kw {
       <div><b>5<small>นาที</small></b><span>อายุความหลังหลุดการไล่ล่า</span></div>
       <div><b>5<small>เท่า</small></b><span>ค่าปรับเมื่อหนีออกนอกเมืองหรือขึ้นภูเขา</span></div>
     </div>
-    <ol class="numbered-rules">
-      <li class="reveal-item" data-rule-entry>
-        <span>ต้องใช้<span class="hl-red">รถ 4 ล้อ</span>ในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/รถคอนเทนต์</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 01: ต้องใช้รถ 4 ล้อในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/คอนเทนต์')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>ผู้หลบหนีมีเวลาหนี <span class="hl-red">10 วินาที</span> หลังจากนั้นตำรวจจะเริ่มยิงยาง</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 02: ผู้หลบหนีมีเวลาหนี 10 วินาที หลังจากนั้นตำรวจจะเริ่มยิงยาง')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>ยางรถผู้ต้องหาต้องแตกครบ <span class="hl-red">ทั้ง 4 ล้อ</span>ก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 03: ยางรถผู้ต้องหาต้องแตกครบทั้ง 4 ล้อก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>เจ้าหน้าที่ตำรวจสามารถใช้ Taser ในการจับกุมผู้ต้องหาได้เสมอ</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 04: เจ้าหน้าที่ตำรวจสามารถใช้ Taser ในการจับกุมผู้ต้องหาได้เสมอ')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 05: เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 06: เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>การไล่ล่าแต่ละเคส จำกัดรถตำรวจ <span class="hl-red">3 คัน</span></span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 07: การไล่ล่าแต่ละเคส จำกัดรถตำรวจ 3 คัน')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 08: หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากผู้ต้องหาสลบ (ไม่ว่าจากการชนรถ ตกน้ำ หรือโดน Taser) จะไม่มีการยกเลิกเคสใด ๆ ทั้งสิ้น</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 09: หากผู้ต้องหาสลบ จะไม่มีการยกเลิกเคสใด ๆ ทั้งสิ้น')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา ค่าปรับคดีนั้นจะเพิ่มเป็น <span class="hl-red">5 เท่า</span></span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 10: หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา ค่าปรับคดีนั้นจะเพิ่มเป็น 5 เท่า')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>อายุความของแต่ละเคสคือ <span class="hl-red">5 นาที</span> นับจากหลุดพ้นการไล่ล่าของตำรวจ</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 11: อายุความของแต่ละเคสคือ 5 นาที นับจากหลุดพ้นการไล่ล่าของตำรวจ')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 12: หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 13: กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 14: เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 15: การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 16: ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 17: หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 18: เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งในห้องร้องเรียนตำรวจ และเข้ามอบตัวที่สถานีตำรวจ</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 19: หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งห้องร้องเรียนตำรวจ และเข้ามอบตัว')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span><span class="hl-red">ห้ามอุ้มหรือใช้อีโมต</span>ทุกกรณีระหว่างทำงานผิดกฎหมาย</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 20: ห้ามอุ้มหรือใช้อีโมตทุกกรณีระหว่างทำงานผิดกฎหมาย')">คัดลอก</button>
-      </li>
-      <li class="reveal-item" data-rule-entry>
-        <span>หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที</span>
-        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 21: หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที')">คัดลอก</button>
-      </li>
-    </ol>
+    <div class="def-grid-list">
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ประเภทยานพาหนะ</b>
+          <span class="badge-tag badge-blue">ข้อ 01</span>
+        </div>
+        <div class="def-desc-col">
+          ต้องใช้<span class="hl-red">รถ 4 ล้อ</span>ในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/รถคอนเทนต์
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 01: ประเภทยานพาหนะ - ต้องใช้รถ 4 ล้อในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/รถคอนเทนต์')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>เวลานับถอยหลัง</b>
+          <span class="badge-tag badge-blue">ข้อ 02</span>
+        </div>
+        <div class="def-desc-col">
+          ผู้หลบหนีมีเวลาหนี <span class="hl-red">10 วินาที</span> หลังจากนั้นตำรวจจะเริ่มยิงยาง
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 02: เวลานับถอยหลัง - ผู้หลบหนีมีเวลาหนี 10 วินาที หลังจากนั้นตำรวจจะเริ่มยิงยาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การชนและยิงตัว</b>
+          <span class="badge-tag badge-blue">ข้อ 03</span>
+        </div>
+        <div class="def-desc-col">
+          ยางรถผู้ต้องหาต้องแตกครบ <span class="hl-red">ทั้ง 4 ล้อ</span>ก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 03: การชนและยิงตัว - ยางรถผู้ต้องหาต้องแตกครบ ทั้ง 4 ล้อก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การใช้ Taser</b>
+          <span class="badge-tag badge-blue">ข้อ 04</span>
+        </div>
+        <div class="def-desc-col">
+          เจ้าหน้าที่ตำรวจสามารถใช้ <span class="hl-red">Taser</span> ในการจับกุมผู้ต้องหาได้เสมอ
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 04: การใช้ Taser - เจ้าหน้าที่ตำรวจสามารถใช้ Taser ในการจับกุมผู้ต้องหาได้เสมอ')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การยิง Taser ก่อนจับกุม</b>
+          <span class="badge-tag badge-blue">ข้อ 05</span>
+        </div>
+        <div class="def-desc-col">
+          เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 05: การยิง Taser ก่อนจับกุม - เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การเข้าสกัดเมื่อมีคนช่วย</b>
+          <span class="badge-tag badge-blue">ข้อ 06</span>
+        </div>
+        <div class="def-desc-col">
+          เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 06: การเข้าสกัดเมื่อมีคนช่วย - เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>จำกัดจำนวนรถตำรวจ</b>
+          <span class="badge-tag badge-blue">ข้อ 07</span>
+        </div>
+        <div class="def-desc-col">
+          การไล่ล่าแต่ละเคส จำกัดรถตำรวจสูงสุด <span class="hl-red">3 คัน</span>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 07: จำกัดจำนวนรถตำรวจ - การไล่ล่าแต่ละเคส จำกัดรถตำรวจสูงสุด 3 คัน')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การนับเคสผู้ต้องหา</b>
+          <span class="badge-tag badge-blue">ข้อ 08</span>
+        </div>
+        <div class="def-desc-col">
+          หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 08: การนับเคสผู้ต้องหา - หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>กรณีผู้ต้องหาสลบ</b>
+          <span class="badge-tag badge-blue">ข้อ 09</span>
+        </div>
+        <div class="def-desc-col">
+          หากผู้ต้องหาสลบ (ไม่ว่าจากการชนรถ ตกน้ำ หรือโดน Taser) จะ<span class="hl-red">ไม่มีการยกเลิกเคส</span>ใด ๆ ทั้งสิ้น
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 09: กรณีผู้ต้องหาสลบ - หากผู้ต้องหาสลบ (ไม่ว่าจากการชนรถ ตกน้ำ หรือโดน Taser) จะไม่มีการยกเลิกเคสใด ๆ ทั้งสิ้น')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การหนีออกนอกเมือง/ขึ้นเขา</b>
+          <span class="badge-tag badge-blue">ข้อ 10</span>
+        </div>
+        <div class="def-desc-col">
+          หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา <span class="hl-red">ค่าปรับคดีนั้นจะเพิ่มเป็น 5 เท่า</span>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 10: การหนีออกนอกเมือง/ขึ้นเขา - หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา ค่าปรับคดีนั้นจะเพิ่มเป็น 5 เท่า')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>อายุความการไล่ล่า</b>
+          <span class="badge-tag badge-blue">ข้อ 11</span>
+        </div>
+        <div class="def-desc-col">
+          อายุความของแต่ละเคสคือ <span class="hl-red">5 นาที</span> นับจากหลุดพ้นการไล่ล่าของตำรวจ
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 11: อายุความการไล่ล่า - อายุความของแต่ละเคสคือ 5 นาที นับจากหลุดพ้นการไล่ล่าของตำรวจ')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พบตัวก่อนหมดอายุความ</b>
+          <span class="badge-tag badge-blue">ข้อ 12</span>
+        </div>
+        <div class="def-desc-col">
+          หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 12: พบตัวก่อนหมดอายุความ - หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>กรณีรถพลิกคว่ำ</b>
+          <span class="badge-tag badge-blue">ข้อ 13</span>
+        </div>
+        <div class="def-desc-col">
+          กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 13: กรณีรถพลิกคว่ำ - กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขั้นตอนหลังการจับกุม</b>
+          <span class="badge-tag badge-blue">ข้อ 14</span>
+        </div>
+        <div class="def-desc-col">
+          เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 14: ขั้นตอนหลังการจับกุม - เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การล่อซื้อทาง Twitter</b>
+          <span class="badge-tag badge-blue">ข้อ 15</span>
+        </div>
+        <div class="def-desc-col">
+          การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 15: การล่อซื้อทาง Twitter - การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ความพร้อมก่อนเริ่มเคส</b>
+          <span class="badge-tag badge-blue">ข้อ 16</span>
+        </div>
+        <div class="def-desc-col">
+          ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 16: ความพร้อมก่อนเริ่มเคส - ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การโพสต์ยั่วยุเจ้าหน้าที่</b>
+          <span class="badge-tag badge-blue">ข้อ 17</span>
+        </div>
+        <div class="def-desc-col">
+          หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 17: การโพสต์ยั่วยุเจ้าหน้าที่ - หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>การสิ้นสุดข้อโต้แย้ง</b>
+          <span class="badge-tag badge-blue">ข้อ 18</span>
+        </div>
+        <div class="def-desc-col">
+          เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 18: การสิ้นสุดข้อโต้แย้ง - เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>เคสระหว่างสตอรี่</b>
+          <span class="badge-tag badge-blue">ข้อ 19</span>
+        </div>
+        <div class="def-desc-col">
+          หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งในห้องร้องเรียนตำรวจ และเข้ามอบตัวที่สถานีตำรวจ
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 19: เคสระหว่างสตอรี่ - หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งในห้องร้องเรียนตำรวจ และเข้ามอบตัวที่สถานีตำรวจ')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ข้อห้ามอุ้มและใช้อีโมต</b>
+          <span class="badge-tag badge-blue">ข้อ 20</span>
+        </div>
+        <div class="def-desc-col">
+          <span class="hl-red">ห้ามอุ้มหรือใช้อีโมต</span>ทุกกรณีระหว่างทำงานผิดกฎหมาย
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 20: ข้อห้ามอุ้มและใช้อีโมต - ห้ามอุ้มหรือใช้อีโมตทุกกรณีระหว่างทำงานผิดกฎหมาย')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>รถยางแตกครบขับต่อไม่ได้</b>
+          <span class="badge-tag badge-blue">ข้อ 21</span>
+        </div>
+        <div class="def-desc-col">
+          หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 21: รถยางแตกครบขับต่อไม่ได้ - หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที')">คัดลอก</button>
+      </div>
+    </div>
 
-    <h4 class="section-sub-title reveal-item" id="fine">ค่าปรับและเวลาจำคุก</h4>
-    <div class="tool-box-card reveal-item" style="text-align:center; color:var(--text-muted);">
-      [ อยู่ระหว่างอัปเดตข้อมูลอัตราค่าปรับและระยะเวลาจำคุกโดยกองบังคับการตำรวจ ]
+    
+    <h4 class="section-sub-title reveal-item" id="fine-summary">อัตราค่าปรับและเวลาจำคุก (Fines & Jail Time)</h4>
+    <div class="tool-box-card reveal-item" style="display:flex; flex-direction:column; align-items:center; gap:12px; padding:24px; text-align:center; background:linear-gradient(135deg, rgba(239,68,68,0.06), rgba(0,0,0,0.4)); border:1px solid rgba(239,68,68,0.3); border-radius:var(--radius-md);">
+      <div style="font-family:var(--font-racing); font-size:1.15rem; color:var(--neon-orange); font-weight:700; letter-spacing:1px;">ตารางอัตราค่าปรับและเวลาจำคุกอย่างเป็นทางการ (41 ข้อหา)</div>
+      <p style="margin:0; color:var(--text-slate); font-size:0.95rem; max-width:640px;">
+        รวบรวมอัตราค่าปรับและระยะเวลาจำคุกทั้ง 29 ข้อหาต่อเจ้าหน้าที่/สิ่งผิดกฎหมาย และ 12 ข้อหาต่อประชาชน ตามประกาศกองบังคับการตำรวจ Race Zone
+      </p>
+      <a href="#fine" class="btn-slanted-orange" style="margin-top:8px; text-decoration:none;">
+        <span>เปิดดูตารางอัตราค่าปรับและเวลาจำคุกทั้งหมด (41 ข้อ)</span>
+      </a>
+    </div>
+  
+
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: ค่าปรับและเวลาจำคุก (FINES & JAIL TIME) - แบบอ่านปกติ
+       ========================================================================== -->
+    <section id="fine" class="page" data-page="fine">
+
+    <!-- VEHICLE TRACK 5: POLICE INTERCEPTOR -->
+    <div class="section-speed-track" id="track-fine">
+      <div class="speed-track-lane"></div>
+      <svg class="speeding-car drive-across" id="car-fine" viewBox="0 0 160 50" fill="none">
+        <path d="M10 32 L35 32 L48 18 L100 18 L125 28 L150 30 L154 36 L148 40 L10 40 Z" fill="#0d1b2e"/>
+        <polygon points="55,20 90,20 90,38 55,38" fill="#ffffff"/>
+        <text x="60" y="32" font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="8" fill="#0d1b2e">POLICE</text>
+        <polygon points="50,20 96,20 115,28 50,28" fill="#1e293b"/>
+        <rect x="70" y="14" width="16" height="4" rx="1" fill="#fff"/>
+        <rect x="70" y="14" width="7" height="4" rx="1" class="cop-lights-strobe" fill="#ef4444"/>
+        <rect x="79" y="14" width="7" height="4" rx="1" class="cop-lights-strobe" fill="#38bdf8"/>
+        <circle cx="38" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <circle cx="126" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <polygon points="152,32 185,25 185,42 152,36" fill="rgba(239,68,68,0.4)"/>
+      </svg>
+    </div>
+
+    <div class="section-banner-card reveal-item" style="border-left-color: var(--line-orange);">
+      <div class="banner-photo-bg" style="background-image: url('police.png');"></div>
+      <small>Public Services</small>
+      <h2>อัตราค่าปรับและเวลาจำคุก (Fines & Jail Time)</h2>
+      <p>ประมวลกฎหมายงานดำ เจ้าหน้าที่รัฐ และประชาชน · อิงจากระเบียบทางการ Race Zone</p>
+    </div>
+
+    <!-- สรุปตัวเลขย่อ -->
+    <div class="pursuit-strip reveal-item">
+      <div><b>41<small>ข้อหา</small></b><span>จำนวนฐานความผิดทั้งหมด</span></div>
+      <div><b>29<small>ข้อ</small></b><span>สิ่งผิดกฎหมาย & เจ้าหน้าที่</span></div>
+      <div><b>12<small>ข้อ</small></b><span>ความผิดต่อประชาชน</span></div>
+      <div><b>400k<small>สูงสุด</small></b><span>ค่าปรับสูงสุด (แอบอ้างเจ้าหน้าที่)</span></div>
+      <div><b>30<small>นาที</small></b><span>เวลาจำคุกสูงสุด</span></div>
+    </div>
+
+    <!-- ช่องค้นหาค่าปรับ -->
+    <div class="fines-search-bar reveal-item">
+      <div class="search-input-box fines-search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--neon-orange); flex-shrink:0;">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="finesSearchInput" placeholder="พิมพ์ค้นหาข้อหา, ค่าปรับ, เวลาจำคุก เช่น ปูน, สายไฟ, ขโมยรถ, ปืน, เจ้าหน้าที่, 15000..." autocomplete="off" oninput="filterFinesTable(this.value)">
+        <button type="button" id="finesSearchClear" class="fines-clear-btn" onclick="clearFinesSearch()" style="display:none;" title="ล้างการค้นหา">&times;</button>
+      </div>
+      <div class="fines-search-status">
+        <span id="finesSearchCounter">แสดงทั้งหมด 41 ข้อหา</span>
+      </div>
+    </div>
+
+    <!-- หมวด 1 -->
+    <h3 class="section-sub-title reveal-item" id="fines-cat1">หมวดที่ 1: สิ่งผิดกฎหมาย / การกระทำผิดต่อเจ้าหน้าที่ (29 ข้อ)</h3>
+    <div class="def-grid-list fines-list" id="fines-grid-1">
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ปูน</b>
+          <span class="badge-tag badge-red">POL-01</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 15,000 / ชิ้น</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-01 (ปูน) | ค่าปรับ: 15,000 / ชิ้น | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>สายไฟ</b>
+          <span class="badge-tag badge-red">POL-02</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 15,000 / ชิ้น</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-02 (สายไฟ) | ค่าปรับ: 15,000 / ชิ้น | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>เงินแดง</b>
+          <span class="badge-tag badge-red">POL-03</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: ยังไม่มี</span>
+            
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-03 (เงินแดง) | ค่าปรับ: ยังไม่มี | จำคุก: -')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พูดถึงสิ่งผิดกฎหมายต่อหน้าเจ้าหน้าที่</b>
+          <span class="badge-tag badge-red">POL-04</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 3 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-04 (พูดถึงสิ่งผิดกฎหมายต่อหน้าเจ้าหน้าที่) | ค่าปรับ: 10,000 | จำคุก: 3 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ยัดของกลางให้เจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-05</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 20,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-05 (ยัดของกลางให้เจ้าหน้าที่รัฐ) | ค่าปรับ: 20,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ทิ้ง, ทำลายหลักฐาน</b>
+          <span class="badge-tag badge-red">POL-06</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-06 (ทิ้ง, ทำลายหลักฐาน) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>หน่วยงาน (ช่าง หมอ ตำรวจ)</b>
+          <span class="badge-tag badge-red">POL-07</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 20,000</span>
+            <span class="badge-tag badge-gray">จำคุก: x 2</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-07 (หน่วยงาน (ช่าง หมอ ตำรวจ)) | ค่าปรับ: 20,000 | จำคุก: x 2')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>รถที่ถูกเจ้าหน้าที่ตำรวจยึด</b>
+          <span class="badge-tag badge-red">POL-08</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: ยังไม่มี</span>
+            
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-08 (รถที่ถูกเจ้าหน้าที่ตำรวจยึด) | ค่าปรับ: ยังไม่มี | จำคุก: -')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>กรณีรถเจ้าหน้าที่โดนขโมย 10 นาที สามารถพาวน์รถกลับได้</b>
+          <span class="badge-tag badge-red">POL-09</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 300,000</span>
+            
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ของ ตร เท่านั้น)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-09 (กรณีรถเจ้าหน้าที่โดนขโมย 10 นาที สามารถพาวน์รถกลับได้) | ค่าปรับ: 300,000 | จำคุก: - | หมายเหตุ: ของ ตร เท่านั้น')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขโมยยานพาหนะผู้อื่น</b>
+          <span class="badge-tag badge-red">POL-10</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 5,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-10 (ขโมยยานพาหนะผู้อื่น) | ค่าปรับ: 5,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขโมยยานพาหนะของเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-11</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 15,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-11 (ขโมยยานพาหนะของเจ้าหน้าที่รัฐ) | ค่าปรับ: 15,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ครอบครองอาวุธผิดกฎหมาย มีด ไม้ สนับมือ ดาบซามูไร</b>
+          <span class="badge-tag badge-red">POL-12</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000 / ชิ้น</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ยึดของกลาง)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-12 (ครอบครองอาวุธผิดกฎหมาย มีด ไม้ สนับมือ ดาบซามูไร) | ค่าปรับ: 10,000 / ชิ้น | จำคุก: 5 นาที | หมายเหตุ: ยึดของกลาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ครอบครองอาวุธปืนลูกซอง ลูกซองสั้น</b>
+          <span class="badge-tag badge-red">POL-13</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 30,000 / กระบอก</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ยึดของกลาง)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-13 (ครอบครองอาวุธปืนลูกซอง ลูกซองสั้น) | ค่าปรับ: 30,000 / กระบอก | จำคุก: 10 นาที | หมายเหตุ: ยึดของกลาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ครอบครองอาวุธปืนพกสั้น มีทะเบียน</b>
+          <span class="badge-tag badge-red">POL-14</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 15,000 / กระบอก</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ยึดของกลาง)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-14 (ครอบครองอาวุธปืนพกสั้น มีทะเบียน) | ค่าปรับ: 15,000 / กระบอก | จำคุก: 5 นาที | หมายเหตุ: ยึดของกลาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ครอบครองอาวุธปืนพกสั้น ไม่มีทะเบียน</b>
+          <span class="badge-tag badge-red">POL-15</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 30,000 / กระบอก</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ยึดของกลาง)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-15 (ครอบครองอาวุธปืนพกสั้น ไม่มีทะเบียน) | ค่าปรับ: 30,000 / กระบอก | จำคุก: 10 นาที | หมายเหตุ: ยึดของกลาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ครอบครองชุดเกราะผิดกฎหมาย</b>
+          <span class="badge-tag badge-red">POL-16</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000 / ชิ้น</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ยึดของกลาง)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-16 (ครอบครองชุดเกราะผิดกฎหมาย) | ค่าปรับ: 10,000 / ชิ้น | จำคุก: 5 นาที | หมายเหตุ: ยึดของกลาง')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขับขี่ยานพาหนะหลบหนีเจ้าหน้าที่</b>
+          <span class="badge-tag badge-red">POL-17</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-17 (ขับขี่ยานพาหนะหลบหนีเจ้าหน้าที่) | ค่าปรับ: 10,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พกพาอาวุธในที่สาธารณะ โดยไม่มีเหตุอันควร</b>
+          <span class="badge-tag badge-red">POL-18</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-18 (พกพาอาวุธในที่สาธารณะ โดยไม่มีเหตุอันควร) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>มีส่วนร่วมหรือสมรู้ร่วมคิด</b>
+          <span class="badge-tag badge-red">POL-19</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: โทษเท่ากับผู้กระทำผิด</span>
+            <span class="badge-tag badge-gray">จำคุก: โทษเท่ากับผู้กระทำผิด</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-19 (มีส่วนร่วมหรือสมรู้ร่วมคิด) | ค่าปรับ: โทษเท่ากับผู้กระทำผิด | จำคุก: โทษเท่ากับผู้กระทำผิด')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ร่วมกันกระทำความผิดตั้งแต่ 2 คนขึ้นไป</b>
+          <span class="badge-tag badge-red">POL-20</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: x 2</span>
+            <span class="badge-tag badge-gray">จำคุก: x 2</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-20 (ร่วมกันกระทำความผิดตั้งแต่ 2 คนขึ้นไป) | ค่าปรับ: x 2 | จำคุก: x 2')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ให้ที่พักพิงหรือช่วยเหลือผู้กระทำความผิด</b>
+          <span class="badge-tag badge-red">POL-21</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-21 (ให้ที่พักพิงหรือช่วยเหลือผู้กระทำความผิด) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขับรถชนหรือทำร้ายร่างกายเจ้าหน้าที่</b>
+          <span class="badge-tag badge-red">POL-22</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 15,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-22 (ขับรถชนหรือทำร้ายร่างกายเจ้าหน้าที่) | ค่าปรับ: 15,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พยายามฆ่าเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-23</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 30,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 15 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-23 (พยายามฆ่าเจ้าหน้าที่รัฐ) | ค่าปรับ: 30,000 | จำคุก: 15 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ฆ่าเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-24</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 50,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 20 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-24 (ฆ่าเจ้าหน้าที่รัฐ) | ค่าปรับ: 50,000 | จำคุก: 20 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขับรถก่อกวนเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-25</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-25 (ขับรถก่อกวนเจ้าหน้าที่รัฐ) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขัดขวางการปฏิบัติหน้าที่ของเจ้าหน้าที่</b>
+          <span class="badge-tag badge-red">POL-26</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-26 (ขัดขวางการปฏิบัติหน้าที่ของเจ้าหน้าที่) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>แต่งกายเลียนแบบเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-27</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 400,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 30 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-27 (แต่งกายเลียนแบบเจ้าหน้าที่รัฐ) | ค่าปรับ: 400,000 | จำคุก: 30 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>แอบอ้างเป็นเจ้าหน้าที่รัฐ</b>
+          <span class="badge-tag badge-red">POL-28</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 400,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 30 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-28 (แอบอ้างเป็นเจ้าหน้าที่รัฐ) | ค่าปรับ: 400,000 | จำคุก: 30 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ติดสินบนเจ้าพนักงาน</b>
+          <span class="badge-tag badge-red">POL-29</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 50,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('งานดำ/เจ้าหน้าที่ POL-29 (ติดสินบนเจ้าพนักงาน) | ค่าปรับ: 50,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+    </div>
+
+    <!-- หมวด 2 -->
+    <h3 class="section-sub-title reveal-item" id="fines-cat2">หมวดที่ 2: ความผิดต่อประชาชน (12 ข้อ)</h3>
+    <div class="def-grid-list fines-list" id="fines-grid-2">
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พยายามฆ่าผู้อื่น</b>
+          <span class="badge-tag badge-red">CIT-01</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 20,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-01 (พยายามฆ่าผู้อื่น) | ค่าปรับ: 20,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ฆ่าผู้อื่น</b>
+          <span class="badge-tag badge-red">CIT-02</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 30,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 15 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-02 (ฆ่าผู้อื่น) | ค่าปรับ: 30,000 | จำคุก: 15 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>เจตนาทำร้ายร่างกายผู้อื่นจนถึงแก่ความตาย</b>
+          <span class="badge-tag badge-red">CIT-03</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 20,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-03 (เจตนาทำร้ายร่างกายผู้อื่นจนถึงแก่ความตาย) | ค่าปรับ: 20,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ข่มขู่ว่าจะเอาชีวิต</b>
+          <span class="badge-tag badge-red">CIT-04</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-04 (ข่มขู่ว่าจะเอาชีวิต) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ทำร้ายร่างกายผู้อื่น</b>
+          <span class="badge-tag badge-red">CIT-05</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-05 (ทำร้ายร่างกายผู้อื่น) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>พยายามชิงทรัพย์</b>
+          <span class="badge-tag badge-red">CIT-06</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-06 (พยายามชิงทรัพย์) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ปล้น / ชิงทรัพย์ผู้อื่น</b>
+          <span class="badge-tag badge-red">CIT-07</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 20,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 10 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-07 (ปล้น / ชิงทรัพย์ผู้อื่น) | ค่าปรับ: 20,000 | จำคุก: 10 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>บุกรุกเคหสถาน</b>
+          <span class="badge-tag badge-red">CIT-08</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-08 (บุกรุกเคหสถาน) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ขับรถชนผู้อื่น</b>
+          <span class="badge-tag badge-red">CIT-09</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 10,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-09 (ขับรถชนผู้อื่น) | ค่าปรับ: 10,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ดูหมิ่นซึ่งหน้าหรือสบประมาท</b>
+          <span class="badge-tag badge-red">CIT-10</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 5,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-10 (ดูหมิ่นซึ่งหน้าหรือสบประมาท) | ค่าปรับ: 5,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ก่อความไม่สงบในที่สาธารณะ</b>
+          <span class="badge-tag badge-red">CIT-11</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 5,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-11 (ก่อความไม่สงบในที่สาธารณะ) | ค่าปรับ: 5,000 | จำคุก: 5 นาที')">คัดลอก</button>
+      </div>
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>ทำให้ผู้อื่นเสียทรัพย์สิน</b>
+          <span class="badge-tag badge-red">CIT-12</span>
+        </div>
+        <div class="def-desc-col">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span class="badge-tag badge-orange" style="font-size:12.5px; font-weight:700;">ค่าปรับ: 5,000</span>
+            <span class="badge-tag badge-gray">จำคุก: 5 นาที</span>
+            <span style="color:var(--text-muted); font-size:12px; margin-left:4px;">(หมายเหตุ: ปรับตามราคาของชิ้นนั้น)</span>
+          </div>
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('ประชาชน CIT-12 (ทำให้ผู้อื่นเสียทรัพย์สิน) | ค่าปรับ: 5,000 | จำคุก: 5 นาที | หมายเหตุ: ปรับตามราคาของชิ้นนั้น')">คัดลอก</button>
+      </div>
     </div>
 
   </section>
+
   <section class="page" data-page="medic">
-    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+    <div class="section-banner-card reveal-item" style="border-left-color: var(--line-cyan);">
+      <div class="banner-photo-bg" style="background-image: url('doctor.png');"></div>
       <small>Public Services</small>
       <h2>กฎหมอ (Medic)</h2>
       <p>กฎหน่วยงาน (Public Departments)</p>
@@ -3304,7 +4213,8 @@ mark.search-kw {
 
   </section>
   <section class="page" data-page="mech">
-    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+    <div class="section-banner-card reveal-item" style="border-left-color: var(--line-cyan);">
+      <div class="banner-photo-bg" style="background-image: url('mec.png');"></div>
       <small>Public Services</small>
       <h2>กฎช่าง (Mechanic)</h2>
       <p>กฎหน่วยงาน (Public Departments)</p>
@@ -4042,9 +4952,61 @@ if (document.readyState === 'loading') {
 
 
 
+
+// ==========================================================================
+// FINES LOCAL SEARCH CONTROLLER
+// ==========================================================================
+function filterFinesTable(query) {
+  const q = (query || '').trim().toLowerCase();
+  const clearBtn = document.getElementById('finesSearchClear');
+  const counterEl = document.getElementById('finesSearchCounter');
+  if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+
+  const fineSection = document.getElementById('fine');
+  if (!fineSection) return;
+
+  const cards = fineSection.querySelectorAll('.def-card-row');
+  let matchCount = 0;
+
+  cards.forEach(card => {
+    const text = (card.textContent || '').toLowerCase();
+    const isMatch = !q || text.includes(q);
+    card.style.display = isMatch ? '' : 'none';
+    if (isMatch) matchCount++;
+  });
+
+  fineSection.querySelectorAll('.def-grid-list.fines-list').forEach(grid => {
+    const visibleCards = grid.querySelectorAll('.def-card-row:not([style*="display: none"])');
+    const title = grid.previousElementSibling;
+    const hasVisible = !q || visibleCards.length > 0;
+    grid.style.display = hasVisible ? '' : 'none';
+    if (title && (title.classList.contains('section-sub-title') || title.classList.contains('cat-head'))) {
+      title.style.display = hasVisible ? '' : 'none';
+    }
+  });
+
+  if (counterEl) {
+    if (!q) {
+      counterEl.textContent = 'แสดงทั้งหมด 41 ข้อหา';
+    } else {
+      counterEl.textContent = 'พบ ' + matchCount + ' จาก 41 ข้อหา' + (matchCount === 0 ? ' (ไม่พบข้อหาที่ตรงกับคำค้น)' : '');
+    }
+  }
+}
+
+function clearFinesSearch() {
+  const input = document.getElementById('finesSearchInput');
+  if (input) {
+    input.value = '';
+    filterFinesTable('');
+    input.focus();
+  }
+}
+
+
 // ===== PAGED NAVIGATION =====
 (()=>{
-const ORDER=[['city','กฎเมือง'],['race','กฎสนามแข่ง'],['story','Story แข่งขัน'],['police','กฎตำรวจ'],['medic','กฎหมอ'],['mech','กฎช่าง']];
+const ORDER=[['city','กฎเมือง'],['race','กฎสนามแข่ง'],['story','Story แข่งขัน'],['police','กฎตำรวจ'],['fine','ค่าปรับ & จำคุก'],['medic','กฎหมอ'],['mech','กฎช่าง']];
 const pages={};document.querySelectorAll('.page').forEach(p=>pages[p.dataset.page]=p);
 const si=document.getElementById('ruleSearchInput');
 const searchOn=()=>!!(si&&si.value.trim());
@@ -4083,7 +5045,7 @@ document.addEventListener('click',e=>{
   e.preventDefault();e.stopPropagation();
   const h=a.getAttribute('href');
   const t=document.querySelector('.nav-slanted-tabs');if(t&&innerWidth<=960)t.style.display='none';
-  const fromHome=current==='home'&&scrollY<60&&!searchOn()&&h!=='#top'&&typeof launchWheelToAnchor==='function'&&a.matches('.dept-pill-btn,.nav-slanted-tabs a,.hero-cta-group a');
+  const fromHome=current==='home'&&scrollY<60&&!searchOn()&&h!=='#top'&&typeof launchWheelToAnchor==='function'&&a.matches('.dept-pill-btn,.nav-slanted-tabs a,.hero-cta-group a,.fines-featured-banner');
   if(fromHome){launchWheelToAnchor(h,null);setTimeout(()=>go(h),520);}else go(h);
 },true);
 if(si)si.addEventListener('input',()=>document.body.classList.toggle('searching',searchOn()));
@@ -4095,5 +5057,5 @@ apply(resolve(location.hash));
 
 
 
-</body>
+<script>document.addEventListener("DOMContentLoaded", () => { document.getElementById("race-penalty").scrollIntoView(); });</script></body>
 </html>
