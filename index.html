@@ -1,0 +1,4099 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RACE ZONE · Official Server Rules & Sporting Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Kanit:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   RACE ZONE FIVEM — STEALTH RACING & NEON CYBER-PADDOCK THEME
+   - โทน Dark Stealth Navy / Black คมเข้ม สไตล์ห้องควบคุมการแข่งขัน
+   - เส้นแสงนีออนฟ้า Electric Cyan (#00a8ff) ผสมส้ม Racing Orange (#ff7a00)
+   - ปุมและแท็บทรงเฉียง Slanted Skewed Parallelogram
+   - อนิเมชันรถแข่ง/รถตำรวจซิ่งทะลุจากด้านข้างตามแต่ละ Section (ไม่บังเนื้อหา)
+   - ฟังก์ชันครบ: คำนวณธงแดง 75%, นาฬิกาจับเวลาตำรวจ, คำนวณบิลหมอ/ช่าง
+   ========================================================================== */
+:root, [data-theme="light"] {
+  --bg-deep: #f1f4f9;
+  --bg-dark: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-elevated: #edf2f7;
+  
+  --line-subtle: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --line-cyan: #0084ff;
+  --line-orange: #ff6a00;
+
+  --neon-cyan: #0084ff;
+  --neon-cyan-bright: #0099ff;
+  --neon-cyan-glow: rgba(0, 132, 255, 0.20);
+  
+  --neon-orange: #ff6a00;
+  --neon-orange-bright: #ff851a;
+  --neon-orange-glow: rgba(255, 106, 0, 0.20);
+  
+  --red: #e11d48;
+  --green: #059669;
+  --yellow: #d97706;
+
+  --text-white: #0f172a;
+  --text-slate: #334155;
+  --text-muted: #64748b;
+
+  --card-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  --hero-bg: radial-gradient(circle at 50% 30%, rgba(0, 132, 255, 0.06) 0%, #ffffff 85%);
+  --hero-shadow: 0 16px 45px rgba(0, 132, 255, 0.12), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --watermark-color: rgba(15, 23, 42, 0.035);
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --banner-bg: linear-gradient(135deg, #ffffff, #f1f5f9);
+
+  --tab-bg: #f8fafc;
+  --tab-border: #cbd5e1;
+  --tab-text: #334155;
+  --tab-active-bg: #0084ff;
+  --tab-active-text: #ffffff;
+
+  --badge-blue-bg: rgba(0, 132, 255, 0.1);
+  --badge-blue-text: #0284c7;
+  --badge-blue-border: rgba(0, 132, 255, 0.25);
+  --badge-red-bg: rgba(225, 29, 72, 0.1);
+  --badge-red-text: #e11d48;
+  --badge-red-border: rgba(225, 29, 72, 0.25);
+  --badge-green-bg: rgba(5, 150, 105, 0.1);
+  --badge-green-text: #059669;
+  --badge-green-border: rgba(5, 150, 105, 0.25);
+  --badge-yellow-bg: rgba(217, 119, 6, 0.1);
+  --badge-yellow-text: #b45309;
+  --badge-yellow-border: rgba(217, 119, 6, 0.25);
+
+  --notice-bg: rgba(255, 106, 0, 0.07);
+  --notice-text: #9a3412;
+  --notice-danger-bg: rgba(225, 29, 72, 0.07);
+  --notice-danger-text: #9f1239;
+
+  --table-th-bg: #f1f5f9;
+  --table-th-text: #475569;
+  --counter-bg: #f1f5f9;
+  --counter-border: #cbd5e1;
+  --counter-text: #0084ff;
+  --footer-bg: #ffffff;
+  --footer-border: #e2e8f0;
+  --footer-text: #64748b;
+
+  --font-thai: 'IBM Plex Sans Thai', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-racing: 'Chakra Petch', 'Kanit', sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+}
+
+[data-theme="dark"] {
+  --bg-deep: #07090e;
+  --bg-dark: #0c1018;
+  --bg-card: #121722;
+  --bg-card-hover: #182030;
+  --bg-elevated: #1e273b;
+  
+  --line-subtle: #1e2638;
+  --line-strong: #2a354d;
+  --line-cyan: #00a8ff;
+  --line-orange: #ff7a00;
+
+  --neon-cyan: #00b4d8;
+  --neon-cyan-bright: #00d2ff;
+  --neon-cyan-glow: rgba(0, 180, 216, 0.28);
+  
+  --neon-orange: #ff7a00;
+  --neon-orange-bright: #ff9100;
+  --neon-orange-glow: rgba(255, 122, 0, 0.28);
+  
+  --red: #ef4444;
+  --green: #10b981;
+  --yellow: #f59e0b;
+
+  --text-white: #ffffff;
+  --text-slate: #cbd5e1;
+  --text-muted: #7b8ba5;
+
+  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --hero-bg: radial-gradient(circle at 50% 40%, rgba(0, 168, 255, 0.12) 0%, rgba(7, 9, 14, 0.95) 75%), linear-gradient(180deg, #0d1320 0%, #07090e 100%);
+  --hero-shadow: 0 0 35px rgba(0, 180, 216, 0.22), inset 0 0 20px rgba(0, 180, 216, 0.08);
+  --watermark-color: var(--watermark-color);
+  --header-bg: rgba(7, 9, 14, 0.95);
+  --banner-bg: linear-gradient(135deg, #101624, #080c14);
+
+  --tab-bg: #111622;
+  --tab-border: var(--line-subtle);
+  --tab-text: #cbd5e1;
+  --tab-active-bg: #00b4d8;
+  --tab-active-text: #07090e;
+
+  --badge-blue-bg: rgba(0, 180, 216, 0.15);
+  --badge-blue-text: var(--neon-cyan-bright);
+  --badge-blue-border: rgba(0, 180, 216, 0.3);
+  --badge-red-bg: rgba(239, 68, 68, 0.15);
+  --badge-red-text: #f87171;
+  --badge-red-border: rgba(239, 68, 68, 0.3);
+  --badge-green-bg: rgba(16, 185, 129, 0.15);
+  --badge-green-text: #34d399;
+  --badge-green-border: rgba(16, 185, 129, 0.3);
+  --badge-yellow-bg: rgba(245, 158, 11, 0.15);
+  --badge-yellow-text: #fbbf24;
+  --badge-yellow-border: rgba(245, 158, 11, 0.3);
+
+  --notice-bg: rgba(255, 122, 0, 0.08);
+  --notice-text: #ffccbc;
+  --notice-danger-bg: rgba(239, 68, 68, 0.08);
+  --notice-danger-text: #fca5a5;
+
+  --table-th-bg: #090d15;
+  --table-th-text: var(--text-muted);
+  --counter-bg: #090d15;
+  --counter-border: var(--line-strong);
+  --counter-text: var(--neon-cyan-bright);
+  --footer-bg: #05070a;
+  --footer-border: var(--line-subtle);
+  --footer-text: var(--text-muted);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  background-color: var(--bg-deep);
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY THEME & CONTROL
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-thai);
+  background-color: var(--bg-deep);
+  color: var(--text-slate);
+  line-height: 1.7;
+  font-size: 15.5px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+}
+
+p, li, td, span, div {
+  font-family: inherit;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.cat-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 44px 0 14px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-white);
+}
+
+.cat-no {
+  flex: none;
+  background: linear-gradient(115deg, var(--ink), var(--ink2));
+  color: var(--neon-cyan-bright);
+  padding: 5px 20px 5px 14px;
+  clip-path: var(--slant);
+  font-family: var(--font-racing);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-right: 6px;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-orange); }
+
+/* Reading Progress Bar */
+.top-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-orange));
+  z-index: 1000;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* ==========================================================================
+   HEADER & SLANTED NAV TABS
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--neon-orange);
+}
+
+.header-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 68px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Logo */
+/* ==========================================================================
+   HEADER BRAND LOGO ANIMATIONS (ล้อหมุนรอบเดินเบา + แสงนีออน Pulse + Hover เร่งสปีด)
+   ========================================================================== */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
+}
+
+/* ล้อแม็กหัวเว็บ: หมุนรอบเดินเบาต่อเนื่องช้าๆ นุ่มนวล (Idle Spin) */
+.header-logo-icon {
+  width: 42px !important;
+  height: 42px !important;
+  max-width: 42px !important;
+  max-height: 42px !important;
+  aspect-ratio: 1 / 1;
+  object-fit: contain !important;
+  display: block;
+  transform-origin: center center;
+  filter: drop-shadow(0 0 8px var(--neon-cyan-glow));
+  animation: headerWheelIdle 16s linear infinite;
+  transition: filter 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes headerWheelIdle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* เมื่อนำเมาส์ชี้ (Hover): ล้อเร่งรอบหมุนเร็วขึ้น พร้อมเรืองแสงคู่นีออนส้ม-ฟ้า */
+.brand-logo:hover .header-logo-icon {
+  animation: headerWheelRev 0.75s cubic-bezier(0.2, 0.8, 0.25, 1) infinite;
+  filter: drop-shadow(0 0 12px #00e5ff) drop-shadow(0 0 18px var(--neon-orange));
+}
+
+@keyframes headerWheelRev {
+  0% { transform: rotate(0deg) scale(1.1); }
+  100% { transform: rotate(720deg) scale(1.1); }
+}
+
+/* ข้อความ RACE ZONE: สไตล์เรซซิ่ง ปรับองศาเมื่อ hover */
+.brand-racing-badge {
+  font-family: var(--font-racing);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo:hover .brand-racing-badge {
+  transform: skewX(-4deg);
+}
+
+.brand-racing-badge span.race {
+  color: var(--text-white);
+  text-shadow: 0 0 12px var(--neon-cyan-glow);
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.brand-racing-badge span.zone {
+  color: var(--neon-cyan-bright);
+  text-shadow: 0 0 14px var(--neon-cyan-glow);
+  position: relative;
+  display: inline-block;
+  animation: zoneNeonPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes zoneNeonPulse {
+  0% {
+    text-shadow: 0 0 8px var(--neon-cyan-glow);
+    filter: brightness(1);
+  }
+  100% {
+    text-shadow: 0 0 18px var(--neon-cyan-bright), 0 0 28px rgba(0, 180, 216, 0.45);
+    filter: brightness(1.15);
+  }
+}
+
+/* แท็ก PROJECT ส้ม: จุดสถานะกระพริบ Telemetry Blink */
+.brand-racing-badge span.proj {
+  color: var(--neon-orange);
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 3px;
+  font-style: normal;
+  margin-top: 2px;
+}
+
+.brand-racing-badge span.proj::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--neon-orange);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--neon-orange);
+  animation: telemetryDotBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes telemetryDotBlink {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 12px var(--neon-orange-bright); }
+}
+
+/* Slanted Tabs */
+.nav-slanted-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.tab-skew-item a {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--tab-text);
+  padding: 8px 18px;
+  background: var(--tab-bg);
+  border: 1px solid var(--tab-border);
+  transform: skewX(-12deg);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tab-skew-item a span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.tab-skew-item a:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.tab-skew-item a.active {
+  background: var(--tab-active-bg);
+  border-color: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  font-weight: 700;
+  box-shadow: 0 0 16px var(--neon-cyan-glow);
+}
+
+/* Mobile Toggle */
+/* Header Action Dock */
+.header-actions-dock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--tab-bg);
+  border: 1.5px solid var(--tab-border);
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transform: skewX(-12deg);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 12px var(--neon-cyan-glow);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-subtle);
+  padding: 8px 10px;
+  color: #fff;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO PORTAL FRAME (สไตล์เดียวกับรูปตัวอย่าง: กรอบแสงนีออน คมเข้ม เรซซิ่ง)
+   ========================================================================== */
+.hero-stage {
+  padding: 34px 20px 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.hero-showcase-frame {
+  position: relative;
+  background: var(--hero-bg);
+  border: 1.5px solid var(--neon-cyan);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--hero-shadow);
+  padding: 56px 24px 46px;
+  text-align: center;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+/* Background Lightning / Speed Grid */
+.hero-bg-speedlines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 40px);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Giant Watermark Behind */
+.hero-watermark { display: none !important; }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Logo Centerpiece */
+.hero-emblem-box {
+  margin-bottom: 18px;
+}
+
+.hero-main-title {
+  font-family: var(--font-racing);
+  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero-main-title span.race {
+  color: var(--neon-cyan-bright);
+  text-shadow: 0 0 24px var(--neon-cyan-glow);
+}
+
+.hero-main-title span.zone {
+  color: var(--text-white);
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hero-project-tag {
+  display: inline-block;
+  font-family: var(--font-racing);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--neon-orange);
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--neon-orange-glow);
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-slate);
+  margin: 16px auto 26px;
+  max-width: 680px;
+}
+
+.hero-description b {
+  color: var(--text-white);
+}
+
+/* Slanted Hero Buttons */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-slanted-orange {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--neon-orange);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  transform: skewX(-12deg);
+  box-shadow: 0 4px 18px var(--neon-orange-glow);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-slanted-orange span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.btn-slanted-orange:hover {
+  background: var(--neon-orange-bright);
+  transform: skewX(-12deg) translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 122, 0, 0.45);
+}
+
+.btn-slanted-cyan {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  transform: skewX(-12deg);
+  box-shadow: 0 4px 18px var(--neon-cyan-glow);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-slanted-cyan span {
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.btn-slanted-cyan:hover {
+  background: rgba(0, 180, 216, 0.25);
+  transform: skewX(-12deg) translateY(-2px);
+  box-shadow: 0 0 16px var(--neon-cyan-glow);
+}
+
+
+/* ==========================================================================
+   QUICK NAV PILLS DOCK (สไตล์ปุ่มเอียงตามรูปตัวอย่าง ย้ายมาไว้ข้างบน)
+   ========================================================================== */
+.quick-nav-pills-dock {
+  max-width: 1240px;
+  margin: 18px auto 28px;
+  padding: 0 20px;
+}
+
+.pills-dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.pills-dock-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pills-dock-header h3::before {
+  content: "";
+  display: inline-block;
+  width: 3.5px;
+  height: 16px;
+  background: var(--neon-orange);
+  border-radius: 2px;
+}
+
+.pills-dock-header small {
+  font-family: var(--font-racing);
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.dept-quick-nav-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dept-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-white);
+  transform: skewX(-10deg);
+  transition: all 0.2s ease;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+}
+
+.dept-pill-btn span {
+  transform: skewX(10deg);
+  display: inline-block;
+}
+
+.dept-pill-btn .pill-badge {
+  font-family: var(--font-racing);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  padding: 2.5px 7px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+
+.dept-pill-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  transform: skewX(-10deg) translateY(-2px);
+  box-shadow: 0 4px 16px var(--neon-cyan-glow);
+}
+
+
+/* ==========================================================================
+   QUICK SEARCH DOCK
+   ========================================================================== */
+.search-bar-wrapper {
+  max-width: 1040px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.search-input-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input-box:focus-within {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px var(--neon-cyan-glow);
+}
+
+.search-input-box input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-thai);
+  font-size: 15px;
+  color: var(--text-white);
+}
+
+/* ==========================================================================
+   SECTION CAR ZOOM ANIMATIONS (วิ่งจากด้านข้าง ไม่บังเนื้อหา)
+   ========================================================================== */
+.section-speed-track {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
+  pointer-events: none;
+  margin-bottom: -14px;
+  z-index: 5;
+}
+
+.speed-track-lane {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 180, 216, 0.4) 0 20px,
+    transparent 20px 36px
+  );
+}
+
+.speeding-car {
+  position: absolute;
+  bottom: 4px;
+  width: 110px;
+  height: 38px;
+  pointer-events: none;
+  transform: translateX(-160px);
+  will-change: transform;
+}
+
+.drive-across.zoom-active {
+  animation: carZoomAcross 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.drive-across-reverse.zoom-active {
+  animation: carZoomAcrossReverse 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes carZoomAcross {
+  0% { transform: translateX(-160px) scale(0.95); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 60px)) scale(1.05); opacity: 0; }
+}
+
+@keyframes carZoomAcrossReverse {
+  0% { transform: translateX(calc(100vw + 60px)) scale(0.95); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(-160px) scale(1.05); opacity: 0; }
+}
+
+.cop-lights-strobe {
+  animation: policeFlash 0.25s infinite alternate;
+}
+
+@keyframes policeFlash {
+  0% { fill: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
+  100% { fill: #38bdf8; filter: drop-shadow(0 0 6px #38bdf8); }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL CONTENT CARDS
+   ========================================================================== */
+.content-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 10px 20px 80px;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Major Section Banner */
+.section-banner-card {
+  position: relative;
+  background: var(--banner-bg);
+  border: 1px solid var(--line-strong);
+  border-left: 4px solid var(--neon-orange);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  padding: 24px 28px;
+  margin: 50px 0 20px;
+  scroll-margin-top: 84px;
+}
+
+.section-banner-card small {
+  font-family: var(--font-racing);
+  letter-spacing: 3px;
+  color: var(--neon-orange);
+  font-size: 12px;
+  font-weight: 700;
+  display: block;
+}
+
+.section-banner-card h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-white);
+  margin-top: 2px;
+}
+
+.section-banner-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.section-sub-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 34px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  scroll-margin-top: 84px;
+}
+
+.section-sub-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: var(--neon-cyan);
+  border-radius: 2px;
+}
+
+/* Definition Cards (คำนิยามศัพท์) */
+.def-grid-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.def-card-row {
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  transition: all 0.2s ease;
+}
+
+.def-card-row:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--line-strong);
+}
+
+.def-title-col b {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-white);
+  display: block;
+}
+
+.def-desc-col {
+  font-size: 0.94rem;
+  color: var(--text-slate);
+  line-height: 1.6;
+}
+
+/* Badges */
+.badge-tag {
+  display: inline-block;
+  font-family: var(--font-racing);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-blue { background: var(--badge-blue-bg); color: var(--badge-blue-text); border: 1px solid var(--badge-blue-border); }
+.badge-red { background: var(--badge-red-bg); color: var(--badge-red-text); border: 1px solid var(--badge-red-border); }
+.badge-yellow { background: var(--badge-yellow-bg); color: var(--badge-yellow-text); border: 1px solid var(--badge-yellow-border); }
+.badge-green { background: var(--badge-green-bg); color: var(--badge-green-text); border: 1px solid var(--badge-green-border); }
+.badge-gray { background: #1a2232; color: #94a3b8; border: 1px solid var(--line-subtle); }
+
+.hl-red { color: var(--red); font-weight: 700; }
+
+/* Copy Button */
+.btn-copy-chip {
+  background: var(--tab-bg);
+  border: 1px solid var(--line-subtle);
+  color: var(--text-muted);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.btn-copy-chip:hover {
+  background: var(--neon-orange);
+  border-color: var(--neon-orange);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Alert Box */
+.notice-box {
+  background: var(--notice-bg);
+  border: 1px solid var(--neon-orange);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  color: var(--notice-text);
+  font-size: 0.92rem;
+  margin: 16px 0;
+}
+
+.notice-box.danger {
+  background: var(--notice-danger-bg);
+  border-color: var(--red);
+  color: var(--notice-danger-text);
+}
+
+/* ==========================================================================
+   RACE PHASES & FLAG DIRECTORY
+   ========================================================================== */
+.race-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.phase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.phase-idx {
+  font-family: var(--font-racing);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--neon-orange);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.phase-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+
+.phase-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Table Style */
+.table-responsive-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+table.race-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+table.race-table th {
+  background: var(--table-th-bg);
+  color: var(--text-muted);
+  font-family: var(--font-racing);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+table.race-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line-subtle);
+  color: var(--text-slate);
+}
+
+table.race-table tr:hover td {
+  background: var(--bg-card-hover);
+}
+
+table.race-table td.fee {
+  font-family: var(--font-racing);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--neon-orange);
+  text-align: right;
+}
+
+/* Flag Swatches */
+.flag-swatch {
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.3);
+  vertical-align: -3px;
+  margin-right: 10px;
+}
+
+.f-green { background: #10b981; }
+.f-check { background: conic-gradient(#000 25%, #fff 0 50%, #000 0 75%, #fff 0) 0 0/8px 8px; }
+.f-yellow { background: #f59e0b; }
+.f-white { background: #ffffff; }
+.f-yr { background: repeating-linear-gradient(90deg, #f59e0b 0 5px, #ef4444 5px 10px); }
+.f-red { background: #ef4444; }
+.f-black { background: #000; }
+.f-meat { background: radial-gradient(circle, #ff7a00 0 5px, #000 5.5px); }
+.f-half { background: linear-gradient(135deg, #fff 50%, #000 50%); }
+
+/* Numbered List for Police & Rules */
+ol.numbered-rules {
+  list-style: none;
+  counter-reset: n;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+ol.numbered-rules li {
+  counter-increment: n;
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px 14px 60px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all 0.15s ease;
+}
+
+ol.numbered-rules li:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--line-strong);
+}
+
+ol.numbered-rules li::before {
+  content: counter(n);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 26px;
+  border-radius: 4px;
+  background: var(--counter-bg);
+  border: 1px solid var(--counter-border);
+  color: var(--counter-text);
+  font-family: var(--font-racing);
+  font-weight: 700;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+
+/* Bullet List */
+ul.bullet-rules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+ul.bullet-rules li {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 18px 12px 34px;
+  font-size: 0.94rem;
+}
+
+ul.bullet-rules li::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+}
+
+/* Price Cards Grid */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0 24px;
+}
+
+.price-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-box b {
+  font-family: var(--font-racing);
+  font-size: 1.15rem;
+  color: var(--text-white);
+}
+
+.price-box b small {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Tool Container */
+.tool-box-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin: 20px 0 28px;
+}
+
+.tool-box-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  text-align: center;
+  padding: 34px 20px;
+  font-size: 0.9rem;
+  color: var(--footer-text);
+}
+
+footer b {
+  color: var(--text-white);
+}
+
+/* Toast */
+.toast-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #0c1018;
+  border: 1px solid var(--neon-cyan);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.toast-bar.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .nav-slanted-tabs { display: none; }
+  .mobile-toggle { display: block; }
+  
+  .def-card-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  ol.numbered-rules li {
+    padding-left: 54px;
+  }
+}
+
+
+/* ==========================================================================
+   WHEEL EMBLEM RACING ANIMATION & SPARKS (กลิ้งเข้า Center & เบิร์นยางพุ่งตัว)
+   ========================================================================== */
+.hero-logo-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+  overflow: visible;
+}
+
+.wheel-stage {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.sparks-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 280px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.burnout-flash {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 0, 0.7) 0%, rgba(0, 180, 216, 0.4) 45%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.burnout-flash.active {
+  animation: burnoutPulse 0.85s ease-out forwards;
+}
+
+@keyframes burnoutPulse {
+  0% { transform: scale(0.6); opacity: 0; }
+  30% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+#mainWheelLogo,
+.hero-emblem-img {
+  width: 210px !important;
+  max-width: 210px !important;
+  height: 210px !important;
+  max-height: 210px !important;
+  aspect-ratio: 1 / 1;
+  object-fit: contain !important;
+  display: block !important;
+  position: relative;
+  z-index: 2;
+  transform-origin: center center;
+  filter: drop-shadow(0 0 24px var(--neon-cyan-glow)) drop-shadow(0 4px 14px rgba(0,0,0,0.25));
+  will-change: transform, opacity;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ตอนเปิดตัว / เมื่อ Reveal: ล้อกลิ้งออกมาจากขอบกล่องด้านซ้ายเข้ามายังจุด Center อย่างชัดเจน ไม่วาร์ป */
+.hero-emblem-img.wheel-roll-in {
+  animation: wheelRollIn 1.25s cubic-bezier(0.18, 0.9, 0.3, 1) forwards !important;
+}
+
+@keyframes wheelRollIn {
+  0% {
+    /* เริ่มต้นจากด้านนอกขอบกล่องฝั่งซ้ายพอดี (ขอบกล่อง overflow:hidden จะซ่อนไว้จนกว่าล้อจะกลิ้งเข้ามา) */
+    transform: translateX(calc(-50vw - 130px)) rotate(-460deg);
+    transform: translateX(calc(-50cqw - 130px)) rotate(-460deg);
+    opacity: 1;
+  }
+  75% {
+    /* กลิ้งมาถึง Center แล้วดีดตัวเลยนิดๆ เพื่อความสมจริง */
+    transform: translateX(16px) rotate(16deg);
+    opacity: 1;
+  }
+  88% {
+    /* ดีดกลับเบาๆ */
+    transform: translateX(-4px) rotate(-4deg);
+    opacity: 1;
+  }
+  100% {
+    /* หยุดนิ่งตรงกลางอย่างสง่างาม */
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* พอกดปุ่ม: หมุนด้วยความเร็ว มีสะเก็ดไฟ ละกลิ้งหลุดเฟรมไปก่อนพาไปหัวข้อ */
+.hero-emblem-img.wheel-launch-out {
+  animation: wheelFastLaunch 0.48s cubic-bezier(0.12, 0.8, 0.32, 1) forwards !important;
+}
+
+@keyframes wheelFastLaunch {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 24px var(--neon-cyan-glow));
+  }
+  12% {
+    /* ออกตัวทันที ดีดตัวล้อฟรีสั้นๆ พร้อมสะเก็ดไฟ */
+    transform: translateX(-8px) rotate(120deg) scale(0.97);
+    filter: drop-shadow(0 0 38px var(--neon-orange)) drop-shadow(0 0 16px #ffffff);
+  }
+  45% {
+    /* พุ่งผ่านกลางจออย่างรวดเร็ว ตาจับความเร็วทัน */
+    transform: translateX(45vw) rotate(900deg) scale(1.06);
+    filter: drop-shadow(0 0 45px var(--neon-orange-bright)) drop-shadow(0 0 20px #00e5ff);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(90vw) rotate(1500deg) scale(1.12);
+    opacity: 0.9;
+  }
+  100% {
+    /* พุ่งหลุดขอบจอไปอย่างฉับไว */
+    transform: translateX(120vw) rotate(1980deg) scale(1.16);
+    opacity: 0;
+    filter: drop-shadow(0 0 50px var(--neon-orange-bright));
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   FLAG CARDS DIRECTORY & SCROLL MARGINS (UI FIXES)
+   ========================================================================== */
+section[id], [id].section-banner-card, [id].section-sub-title {
+  scroll-margin-top: 84px;
+}
+
+.flag-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.flag-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+}
+
+.flag-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.flag-swatch-box {
+  width: 36px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 2px;
+}
+
+.flag-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.flag-meaning {
+  font-size: 0.88rem;
+  color: var(--text-slate);
+  line-height: 1.5;
+}
+
+.badge-gray {
+  background: var(--tab-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--line-subtle);
+}
+
+@media (max-width: 1200px) and (min-width: 961px) {
+  .header-container {
+    padding: 0 14px;
+    gap: 8px;
+  }
+  .tab-skew-item a {
+    padding: 7px 11px;
+    font-size: 13px;
+  }
+  .brand-racing-badge {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-slanted-tabs {
+    display: none;
+    position: absolute;
+    top: 68px;
+    right: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--neon-cyan);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+  }
+  .nav-slanted-tabs.mobile-open {
+    display: flex !important;
+  }
+  .tab-skew-item {
+    width: 100%;
+  }
+  .tab-skew-item a {
+    display: block;
+    width: 100%;
+    transform: none;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .tab-skew-item a span {
+    transform: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .def-card-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  ol.numbered-rules li {
+    padding-left: 54px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    padding: 0 12px;
+  }
+  .brand-racing-badge {
+    font-size: 18px;
+  }
+  ol.numbered-rules li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-left: 50px;
+  }
+  ol.numbered-rules li::before {
+    top: 20px;
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   HERO VIDEO BACKGROUND & CINEMATIC INTRO TRANSITION (STRICT WAITING & HOVER)
+   ========================================================================== */
+.hero-bg-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1; /* แสดงคลิปวิดีโอชัดเจน 100% ระหว่างเล่น Intro */
+  filter: contrast(1.05) brightness(1);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), filter 1.1s ease;
+  will-change: opacity, filter;
+}
+
+.hero-video-tint-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-bg);
+  opacity: 0;
+  transition: opacity 1.1s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* เมื่อคลิปเล่นจบ หรือเมื่อมี Hover: ลด Opacity วิดีโอลงมาต่ำ ให้โลโก้และเนื้อหาเด่นชัดเจน */
+.hero-showcase-frame.hero-revealed .hero-bg-video {
+  opacity: 0.16;
+  filter: brightness(1.02) contrast(1.05);
+}
+
+[data-theme="dark"] .hero-showcase-frame.hero-revealed .hero-bg-video {
+  opacity: 0.28;
+  filter: brightness(0.7) contrast(1.15);
+}
+
+.hero-showcase-frame.hero-revealed .hero-video-tint-overlay {
+  opacity: 0.72;
+}
+
+/* ก่อน Reveal: ซ่อนเนื้อหาและโลโก้ 100% เต็มที่ เพื่อแสดงคลิปวิดีโอก่อน */
+.hero-showcase-frame:not(.hero-revealed) .hero-content {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.hero-showcase-frame:not(.hero-revealed) #mainWheelLogo {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* เมื่อ Reveal: แสดงกล่องเนื้อหาและล้อทันที เพื่อให้เห็นล้อกลิ้งออกมาจากขอบกล่องอย่างเต็มตา */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.hero-showcase-frame.hero-revealed .hero-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.hero-showcase-frame.hero-revealed #mainWheelLogo {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ข้อความไตเติล รายละเอียด และปุ่มต่างๆ ค่อยๆ Fade in & Slide up ขึ้นมาอย่างนุ่มนวลขณะล้อกลิ้ง */
+.hero-showcase-frame:not(.hero-revealed) .hero-project-tag,
+.hero-showcase-frame:not(.hero-revealed) .hero-description,
+.hero-showcase-frame:not(.hero-revealed) .hero-action-row {
+  opacity: 0 !important;
+  transform: translateY(18px) !important;
+}
+
+.hero-showcase-frame.hero-revealed .hero-project-tag,
+.hero-showcase-frame.hero-revealed .hero-description,
+.hero-showcase-frame.hero-revealed .hero-action-row {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s !important;
+}
+
+/* ==========================================================================
+   RULES REDESIGN — race-control presentation layer
+   สีใช้ตามความหมาย: แดง=ฝ่าฝืน/ปลด · เหลือง=เตือน · ฟ้า=นิยาม · ส้ม=ค่าปรับ/ตัวเลข
+   ========================================================================== */
+:root{--ink:#070b14;--ink2:#0f1728;--carbon:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 6px);--slant:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--neon-cyan);outline-offset:2px}
+.content-wrapper{max-width:1120px}
+
+/* Section title cards: always dark, like a broadcast graphic */
+.section-banner-card{position:relative;overflow:hidden;margin:72px 0 30px;padding:40px 44px 40px;color:#fff;border:0;border-left:8px solid var(--neon-orange);border-radius:0;box-shadow:none;
+  background:var(--carbon),radial-gradient(110% 150% at 100% 0,rgba(0,168,255,.3),transparent 55%),linear-gradient(115deg,var(--ink),var(--ink2));
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%)}
+.section-banner-card::after{content:attr(data-part);position:absolute;right:30px;top:-14px;font:italic 700 clamp(6rem,17vw,11.5rem)/1 var(--font-racing);color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.17);pointer-events:none}
+.section-banner-card::before{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--neon-orange),var(--neon-cyan) 55%,transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1) .25s}
+.section-banner-card.is-visible::before{transform:scaleX(1)}
+.section-banner-card small{display:block;font:600 1rem var(--font-racing);letter-spacing:.04em;color:var(--neon-orange-bright);margin-bottom:6px}
+.section-banner-card h2{position:relative;z-index:1;color:#fff;font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.15;font-weight:800;max-width:15em}
+.section-banner-card p{position:relative;z-index:1;color:#b9c6da;margin-top:10px;max-width:38em}
+
+/* Sub headings run out into a rule line */
+.section-sub-title{margin:60px 0 22px;gap:14px;font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:700}
+.section-sub-title::before{width:14px;height:28px;border-radius:0;background:var(--neon-orange);transform:skewX(-14deg)}
+.section-sub-title::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--line-strong),transparent)}
+h4.section-sub-title{font-size:1.2rem;margin-top:48px}
+.group-label{display:flex;align-items:center;gap:10px;margin:34px 0 14px;font:700 1.08rem var(--font-heading);color:var(--text-white)}
+.cat-head{display:flex;align-items:center;gap:14px;margin:44px 0 14px;font:700 1.15rem var(--font-heading);color:var(--text-white)}
+.cat-no{flex:none;background:linear-gradient(115deg,var(--ink),var(--ink2));color:var(--neon-cyan-bright);padding:5px 20px 5px 14px;clip-path:var(--slant);font:italic 700 .95rem var(--font-racing)}
+.hl-red{background:linear-gradient(transparent 58%,var(--badge-red-bg) 58%);padding:0 3px}
+
+/* Copy buttons stay out of the way until needed */
+.def-card-row .btn-copy-chip,ol.numbered-rules li .btn-copy-chip{position:absolute;top:12px;right:12px}
+.def-card-row .btn-copy-chip,ol.numbered-rules li .btn-copy-chip,.phase-card .btn-copy-chip{opacity:0;transition:opacity .15s}
+.def-card-row:hover .btn-copy-chip,ol.numbered-rules li:hover .btn-copy-chip,.phase-card:hover .btn-copy-chip,.btn-copy-chip:focus-visible{opacity:1}
+@media(hover:none){.def-card-row .btn-copy-chip,ol.numbered-rules li .btn-copy-chip,.phase-card .btn-copy-chip{opacity:1}}
+
+/* Definitions: the abbreviation is the hero of each tile */
+.def-grid-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.def-card-row:last-child:nth-child(odd){grid-column:1/-1}
+.def-card-row{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:22px 24px 22px;border-radius:6px;border-top:5px solid var(--neon-cyan);box-shadow:var(--card-shadow)}
+.def-card-row:has(.badge-red){border-top-color:var(--red)}
+.def-card-row:has(.badge-yellow){border-top-color:var(--yellow)}
+.def-card-row:has(.badge-green){border-top-color:var(--green)}
+.def-card-row:has(.badge-gray){border-top-color:var(--text-muted)}
+.def-card-row:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.14)}
+.def-title-col{display:flex;flex-direction:column;gap:2px;width:100%}
+.def-title-col .badge-tag{order:-1;align-self:flex-start;display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;font:italic 700 clamp(2.2rem,5vw,3rem)/1.05 var(--font-racing)}
+.def-title-col .badge-tag[data-status]::after{content:attr(data-status);font:600 .78rem var(--font-heading);font-style:normal;border:1.5px solid currentColor;padding:2px 9px;transform:rotate(-4deg)}
+.badge-tag.badge-green,.badge-tag.badge-yellow{font-size:1.05rem!important}
+.def-title-col b{font-size:1.15rem}
+.def-desc-col{font-size:.96rem;line-height:1.7}
+
+/* Race steps: start lights + oversized step numbers */
+.start-lights{display:inline-flex;gap:12px;padding:12px 18px;margin:0 0 18px;background:var(--ink);border-radius:999px;box-shadow:inset 0 0 0 2px #1d2740}
+.start-lights i{width:26px;height:26px;border-radius:50%;background:#1a2132}
+.start-lights.is-visible i{animation:lightOn .15s forwards calc(var(--i)*.45s),lightsOut .2s forwards 2.6s}
+@keyframes lightOn{to{background:#ff2a2a;box-shadow:0 0 18px #ff2a2a}}
+@keyframes lightsOut{from{background:#ff2a2a;box-shadow:0 0 18px #ff2a2a}to{background:#1a2132;box-shadow:none}}
+.race-phases-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.phase-card{position:relative;overflow:hidden;padding:26px 26px 22px;border-radius:6px;box-shadow:var(--card-shadow)}
+.phase-idx{position:absolute;right:18px;top:-6px;font-size:5.5rem;font-style:italic;color:transparent;-webkit-text-stroke:2px var(--neon-orange);opacity:.55}
+.phase-name{font-size:1.2rem;max-width:80%;margin-bottom:10px}
+.phase-desc{font-size:.94rem;line-height:1.75}
+.phase-card .btn-copy-chip{margin-top:14px}
+
+/* Flags: a wall of real flags */
+.flag-cards-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.flag-card{flex-direction:column;gap:0;padding:0;overflow:hidden;border-radius:6px}
+.flag-swatch-box{position:relative;width:100%;height:124px;margin:0;border-radius:0;box-shadow:none;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 86%,80% 94%,60% 86%,40% 94%,20% 86%,0 94%)}
+.flag-swatch-box[style*="conic"]{background-size:30px 30px!important}
+.flag-swatch-box::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 25%,rgba(255,255,255,.4) 42%,transparent 58%);transform:translateX(-130%)}
+.flag-card:hover .flag-swatch-box::after{transform:translateX(130%);transition:transform 1s ease}
+.flag-card>div:last-child{padding:6px 20px 20px}
+.flag-name{font-size:1.12rem}
+
+/* Police & mechanic rules: numbered transmissions */
+ol.numbered-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+ol.numbered-rules li{align-items:flex-start;min-height:92px;padding:18px 62px 18px 82px;border-radius:4px;box-shadow:var(--card-shadow);line-height:1.65}
+ol.numbered-rules li::before{content:counter(n,decimal-leading-zero);left:0;top:0;bottom:0;transform:none;width:62px;height:auto;border:0;border-radius:0;background:linear-gradient(180deg,var(--ink),var(--ink2));color:var(--neon-cyan-bright);clip-path:var(--slant);font:italic 700 1.5rem var(--font-racing);padding-right:8px}
+.pursuit-strip{display:grid;grid-template-columns:repeat(5,1fr);margin:0 0 20px;color:#fff;border-radius:6px;overflow:hidden;background:var(--carbon),linear-gradient(115deg,var(--ink),var(--ink2))}
+.pursuit-strip>div{padding:24px 18px 20px;border-left:1px solid rgba(255,255,255,.1)}
+.pursuit-strip>div:first-child{border-left:0}
+.pursuit-strip b{display:block;font:italic 700 clamp(2.4rem,5vw,3.6rem)/1 var(--font-racing);color:var(--neon-orange-bright);text-shadow:0 0 24px rgba(255,122,0,.5)}
+.pursuit-strip b small{font:500 .95rem var(--font-thai);color:#fff;margin-left:5px}
+.pursuit-strip span{display:block;margin-top:10px;font-size:.84rem;line-height:1.5;color:#b9c6da}
+
+/* Rules as lists, tables and notices */
+ul.bullet-rules{gap:10px}
+ul.bullet-rules li{padding:15px 20px 15px 46px;border-radius:4px;border-left:4px solid var(--line-strong);transition:border-color .15s}
+ul.bullet-rules li:hover{border-left-color:var(--neon-orange)}
+ul.bullet-rules li::before{left:20px;top:23px;width:10px;height:10px;border-radius:0;transform:skewX(-14deg)}
+table.race-table th{font-size:.85rem;letter-spacing:.03em;text-transform:none;padding:14px 20px}
+table.race-table td{padding:15px 20px}
+table.race-table td:first-child{border-left:5px solid transparent}
+table.race-table tr:has(.badge-red) td:first-child{border-left-color:var(--red)}
+table.race-table td.fee{font-size:1.2rem;font-style:italic}
+.notice-box{border-width:0 0 0 5px;border-radius:4px;font-weight:600}
+.card-duel{display:flex;align-items:center;flex-wrap:wrap;gap:20px;padding:28px 30px;margin-bottom:14px;background:var(--bg-card);border:1px solid var(--line-strong);border-left:6px solid var(--yellow);border-radius:6px;box-shadow:var(--card-shadow);color:var(--text-white)}
+.pcard{width:48px;height:68px;border-radius:6px;background:#facc15;transform:rotate(-8deg);box-shadow:0 10px 20px rgba(0,0,0,.28)}
+.pcard.y+.op+.pcard.y{transform:rotate(7deg)}
+.pcard.r{background:#ef2b3f;transform:rotate(5deg) scale(1.18);margin-left:6px}
+.card-duel .op{font:700 1.9rem var(--font-racing);color:var(--text-muted)}
+.card-duel p{flex:1 1 260px;font-size:1.02rem;line-height:1.7}
+
+/* Betting: log-scale range chart */
+.bet-board{padding:22px 26px 10px;background:var(--bg-card);border:1px solid var(--line-subtle);border-radius:6px;box-shadow:var(--card-shadow)}
+.bet-axis,.bet-row{display:grid;grid-template-columns:minmax(150px,230px) 1fr 104px;gap:18px;align-items:center}
+.bet-axis{margin-bottom:6px;font-size:.8rem;color:var(--text-muted)}
+.bet-axis em{font-style:normal}
+.bet-axis div{position:relative;height:18px}
+.bet-axis span{position:absolute;transform:translateX(-50%);font:600 .85rem var(--font-racing)}
+.bet-axis span:first-child{transform:none}.bet-axis span:last-child{transform:translateX(-100%)}
+.bet-row{padding:15px 0;border-top:1px solid var(--line-subtle)}
+.bet-row b{font:italic 700 1.1rem var(--font-racing);text-align:right;color:var(--text-white);white-space:nowrap}
+.bet-track{position:relative;height:20px;border-radius:2px;background:linear-gradient(var(--line-strong),var(--line-strong)) 33.33%/1px 100% no-repeat,linear-gradient(var(--line-strong),var(--line-strong)) 66.67%/1px 100% no-repeat,var(--bg-elevated)}
+.bet-track i{position:absolute;top:3px;bottom:3px;left:var(--a);width:calc(var(--b) - var(--a));clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .3s}
+.bet-board.is-visible .bet-track i{transform:scaleX(1)}
+.bet-track i.cyan{background:var(--neon-cyan)}.bet-track i.orange{background:var(--neon-orange)}.bet-track i.red{background:var(--red)}
+
+/* Rank ladder + price boards */
+.rank-ladder{grid-template-columns:repeat(4,1fr);align-items:end;gap:14px}
+.rank-ladder .price-box{border-radius:4px 4px 0 0;box-shadow:var(--card-shadow)}
+.rank-ladder .price-box:nth-child(1){min-height:110px}.rank-ladder .price-box:nth-child(2){min-height:160px}
+.rank-ladder .price-box:nth-child(3){min-height:210px}.rank-ladder .price-box:nth-child(4){min-height:260px}
+.rank-ladder .price-box b{font-size:1.25rem}
+.price-grid.tariff{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.tariff .price-box{flex-direction:column;align-items:flex-start;gap:10px;padding:20px 22px;border:0;border-top:3px solid var(--neon-orange);border-radius:4px;color:#b9c6da;background:var(--carbon),linear-gradient(160deg,var(--ink2),var(--ink))}
+.tariff .price-box b{font-size:2rem;line-height:1;color:#fff;font-style:italic;text-shadow:0 0 18px rgba(0,180,216,.55)}
+.tariff .price-box b small{font:400 .82rem var(--font-thai);color:#8da0bd;text-shadow:none}
+.tariff .price-box b[style]{color:#34d399!important}
+
+@media(max-width:860px){
+  .def-grid-list,.race-phases-grid,ol.numbered-rules{grid-template-columns:1fr}
+  .pursuit-strip{grid-template-columns:repeat(2,1fr)}.pursuit-strip>div:last-child{grid-column:1/-1}
+  .pursuit-strip>div:nth-child(odd){border-left:0}
+  .bet-axis,.bet-row{grid-template-columns:1fr;gap:8px}.bet-axis em,.bet-axis i{display:none}.bet-row b{text-align:left}
+  .section-banner-card{padding:30px 22px 34px;margin-top:52px}
+  .rank-ladder{grid-template-columns:repeat(2,1fr)}
+  ol.numbered-rules li{flex-direction:row;padding:16px 56px 16px 74px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal-item{opacity:1;transform:none;transition:none}
+  .section-banner-card::before,.bet-track i{transform:none;transition:none}
+  .start-lights i{animation:none!important;background:#ff2a2a}
+}
+
+
+/* ===== PAGED VERSION: one title = one page ===== */
+.page{display:none}
+.page.active,.searching .page{display:block}
+body:not([data-view="home"]) .hero-stage,body:not([data-view="home"]) .quick-nav-pills-dock,.searching .hero-stage,.searching .quick-nav-pills-dock{display:none}
+body[data-view="home"]:not(.searching) main{display:none}
+.quick-nav-pills-dock{margin-top:26px}
+.dept-quick-nav-pills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dept-pill-btn{transform:none;flex-direction:column;align-items:flex-start;gap:16px;min-height:170px;padding:26px 26px 22px;border-radius:6px;border-top:5px solid var(--neon-cyan);font-size:1.2rem;line-height:1.4}
+.dept-pill-btn:has([style*="orange"]){border-top-color:var(--neon-orange)}
+.dept-pill-btn span{transform:none}
+.dept-pill-btn .pill-badge{font:italic 700 1.7rem var(--font-racing);padding:4px 20px 4px 14px;border-radius:0;clip-path:var(--slant)}
+.dept-pill-btn::after{content:"เปิดอ่านหน้านี้";margin-top:auto;font:600 .92rem var(--font-heading);color:var(--neon-cyan)}
+.dept-pill-btn:hover{transform:translateY(-5px);box-shadow:0 16px 34px var(--neon-cyan-glow)}
+.page-jump{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 6px}
+.page-jump a{padding:8px 20px;background:var(--bg-card);border:1px solid var(--line-strong);transform:skewX(-10deg);font:600 .92rem var(--font-heading);color:var(--text-white);transition:all .15s}
+.page-jump a:hover{border-color:var(--neon-cyan);color:var(--neon-cyan)}
+.page-end{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;margin:70px 0 0}
+.page-end a{display:flex;flex-direction:column;gap:2px;padding:18px 24px;background:var(--bg-card);border:1px solid var(--line-strong);border-radius:6px;font:700 1.1rem var(--font-heading);color:var(--text-white);transition:border-color .15s}
+.page-end a:hover{border-color:var(--neon-orange)}
+.page-end a:last-child{align-items:flex-end;text-align:right}
+.page-end small{font:500 .8rem var(--font-thai);color:var(--text-muted)}
+.page-end .mid{justify-content:center;align-items:center;background:var(--ink);color:#fff;border:0}
+.page-wipe{position:fixed;top:0;bottom:0;left:-30%;width:160%;z-index:900;pointer-events:none;transform:translateX(-110%) skewX(-14deg);background:linear-gradient(105deg,var(--ink) 0 88%,var(--neon-orange) 88% 91%,var(--neon-cyan) 91% 94%,transparent 94%)}
+.page-wipe.run{animation:wipe .62s cubic-bezier(.7,0,.3,1)}
+@keyframes wipe{to{transform:translateX(110%) skewX(-14deg)}}
+@media(max-width:860px){.dept-quick-nav-pills{grid-template-columns:1fr}.dept-pill-btn{min-height:0}.page-end{grid-template-columns:1fr}.page-end a:last-child{align-items:flex-start;text-align:left}}
+@media(prefers-reduced-motion:reduce){.page-wipe{display:none}}
+
+/* ==========================================================================
+   LIVE SEARCH RESULTS DOCK (INSTANT ZERO-SCROLL SEARCH)
+   ========================================================================== */
+.search-results-dock {
+  max-width: 1120px;
+  margin: 20px auto 60px;
+  padding: 0 16px;
+  animation: searchDockFadeIn 0.22s ease-out;
+}
+
+@keyframes searchDockFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-left: 5px solid var(--neon-cyan);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 22px;
+  box-shadow: var(--card-shadow);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-results-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-count-pill {
+  background: var(--neon-cyan);
+  color: #ffffff;
+  font-family: var(--font-racing);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.search-results-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-white);
+}
+
+.search-clear-action {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-strong);
+  color: var(--text-slate);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: skewX(-8deg);
+}
+
+.search-clear-action:hover {
+  background: var(--neon-orange);
+  color: #ffffff;
+  border-color: var(--neon-orange);
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 820px) {
+  .search-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-result-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-result-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.search-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.search-dept-badge {
+  font-family: var(--font-racing);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.search-card-title {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+.search-card-desc {
+  font-family: var(--font-thai);
+  font-size: 14.5px;
+  color: var(--text-slate);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.search-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.search-jump-btn {
+  background: transparent;
+  border: none;
+  color: var(--neon-cyan);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.search-jump-btn:hover {
+  color: var(--neon-cyan-bright);
+  text-decoration: underline;
+}
+
+mark.search-kw {
+  background: rgba(0, 132, 255, 0.20);
+  color: var(--neon-cyan-bright);
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+[data-theme="dark"] mark.search-kw {
+  background: rgba(0, 216, 255, 0.30);
+  color: #00e5ff;
+}
+
+.search-empty-state {
+  text-align: center;
+  padding: 56px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+}
+
+.search-empty-state h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+
+.search-empty-state p {
+  font-family: var(--font-thai);
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.search-quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.search-quick-tag {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-subtle);
+  color: var(--neon-cyan);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.search-quick-tag:hover {
+  background: var(--neon-cyan);
+  color: #ffffff;
+}
+
+@keyframes ruleTargetPulse {
+  0% { box-shadow: 0 0 0 4px var(--neon-cyan), 0 0 25px var(--neon-cyan-glow); }
+  50% { box-shadow: 0 0 0 6px var(--neon-orange), 0 0 35px var(--neon-orange-glow); }
+  100% { box-shadow: none; }
+}
+
+.rule-target-flash {
+  animation: ruleTargetPulse 1.8s ease forwards !important;
+  border-color: var(--neon-cyan) !important;
+}
+
+
+/* ==========================================================================
+   PENALTIES & STEWARDS PRESENTATION CARDS (HIGH READABILITY & MOTORSPORT THEME)
+   ========================================================================== */
+.penalty-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .penalty-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.penalty-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  border-left: 6px solid var(--neon-cyan);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.penalty-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
+.penalty-card.severity-amber {
+  border-left-color: #f59e0b;
+}
+
+.penalty-card.severity-orange {
+  border-left-color: #ff6a00;
+}
+
+.penalty-card.severity-red {
+  border-left-color: #ef4444;
+}
+
+.penalty-card.severity-blue {
+  border-left-color: #0084ff;
+}
+
+.penalty-card.severity-crimson {
+  border-left-color: #dc2626;
+  background: linear-gradient(135deg, var(--bg-card), rgba(220, 38, 38, 0.04));
+}
+
+.penalty-card.severity-purple {
+  border-left-color: #8b5cf6;
+}
+
+.penalty-card.severity-ban {
+  border-left-color: #991b1b;
+  background: linear-gradient(135deg, var(--bg-card), rgba(153, 27, 27, 0.05));
+}
+
+.penalty-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.penalty-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.penalty-type-badge {
+  font-family: var(--font-racing);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 3.5px 11px;
+  border-radius: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.penalty-type-badge.badge-amber { background: #f59e0b; }
+.penalty-type-badge.badge-orange { background: #ff6a00; }
+.penalty-type-badge.badge-red { background: #ef4444; }
+.penalty-type-badge.badge-blue { background: #0084ff; }
+.penalty-type-badge.badge-crimson { background: #dc2626; }
+.penalty-type-badge.badge-purple { background: #8b5cf6; }
+.penalty-type-badge.badge-ban { background: #991b1b; }
+
+.penalty-timing-tag {
+  font-family: var(--font-racing);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--neon-orange-bright);
+  letter-spacing: 0.5px;
+}
+
+.penalty-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.penalty-action-box {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  border-left: 3px solid var(--line-strong);
+}
+
+.penalty-action-label {
+  display: block;
+  font-family: var(--font-racing);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.penalty-action-text {
+  font-family: var(--font-thai);
+  font-size: 14.5px;
+  color: var(--text-slate);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.penalty-causes-box {
+  margin-top: 4px;
+}
+
+.penalty-cause-label {
+  display: block;
+  font-family: var(--font-thai);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+}
+
+.penalty-cause-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.penalty-tag {
+  display: inline-block;
+  font-family: var(--font-thai);
+  font-size: 12.5px;
+  font-weight: 500;
+  background: var(--bg-card);
+  border: 1px solid var(--line-subtle);
+  color: var(--text-slate);
+  padding: 3.5px 11px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+[data-theme="dark"] .penalty-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+.penalty-card .btn-copy-chip {
+  opacity: 0.8;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.penalty-card:hover .btn-copy-chip {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+
+<!-- AUDIO SFX (Nissan GT-R Flyby from 3D Model folder) -->
+<audio id="raceSfx" preload="auto">
+  <source src="nissan_gtr_flyby_3s.wav" type="audio/wav">
+</audio>
+
+
+<!-- TOP SCROLL PROGRESS BAR -->
+<div class="top-progress" id="scrollProgress"></div>
+
+<!-- ==========================================================================
+     NAVBAR WITH SLANTED TABS (สไตล์ตามรูปตัวอย่าง)
+     ========================================================================== -->
+<header class="site-header">
+  <div class="header-container">
+    <a href="#top" class="brand-logo">
+      <img src="image.png" alt="Race Zone Logo" class="header-logo-icon" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain;">
+      <div class="brand-racing-badge">
+        <span class="race">RACE</span> <span class="zone">ZONE</span>
+        <span class="proj">PROJECT</span>
+      </div>
+    </a>
+
+    <!-- Slanted Tabs: ไร้อิโมจิ คมชัดตามธีม -->
+    <ul class="nav-slanted-tabs">
+      <li class="tab-skew-item">
+        <a href="#top" class="active"><span>หน้าแรก</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#city"><span>กฎเมือง</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#race"><span>กฎสนามแข่ง</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#story"><span>Story แข่งขัน</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#police"><span>กฎตำรวจ</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#medic"><span>กฎหมอ</span></a>
+      </li>
+      <li class="tab-skew-item">
+        <a href="#mech"><span>กฎช่าง</span></a>
+      </li>
+    </ul>
+
+    <div class="header-actions-dock">
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="คลิกเพื่อสลับโหมด สีขาว / สีมืด">
+        <span id="themeToggleText">THEME: LIGHT</span>
+      </button>
+      <button class="mobile-toggle" id="mobileMenuBtn" onclick="toggleMobileNav()">MENU</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     HERO SHOWCASE FRAME (สไตล์กรอบแสงนีออน คมเข้ม เรซซิ่ง เหมือนในรูปตัวอย่าง)
+     ========================================================================== -->
+<section class="hero-stage" id="top">
+  <div class="hero-showcase-frame" id="heroShowcaseFrame">
+    <!-- Video Background (Nissan GT-R Drift) -->
+    <div class="hero-bg-video-wrapper">
+      <video id="heroBgVideo" class="hero-bg-video" autoplay muted playsinline preload="auto">
+        <source src="nissan_gtr_drift.mp4" type="video/mp4">
+        <source src="nissan_gtr_drift_with_sound (1).mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-tint-overlay"></div>
+    </div>
+
+    <div class="hero-bg-speedlines"></div>
+    
+    <div class="hero-content" id="heroContent">
+      <div class="hero-emblem-box">
+        <div class="hero-logo-frame" id="heroLogoContainer">
+          <div class="wheel-stage" id="wheelStage">
+            <canvas class="sparks-canvas" id="sparksCanvas" width="500" height="320"></canvas>
+            <div class="burnout-flash" id="burnoutFlash"></div>
+            <img src="image.png" alt="RACE ZONE PROJECT" id="mainWheelLogo" class="hero-emblem-img" width="210" height="210" style="width:210px; max-width:210px; height:210px; max-height:210px; object-fit:contain;" onclick="triggerTestLaunch()">
+          </div>
+        </div>
+        <div class="hero-project-tag">PROJECT // FIVEM MOTORSPORT</div>
+      </div>
+
+      <p class="hero-description">
+        <b>FiveM ROLEPLAY</b> · ศูนย์รวมกฎกติกาการแข่งขันและข้อบังคับเมืองอย่างเป็นทางการ สำหรับประชาชน นักแข่ง และเจ้าหน้าที่รัฐ
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#police" class="btn-slanted-orange">
+          <span>อ่านกฎงานดำ</span>
+        </a>
+        <a href="#race" class="btn-slanted-cyan">
+          <span>กฎสนามแข่ง Race Zone</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     3 SHOWCASE FEATURE CARDS (สไตล์เหมือนรูปตัวอย่าง 3 กล่อง กรอบส้ม/ฟ้า)
+     ========================================================================== -->
+<div class="quick-nav-pills-dock">
+  <div class="pills-dock-header">
+    <h3>เลือกอ่านกฎตามหมวดหมู่และอาชีพ</h3>
+    <small>DIRECT SELECTION DIRECTORY</small>
+  </div>
+  <div class="dept-quick-nav-pills">
+    <a href="#city" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">CITY</span> <span>กฎเมือง & ใบเหลืองใบแดง</span></a>
+    <a href="#race" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-orange);">RACE</span> <span>กติกาการแข่งขัน & ธง FIA</span></a>
+    <a href="#story" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-orange);">STORY</span> <span>กฎเปิด Story & เงินเดิมพัน</span></a>
+    <a href="#police" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">POLICE</span> <span>กฎงานดำตำรวจ (21 ข้อ)</span></a>
+    <a href="#medic" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-orange);">MEDIC</span> <span>กฎหมอ & อัตราค่าชุบ</span></a>
+    <a href="#mech" class="dept-pill-btn"><span class="pill-badge" style="background:var(--neon-cyan);">GARAGE</span> <span>กฎเหล็กช่าง & อัตราค่าบริการ</span></a>
+  </div>
+</div>
+
+<!-- QUICK SEARCH -->
+<div class="search-bar-wrapper">
+  <div class="search-input-box">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="ruleSearchInput" placeholder="พิมพ์ค้นหาข้อความกฎในหน้านี้ เช่น ยางแตก, Taser, หมอ, ช่าง, 5M, ธงเหลือง..." autocomplete="off">
+  </div>
+</div>
+
+<!-- ==========================================================================
+     MAIN SCROLL-DOWN SECTIONS WITH SIDE VEHICLE ZOOM ANIMATIONS
+     ========================================================================== -->
+<!-- ==========================================================================
+     LIVE SEARCH RESULTS DOCK (INSTANT ZERO-SCROLL SEARCH)
+     ========================================================================== -->
+<div id="searchResultsDock" class="search-results-dock" style="display: none;">
+  <div class="search-results-bar">
+    <div class="search-results-info">
+      <span class="search-count-pill" id="searchCountBadge">0</span>
+      <span class="search-results-label" id="searchQueryLabel">ผลการค้นหา</span>
+    </div>
+    <button type="button" class="search-clear-action" onclick="clearRuleSearch()">
+      ✕ ล้างการค้นหา
+    </button>
+  </div>
+
+  <div class="search-results-grid" id="searchResultsGrid">
+    <!-- Matched cards injected here dynamically -->
+  </div>
+
+  <div class="search-empty-state" id="searchEmptyState" style="display: none;">
+    <h4>ไม่พบหัวข้อที่ตรงกับคำค้นหา</h4>
+    <p>ลองค้นหาด้วยคำอื่น หรือคลิกเลือกคำค้นหาแนะนำด้านล่าง:</p>
+    <div class="search-quick-tags">
+      <span class="search-quick-tag" onclick="quickSearchTag('Taser')">Taser</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('ยางแตก')">ยางแตก</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('หมอ')">หมอ</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('ช่าง')">ช่าง</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('ธงเหลือง')">ธงเหลือง</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('ใบเตือน')">ใบเตือน</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('5M')">5M</span>
+      <span class="search-quick-tag" onclick="quickSearchTag('เงินเดิมพัน')">เงินเดิมพัน</span>
+    </div>
+  </div>
+</div>
+
+<main class="content-wrapper">
+
+    <!-- ==================== PART 1 : กฎเมือง (จากหน้า กฎ Race zone) ==================== -->
+  <section id="city" class="page" data-page="city">
+
+    <!-- VEHICLE TRACK 1: GT3 RACING CAR (ซิ่งทะลุจากซ้ายไปขวา ไม่บังข้อความ) -->
+    <div class="section-speed-track" id="track-city">
+      <div class="speed-track-lane"></div>
+      <svg class="speeding-car drive-across" id="car-city" viewBox="0 0 160 50" fill="none">
+        <path d="M10 32 L35 32 L48 18 L100 18 L125 28 L150 30 L154 36 L148 40 L10 40 Z" fill="#ff7a00"/>
+        <path d="M50 20 L96 20 L118 28 L50 28 Z" fill="#0d1b2e"/>
+        <rect x="12" y="14" width="22" height="4" fill="#0d1b2e"/>
+        <rect x="16" y="18" width="4" height="14" fill="#0d1b2e"/>
+        <rect x="28" y="18" width="4" height="14" fill="#0d1b2e"/>
+        <circle cx="38" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <circle cx="126" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <polygon points="152,32 185,25 185,42 152,36" fill="rgba(0,180,216,0.5)"/>
+        <polygon points="4,34 -15,31 -10,36 -18,37 4,37" fill="#00b4d8"/>
+      </svg>
+    </div>
+
+    <div class="section-banner-card reveal-item" data-part="01">
+      <small>Server Charter</small>
+      <h2>กฎ Race zone (กฎเมือง & Roleplay)</h2>
+      <p>คัดลอกจาก Google Sites ทางการ · ผู้เล่นทุกคนต้องศึกษาและปฏิบัติตามอย่างเคร่งครัด</p>
+    </div>
+
+    <h3 class="section-sub-title reveal-item" id="terms">คำนิยามศัพท์บทบาทและข้อห้าม</h3>
+    <div class="def-grid-list">
+      <!-- IC -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>In Character</b>
+          <span class="badge-tag badge-blue">IC</span>
+        </div>
+        <div class="def-desc-col">คือ เป็นการพูดคุยของตัวละครในเกมไม่เกี่ยวกับชีวิตจริงของเรา</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('In Character [IC] คือ เป็นการพูดคุยของตัวละครในเกมไม่เกี่ยวกับชีวิตจริงของเรา')">คัดลอก</button>
+      </div>
+
+      <!-- OOC -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Out Of Character</b>
+          <span class="badge-tag badge-gray">OOC</span>
+        </div>
+        <div class="def-desc-col">คือ การพูดคุยนอกบทบาทหรือการพูดคุยในชีวิตจริงๆของเรานั้นเอง ซื่งต่างจากการคุยแบบ IC อย่างชัดเจน</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Out Of Character [OOC] คือ การพูดคุยนอกบทบาทหรือการพูดคุยในชีวิตจริงๆของเรานั้นเอง ซื่งต่างจากการคุยแบบ IC อย่างชัดเจน')">คัดลอก</button>
+      </div>
+
+      <!-- PG -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Power gaming</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">PG</span>
+        </div>
+        <div class="def-desc-col">คือการกระทำที่เกินคนปกติในชีวิตจริงเขาทำได้ เช่น ไม่กลัวรถชน หรือการไม่รักชีวิต</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Power gaming [PG] คือการกระทำที่เกินคนปกติในชีวิตจริงเขาทำได้ เช่น ไม่กลัวรถชน หรือการไม่รักชีวิต')">คัดลอก</button>
+      </div>
+
+      <!-- MG -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Metagaming</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">MG</span>
+        </div>
+        <div class="def-desc-col">คือการนำ IC OOC มารวมกัน คือนำบทบาทของตัวละครมาปนกับชีวิตจริง (ยกเว้นใช้ในการแข่งขันหรือพูดคุยในทีมเท่านั้น) <span class="hl-red">ไม่สามารถนำเรื่องราว ooc มาพูดบัพหรือด่าทอผู้อื่นได้</span></div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Metagaming [MG] คือการนำ IC OOC มารวมกัน คือนำบทบาทของตัวละครมาปนกับชีวิตจริง ไม่สามารถนำเรื่องราว ooc มาพูดบัพหรือด่าทอผู้อื่นได้')">คัดลอก</button>
+      </div>
+
+      <!-- DM -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Deathmatch</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">DM</span>
+        </div>
+        <div class="def-desc-col">เป็นการยิงที่ไม่มีบทบาทที่คุณสามารถเจอใครคุณสามารถยิงได้เลย ซึ่งมันผิดจากกฏชีวิตจริงและกฏ Roleplay</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Deathmatch [DM] เป็นการยิงที่ไม่มีบทบาทที่คุณสามารถเจอใครคุณสามารถยิงได้เลย ซึ่งมันผิดจากกฏชีวิตจริงและกฏ Roleplay')">คัดลอก</button>
+      </div>
+
+      <!-- SK -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Spawn Kill</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">SK</span>
+        </div>
+        <div class="def-desc-col">คือการฆ่าตรงจุดต้องห้ามหรือจุดเกิดต่างๆภายในประเทศ เป็นกฏที่ตั้งขึ้นมากันผู้เล่น</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Spawn Kill [SK] คือการฆ่าตรงจุดต้องห้ามหรือจุดเกิดต่างๆภายในประเทศ เป็นกฏที่ตั้งขึ้นมากันผู้เล่น')">คัดลอก</button>
+      </div>
+
+      <!-- DB -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Drive-by</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">DB</span>
+        </div>
+        <div class="def-desc-col">คือการขับรถชนให้ผู้เล่นท่านอื่นถึงแก่ชีวิต หรือการฆ่าคนด้วยรถ</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Drive-by [DB] คือการขับรถชนให้ผู้เล่นท่านอื่นถึงแก่ชีวิต หรือการฆ่าคนด้วยรถ')">คัดลอก</button>
+      </div>
+
+      <!-- Combat Storing -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Combat Storing</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">CS</span>
+        </div>
+        <div class="def-desc-col">ไม่อนุญาตให้ผู้เล่นเก็บยานพาหนะในขณะที่บทบาทกำลังดำเนินอยู่ เพิ่มเติมในกรณีผู้เล่นอยู่ในระหว่างถูกไล่ล่า แล้วผู้เล่นกลับหนีเข้าการาจเพื่อเก็บรถเข้าไปในการาจ <span class="hl-red">หากมีผู้เล่นเข้ามาแจ้งจะถือว่าผิดกฎเซิร์ฟทันที</span></div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Combat Storing ไม่อนุญาตให้ผู้เล่นเก็บยานพาหนะในขณะที่บทบาทกำลังดำเนินอยู่ รวมถึงกรณีหนีเข้าการาจเพื่อเก็บรถ')">คัดลอก</button>
+      </div>
+
+      <!-- BK -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Breaking</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">BK</span>
+        </div>
+        <div class="def-desc-col">คือการกระทำให้เสียบรรยากาศการเล่นของผู้คนโดยรอบ หรือการกระทำที่กระทบไปยังบทบาทของผู้เล่นอื่นส่งผลให้ผู้เล่นอื่นไม่สามารถสวมบทบาทต่อไปได้</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Breaking [BK] คือการกระทำให้เสียบรรยากาศการเล่นของผู้คนโดยรอบ หรือกระทบบทบาทผู้เล่นอื่น')">คัดลอก</button>
+      </div>
+
+      <!-- QG -->
+      <div class="def-card-row reveal-item" data-rule-entry>
+        <div class="def-title-col">
+          <b>Quitting Game</b>
+          <span class="badge-tag badge-red" data-status="ละเมิด">QG</span>
+        </div>
+        <div class="def-desc-col">กฏนี้ว่าด้วยเรื่อง ผู้เล่นคนนึงได้ออกเกมขณะที่ดำเนินการบทบาทภายใน IC โดยเป็นการออกเกมอย่างจงใจ หากคุณมีเหตุธุระจำเป็นจริงๆ ให้แจ้งทาง OOC แก่ผู้เล่นที่เป็นฝ่ายที่มีส่วนเกี่ยวข้องกับเรื่องนั้นจริงๆ และต้องได้รับการยินยอมจากทุกฝ่ายที่มีส่วนกับบทบาทนั้น หากได้รับการยินยอมก็สามารถออกเกมได้ หากไม่ก็ต้องอยู่จนจบบทบาท</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Quitting Game [QG] การจงใจออกจากเกมขณะบทบาทดำเนินอยู่ ต้องแจ้ง OOC และได้รับความยินยอมจากทุกฝ่ายก่อน')">คัดลอก</button>
+      </div>
+    </div>
+
+    <!-- Fair Play & Respect Player -->
+    <h3 class="section-sub-title reveal-item" id="fair">หลักการเล่นร่วมกัน (Fair Play & Respect)</h3>
+    <div class="def-grid-list">
+      <div class="def-card-row reveal-item" data-rule-entry style="border-left: 3.5px solid var(--green);">
+        <div class="def-title-col">
+          <b>Fair Play</b>
+          <span class="badge-tag badge-green">การเล่นอย่างยุติธรรม</span>
+        </div>
+        <div class="def-desc-col">คือ การที่ผู้เล่นต้องเคารพในกฏของเซิฟเวอร์ กฏหมายภายในเมืองเพื่อให้การดำเนินการสวมบทบาทเป็นไปตามเนื้อเรื่องอย่างลื่นไหล และสนุกสนานแก่ตัวผู้เล่นและคนรอบข้าง</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Fair Play [การเล่นอย่างยุติธรรม] คือ การที่ผู้เล่นต้องเคารพในกฏของเซิฟเวอร์ กฏหมายภายในเมืองเพื่อให้การดำเนินการสวมบทบาทเป็นไปตามเนื้อเรื่องอย่างลื่นไหล')">คัดลอก</button>
+      </div>
+
+      <div class="def-card-row reveal-item" data-rule-entry style="border-left: 3.5px solid var(--green);">
+        <div class="def-title-col">
+          <b>Respect Player</b>
+          <span class="badge-tag badge-green">การเคารพกันและกัน</span>
+        </div>
+        <div class="def-desc-col">คือ ผู้เล่นต้องให้เกียรติซึ่งกันและกัน ทางทีมงานไม่อนุญาตให้พูดจาสบถบนเซิร์ฟเวอร์ได้ต้องอยู่ในขอบเขตที่เหมาะสมและไม่ดูหมิ่นหรือเหยียดผู้เล่นท่านอื่น หรือการเหยียดเพศสภาพ เหยียดศาสนา เหยียดเชื้อชาติ ทั้งในบทบาทและนอกบทบาทของตัวละคร</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Respect Player [การเคารพกันและกัน] คือ ผู้เล่นต้องให้เกียรติซึ่งกันและกัน ไม่อนุญาตให้พูดจาสบถ ไม่ดูหมิ่นหรือเหยียดเพศสภาพ ศาสนา เชื้อชาติ')">คัดลอก</button>
+      </div>
+    </div>
+
+    <!-- กฎใบเหลืองใบแดงทางการ -->
+    <h3 class="section-sub-title reveal-item" id="city-penalty">บทลงโทษและกฎใบเตือน</h3>
+    <div class="card-duel reveal-item">
+      <span class="pcard y"></span><span class="op">+</span><span class="pcard y"></span><span class="op">=</span><span class="pcard r"></span>
+      <p><b>ใบเหลือง 2 ใบเท่ากับใบแดงทันที</b><br>ถ้าตักเตือนแล้วพบเห็นหรือได้รับแจ้งอีก <b class="hl-red">” คุณจะถูกปลดไวลิสทันที ”</b></p>
+    </div>
+    <div class="notice-box danger reveal-item" style="text-align: center; font-weight: 700; font-size: 15px;">
+      <span class="badge-tag badge-red" style="margin-right:8px; vertical-align:middle;">FINAL DECISION</span> การตัดสินจากทางทีมงานถือว่าเป็นที่สิ้นสุด
+    </div>
+  </section>
+
+  <!-- ==================== PART 2 : กติกาการแข่งขัน (จากหน้า กติกาการแข่งขัน) ==================== -->
+  <section id="race" class="page" data-page="race">
+
+    <!-- VEHICLE TRACK 2: FORMULA CAR (ซิ่งทะลุจากขวาไปซ้าย) -->
+    <div class="section-speed-track" id="track-race">
+      <div class="speed-track-lane"></div>
+      <svg class="speeding-car drive-across-reverse" id="car-race" viewBox="0 0 160 50" fill="none">
+        <path d="M150 28 L120 28 L95 24 L50 24 L30 30 L8 32 L8 36 L150 36 Z" fill="#ef4444"/>
+        <rect x="70" y="16" width="20" height="8" rx="3" fill="#0d1b2e"/>
+        <rect x="135" y="12" width="18" height="4" fill="#0d1b2e"/>
+        <rect x="140" y="16" width="4" height="14" fill="#0d1b2e"/>
+        <rect x="4" y="32" width="16" height="4" fill="#0d1b2e"/>
+        <circle cx="34" cy="36" r="10" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <circle cx="124" cy="36" r="11" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <polygon points="152,34 175,30 168,36 178,38 152,38" fill="#f59e0b"/>
+      </svg>
+    </div>
+
+    <div class="section-banner-card reveal-item" data-part="02" style="border-left-color: var(--neon-cyan);">
+      <small>Circuit Regulations</small>
+      <h2>กติกาการแข่งขัน Race Zone</h2>
+      <p>คัดลอกจาก Google Sites ทางการ · ขั้นตอนการแข่ง ธงสัญญาณ มารยาท และบทลงโทษนักแข่ง</p>
+    </div>
+
+    <!-- 4 ขั้นตอนการแข่งขันตาม Google Site -->
+    <h3 class="section-sub-title reveal-item" id="race-step">ขั้นตอนการแข่งขัน (4 สเต็ปหลัก)</h3>
+    <div class="start-lights reveal-item" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i></div>
+    <div class="race-phases-grid">
+      <!-- 1. Free Practice -->
+      <div class="phase-card reveal-item" data-rule-entry>
+        <div class="phase-idx">01</div>
+        <div class="phase-name">Free Practice (รอบซ้อมอิสระ)</div>
+        <div class="phase-desc">
+          <b>วัตถุประสงค์:</b> ให้นักแข่งได้ทำความคุ้นเคยกับไลน์สนาม และให้ทีมช่างได้เซ็ตอัพตัวรถ (เช่น ปรับปรุงระบบช่วงล่าง อัตราทดเกียร์ และเลือกใช้คอมพาวด์ยาง)<br>
+          <b>รูปแบบ:</b> นักแข่งจะขับกี่รอบก็ได้ภายในเวลาที่กำหนด (ปกติ 30-60 นาที) โดยเวลาในรอบนี้จะยังไม่ถูกนำมาคิดเป็นอันดับบนกริดสตาร์ท
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Free Practice: ซ้อมอิสระ 30-60 นาที ปรับเซ็ตอัพช่วงล่าง เกียร์ ยาง ยังไม่นับอันดับกริด')">คัดลอก</button>
+      </div>
+
+      <!-- 2. Qualifying -->
+      <div class="phase-card reveal-item" data-rule-entry>
+        <div class="phase-idx">02</div>
+        <div class="phase-name">Qualifying (รอบคัดเลือก / จับเวลา)</div>
+        <div class="phase-desc">
+          <b>วัตถุประสงค์:</b> เป็นการวิ่งเพื่อทำเวลาต่อรอบ (Lap Time) ให้เร็วที่สุด เพื่อจัดอันดับ Grid Position ในรอบแข่งขันจริง โดยผู้ที่ทำเวลาได้เร็วที่สุดจะได้อยู่ในตำแหน่ง Pole Position (หัวแถวสุด)<br>
+          <b>รูปแบบที่นิยมใช้:</b><br>
+          • <b>Knockout (Q1, Q2, Q3):</b> คัดรถที่ทำเวลาช้าที่สุดออกในแต่ละรอบ จนเหลือ 10 คันสุดท้ายมาแย่งชิง Pole ใน Q3<br>
+          • <b>Super Pole / Top 10 Shootout:</b> ปล่อยรถแข่งออกไปจับเวลาทีละคัน คันละ 1-2 รอบสนาม เพื่อวัดความเร็วแบบไม่มีรถคันอื่นขวาง<br>
+          • <b>Time Attack:</b> ปล่อยรถลงสนามพร้อมกันในเวลาที่กำหนด (เช่น 15-30 นาที) ใครทำรอบที่เร็วที่สุดได้ก่อนหมดเวลาก็จะได้ตำแหน่งที่ดีไป
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Qualifying: รอบจับเวลาต่อรอบเพื่อจัดตำแหน่งออกตัว Grid Position / Pole Position')">คัดลอก</button>
+      </div>
+
+      <!-- 3. Formation Lap -->
+      <div class="phase-card reveal-item" data-rule-entry>
+        <div class="phase-idx">03</div>
+        <div class="phase-name">Formation Lap (รอบอุ่นเครื่อง)</div>
+        <div class="phase-desc">
+          <b>วัตถุประสงค์:</b> หลังจากรถทุกคันเข้าประจำที่บนกริดสตาร์ทแล้ว รถ Safety Car จะนำขบวนรถแข่งวิ่งวนรอบสนาม 1 รอบ<br>
+          <b>กติกาสำคัญ:</b> นักแข่งจะใช้รอบนี้ในการเลี้ยวสลับไปมาเพื่อวอร์มหน้ายางและเบรกให้ได้อุณหภูมิที่พร้อมทำงาน <span class="hl-red">ห้ามมีการขับแซงกันในรอบนี้</span> เว้นแต่รถคันหน้าจะมีปัญหาทางเทคนิค
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Formation Lap: รอบอุ่นเครื่องตามหลัง Safety Car เพื่อวอร์มยางและเบรก ห้ามแซงเด็ดขาด')">คัดลอก</button>
+      </div>
+
+      <!-- 4. Main Race -->
+      <div class="phase-card reveal-item" data-rule-entry>
+        <div class="phase-idx">04</div>
+        <div class="phase-name">Main Race (รอบแข่งขันจริง)</div>
+        <div class="phase-desc">
+          เป็นช่วงที่ตัดสินผลแพ้ชนะ โดยรูปแบบการวิ่งจะแบ่งออกเป็น 2 ประเภทใหญ่ๆ ตามกติกาของแต่ละรายการ:<br>
+          • <b>Sprint Race (เน้นความเร็ว):</b> แข่งขันกันด้วยจำนวนรอบที่กำหนดแน่นอน (เช่น 15 รอบ หรือ 20 รอบ) หรือกำหนดเวลาสั้นๆ (เช่น 30 นาที) ใครเข้าเส้นชัยเป็นคันแรกคือผู้ชนะ มักไม่มีการเข้าพิทสต็อป ยกเว้นรถเสียหายหรือฝนตก<br>
+          • <b>Endurance Race (เน้นความอึด):</b> แข่งขันกันด้วยข้อจำกัดของเวลาที่ยาวนาน เช่น 3 ชั่วโมง, 6 ชั่วโมง, 12 ชั่วโมง หรือสูงสุด 24 ชั่วโมง (เช่น 24 Hours of Le Mans) เน้นความทนทาน วางกลยุทธ์เข้าพิทเปลี่ยนยาง เติมน้ำมัน และต้องสลับตัวนักแข่ง (2-4 คนต่อรถ 1 คัน)
+        </div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Main Race: Sprint Race (วิ่งนับรอบ/เวลาสั้น) vs Endurance Race (แข่งความอึด สลับนักแข่ง 2-4 คน)')">คัดลอก</button>
+      </div>
+    </div>
+
+    <!-- กติกาด้านธงสัญญาณตาม Google Site -->
+    <h3 class="section-sub-title reveal-item" id="flags">กติกาด้านธงสัญญาณ (Flag Signals)</h3>
+
+    <!-- หมวด 1: ธงสภาวะปกติ -->
+    <div class="group-label reveal-item">
+      <span class="badge-tag badge-green" style="margin-right:8px; vertical-align:middle;">INDICATIVE</span> ธงที่แจ้งสภาวะปกติหรือให้สัญญาณ (Indicative Flags)
+    </div>
+    <div class="flag-cards-grid reveal-item">
+      <!-- ธงเขียว -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background:#10b981;"></div>
+        <div>
+          <div class="flag-name" style="color:#10b981;">ธงเขียว (Green Flag)</div>
+          <div class="flag-meaning">เปิดแทร็กหรือเคลียร์เส้นทาง แสดงว่าแทร็กปลอดภัยจากเหตุการณ์ก่อนหน้าแล้ว หรือใช้โบกเพื่อเริ่มการซ้อม/จับเวลา</div>
+        </div>
+      </div>
+      <!-- ธงตราหมากรุก -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 14px 14px; border:1px solid #cbd5e1;"></div>
+        <div>
+          <div class="flag-name" style="color:var(--text-white);">ธงตาหมากรุก (Chequered Flag)</div>
+          <div class="flag-meaning">สิ้นสุดการแข่งขัน โบกเมื่อรถคันแรกวิ่งเข้าเส้นชัยเพื่อจบช่วงการซ้อม จับเวลา หรือการแข่งรอบสุดท้าย</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- หมวด 2: ธงเตือนอันตราย -->
+    <div class="group-label reveal-item">
+      <span class="badge-tag badge-yellow" style="margin-right:8px; vertical-align:middle;">HAZARD</span> ธงเตือนอันตราย (Hazard Flags)
+    </div>
+    <div class="flag-cards-grid reveal-item">
+      <!-- ธงเหลือง -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background:#eab308;"></div>
+        <div>
+          <div class="flag-name" style="color:#eab308;">ธงเหลือง (Yellow Flag)</div>
+          <div class="flag-meaning">
+            มีอันตรายข้างหน้า <span class="hl-red">ห้ามแซงเด็ดขาด</span> และต้องชะลอความเร็ว<br>
+            • <b>โบกเดี่ยว (Single Waved):</b> มีอุบัติเหตุหรือสิ่งกีดขวางอยู่ข้างทาง<br>
+            • <b>โบกคู่ (Double Waved):</b> แทร็กถูกปิดกั้นทั้งหมด หรือมีเจ้าหน้าที่กำลังปฏิบัติงานบนแทร็ก ต้องพร้อมที่จะหยุดรถได้ทันที
+          </div>
+        </div>
+      </div>
+      <!-- ธงแดง -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background:#ef4444;"></div>
+        <div>
+          <div class="flag-name" style="color:#ef4444;">ธงแดง (Red Flag)</div>
+          <div class="flag-meaning">หยุดการแข่งขันชั่วคราว เกิดอุบัติเหตุร้ายแรง สภาพอากาศเลวร้าย หรือสนามแข่งชำรุดจนไม่ปลอดภัย รถแข่งทุกคันต้องชะลอความเร็วและขับกลับเข้าพิทเลนอย่างเป็นระเบียบ</div>
+        </div>
+      </div>
+      <!-- ธงลายทางแดง-เหลือง -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background: repeating-linear-gradient(45deg, #ef4444, #ef4444 8px, #eab308 8px, #eab308 16px);"></div>
+        <div>
+          <div class="flag-name" style="color:#f59e0b;">ธงลายทางแดง-เหลือง (Slippery Surface)</div>
+          <div class="flag-meaning">เตือนว่าสภาพผิวแทร็กมีการเปลี่ยนแปลง เช่น มีคราบน้ำมัน หรือน้ำฝนตกเฉพาะจุด ทำให้รถเกิดอาการลื่นไถลได้ง่าย</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- หมวด 3: ธงคำสั่งและบทลงโทษเฉพาะคัน -->
+    <div class="group-label reveal-item">
+      <span class="badge-tag badge-red" style="margin-right:8px; vertical-align:middle;">DISCIPLINARY</span> ธงคำสั่งและบทลงโทษเฉพาะคัน (Instruction & Disciplinary Flags)
+    </div>
+    <div class="flag-cards-grid reveal-item">
+      <!-- ธงฟ้า -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background:#0284c7;"></div>
+        <div>
+          <div class="flag-name" style="color:#0284c7;">ธงฟ้า (Blue Flag)</div>
+          <div class="flag-meaning">เตือนรถที่วิ่งช้ากว่าหรือกำลังจะโดนน็อกรอบ (Lapped Car) ว่ามีรถแข่งผู้นำที่เร็วกว่ากำลังจะแซง รถคันที่เห็นธงนี้ต้องเปิดทางให้แซงอย่างปลอดภัยภายใน 3 โค้ง</div>
+        </div>
+      </div>
+      <!-- ธงดำ -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background:#111; border:1px solid #475569;"></div>
+        <div>
+          <div class="flag-name" style="color:var(--text-white);">ธงดำ (Black Flag)</div>
+          <div class="flag-meaning">ตัดสิทธิ์จากการแข่งขัน (Disqualified) จะโบกพร้อมป้ายหมายเลขรถคันนั้น นักแข่งต้องนำรถกลับเข้าพิทเลนทันที มักใช้กับความผิดร้ายแรง</div>
+        </div>
+      </div>
+      <!-- ธงดำส้ม Meatball -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background: radial-gradient(circle, #f97316 38%, #111 40%); border:1px solid #475569;"></div>
+        <div>
+          <div class="flag-name" style="color:#f97316;">ธงดำจุดส้ม (Meatball Flag)</div>
+          <div class="flag-meaning">รถของคุณมีความเสียหายทางเทคนิคที่เป็นอันตรายต่อตัวเองและผู้อื่น (เช่น ชิ้นส่วนหลุด สปอยเลอร์ห้อย) ต้องนำรถเข้าพิทเลนเพื่อซ่อมแซมทันที</div>
+        </div>
+      </div>
+      <!-- ธงขาว-ดำ ครึ่งทแยง -->
+      <div class="flag-card" data-rule-entry>
+        <div class="flag-swatch-box" style="background: linear-gradient(135deg, #111 50%, #fff 50%); border:1px solid #475569;"></div>
+        <div>
+          <div class="flag-name" style="color:var(--text-white);">ธงขาว-ดำ (Unsportsmanlike Conduct)</div>
+          <div class="flag-meaning">ตักเตือนพฤติกรรมการขับขี่ที่ไม่เหมาะสม (เช่น ขับเบียดอันตราย ขับส่ายไปมาเพื่อกันทาง) เป็นการเตือนครั้งสุดท้ายก่อนจะโดนธงดำ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- กฎการแซงและมารยาทในสนามตาม Google Site -->
+    <h3 class="section-sub-title reveal-item" id="driving-standards">กฎการแซงและมารยาทในสนาม (Driving Standards)</h3>
+    <div class="def-grid-list reveal-item">
+      <div class="def-card-row" data-rule-entry>
+        <div class="def-title-col">
+          <b>การป้องกันตำแหน่ง</b>
+          <span class="badge-tag badge-yellow">One Move Rule</span>
+        </div>
+        <div class="def-desc-col">นักแข่งคันหน้าได้รับอนุญาตให้เปลี่ยนไลน์วิ่งเพื่อป้องกันตำแหน่งได้เพียง <b>1 ครั้งเท่านั้น (One Move Rule)</b> <span class="hl-red">ห้ามขับส่ายไปมาเพื่อบังไลน์คู่แข่ง (Weaving)</span></div>
+        <button class="btn-copy-chip" onclick="copyRuleText('การป้องกันตำแหน่ง: เปลี่ยนไลน์ป้องกันได้เพียง 1 ครั้ง ห้ามขับส่ายไปมาบังไลน์ (Weaving)')">คัดลอก</button>
+      </div>
+
+      <div class="def-card-row" data-rule-entry>
+        <div class="def-title-col">
+          <b>สิทธิ์ในโค้ง</b>
+          <span class="badge-tag badge-blue">Corner Rights</span>
+        </div>
+        <div class="def-desc-col">หากรถคันหลังสามารถสอดหน้ารถขึ้นมาตีคู่ได้ในระดับ <b>"ล้อหน้าเสมอประตูกลางลำของคันหน้า"</b> ก่อนถึงจุดเลี้ยว (Apex) รถคันนอกจะต้องเว้นพื้นที่อย่างน้อย <b>1 ความกว้างตัวรถ (Leave a Space)</b> ให้คันในเสมอ ห้ามบีบหรือเบียดคู่แข่งหลุดแทร็ก</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('สิทธิ์ในโค้ง: หากล้อหน้าเสมอประตูกลางลำก่อนถึง Apex รถคันนอกต้องเว้นพื้นที่อย่างน้อย 1 คันรถ (Leave a Space)')">คัดลอก</button>
+      </div>
+
+      <div class="def-card-row" data-rule-entry>
+        <div class="def-title-col">
+          <b>Track Limits</b>
+          <span class="badge-tag badge-red">ขอบเขตสนาม</span>
+        </div>
+        <div class="def-desc-col">ขอบเขตสนามถูกกำหนดด้วยเส้นสีขาวริมแทร็ก รถแข่งต้องมีล้ออย่างน้อย 1 ล้อสัมผัสเส้นสีขาวหรือเคิร์บ (Curb) ตลอดเวลา หากหลุดออกนอกเส้นทั้ง 4 ล้อจะถือว่าผิด Track Limits (หากทำเกิน 3 ครั้งจะถูกปรับโทษเวลา)</div>
+        <button class="btn-copy-chip" onclick="copyRuleText('Track Limits: ต้องมีอย่างน้อย 1 ล้อสัมผัสเส้นขาวหรือเคิร์บ หลุด 4 ล้อเกิน 3 ครั้งโดนปรับเวลา')">คัดลอก</button>
+      </div>
+    </div>
+
+    <!-- บทลงโทษและการตัดสินตาม Google Site -->
+        <!-- กติกาบทลงโทษและการตัดสินตาม Google Site (ดีไซน์อ่านง่าย ชัดเจน แบบ Motorsport Stewards) -->
+    <h3 class="section-sub-title reveal-item" id="race-penalty">บทลงโทษและการตัดสิน (Penalties & Stewards)</h3>
+    
+    <!-- 1. ระหว่างการแข่งขัน -->
+    <div class="group-label reveal-item">
+      1. บทลงโทษระหว่างการแข่งขัน (In-Race Penalties)
+    </div>
+    <div class="penalty-cards-grid reveal-item">
+      <!-- Card 1: Time Penalty -->
+      <div class="penalty-card severity-amber" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-amber">TIME PENALTY</span>
+            <span class="penalty-timing-tag">+5s / +10s</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('5-Second / 10-Second Time Penalty: บวกเวลา 5 หรือ 10 วินาที เมื่อเข้าพิทสต็อปทีมช่างต้องยืนนิ่งห้ามสัมผัสรถตามเวลาที่กำหนด หรือหากไม่เข้าพิทจะนำไปบวกเพิ่มหลังจบการแข่งขัน')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">5-Second / 10-Second Time Penalty (โทษบวกเวลา)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ</span>
+          <p class="penalty-action-text">
+            บวกเวลา 5 หรือ 10 วินาที เมื่อเข้าพิทสต็อป <b>ทีมช่างต้องยืนนิ่งห้ามสัมผัสรถ</b> ตามเวลาที่กำหนด หากไม่เข้าพิทจะนำไปบวกเพิ่มในเวลารวมหลังจบการแข่งขันทันที
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">ออกนอก Track Limits ซ้ำซาก</span>
+            <span class="penalty-tag">ขับเบียดคู่แข่งหลุดแทร็กเล็กน้อย</span>
+            <span class="penalty-tag">ออกตัวก่อนสัญญาณไฟ (Jump Start)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Drive-Through -->
+      <div class="penalty-card severity-orange" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-orange">DRIVE-THROUGH</span>
+            <span class="penalty-timing-tag">PIT LANE SPEED</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('Drive-Through Penalty (ขับผ่านพิทเลน): นักแข่งต้องขับรถผ่านพิทเลนโดยจำกัดความเร็วตามกฎพิทเลน และ ห้ามแวะจอดที่พิทบ็อกซ์ของตัวเองเด็ดขาด')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">Drive-Through Penalty (ขับผ่านพิทเลน)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ</span>
+          <p class="penalty-action-text">
+            นักแข่งต้องขับรถผ่านพิทเลนโดยจำกัดความเร็วตามกฎ Pit Speed Limit และ <b class="hl-red">ห้ามแวะจอดที่พิทบ็อกซ์ของตัวเองเด็ดขาด</b>
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">ขับรถเร็วเกินกำหนดในพิทเลน (Pit Lane Speeding)</span>
+            <span class="penalty-tag">ไม่ลดความเร็วภายใต้สัญญาณธงเหลือง</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Stop-and-Go -->
+      <div class="penalty-card severity-red" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-red">STOP & GO</span>
+            <span class="penalty-timing-tag">10 SECONDS</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('10-Second Stop-and-Go Penalty (จอดหยุดนิ่ง 10 วินาที): บทลงโทษในสนามที่รุนแรงที่สุด นักแข่งต้องขับเข้าพิทเลน จอดรถนิ่งๆ ที่พิทบ็อกซ์เป็นเวลา 10 วินาทีเต็ม โดยที่ทีมช่างห้ามสัมผัสหรือซ่อมแซมรถเด็ดขาด เมื่อครบเวลาจึงขับออกไปแข่งต่อได้')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">10-Second Stop-and-Go Penalty (จอดหยุดนิ่ง 10 วินาที)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ (รุนแรงที่สุดในสนาม)</span>
+          <p class="penalty-action-text">
+            นักแข่งต้องขับเข้าพิทเลน จอดรถนิ่งๆ ที่พิทบ็อกซ์เป็นเวลา 10 วินาทีเต็ม โดยที่ทีมช่าง <b class="hl-red">“ห้ามสัมผัสหรือซ่อมแซมรถเด็ดขาด”</b> เมื่อครบเวลาจึงขับออกไปแข่งต่อได้
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">ก่อให้เกิดอุบัติเหตุรุนแรงจากความประมาท</span>
+            <span class="penalty-tag">ละเมิดกฎความปลอดภัยร้ายแรง</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. หลังจบการแข่งขัน -->
+    <div class="group-label reveal-item">
+      2. บทลงโทษหลังจบการแข่งขัน (Post-Race Penalties)
+    </div>
+    <div class="penalty-cards-grid reveal-item">
+      <!-- Card 4: Post-Race Time Penalty -->
+      <div class="penalty-card severity-blue" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-blue">POST-RACE TIME</span>
+            <span class="penalty-timing-tag">OFFICIAL TIME ADDED</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('Post-Race Time Penalty: หากบทลงโทษระหว่างการแข่งขันไม่สามารถชดใช้ได้ทันก่อนการแข่งขันสิ้นสุด กรรมการจะเปลี่ยนโทษนั้นเป็นเวลาบวกเพิ่มในผลการแข่งขันอย่างเป็นทางการทันที')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">Post-Race Time Penalty (การแปลงโทษหลังจบเรซ)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ</span>
+          <p class="penalty-action-text">
+            หากบทลงโทษระหว่างการแข่งขัน (เช่น โทษบวกเวลา หรือ Drive-Through) ไม่สามารถชดใช้ได้ทันก่อนเรซสิ้นสุด กรรมการจะเปลี่ยนโทษนั้นเป็น <b>เวลาบวกเพิ่มในผลการแข่งขันอย่างเป็นทางการทันที</b> (เช่น แปลง Drive-Through เป็นการบวกเวลา 20 วินาทีหลังจบเรซ)
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">ได้รับโทษในรอบท้ายๆ ของการแข่งขัน</span>
+            <span class="penalty-tag">ไม่สามารถเข้าพิทชดใช้โทษได้ทันเวลา</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Disqualification (DQ) -->
+      <div class="penalty-card severity-crimson" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-crimson">DISQUALIFICATION (DQ)</span>
+            <span class="penalty-timing-tag">RESULT VOID</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('Disqualification (DQ - การตัดสิทธิ์จากการแข่งขัน): รายชื่อของนักแข่งคนนั้นจะถูกลบออกจากตารางสรุปอันดับ และจะไม่มีสิทธิ์ได้รับคะแนนสะสมในเรซนั้นๆ')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">Disqualification (DQ - การตัดสิทธิ์จากการแข่งขัน)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ</span>
+          <p class="penalty-action-text">
+            รายชื่อของนักแข่งคนนั้นจะถูก <b class="hl-red">ลบออกจากตารางสรุปอันดับ</b> และจะไม่มีสิทธิ์ได้รับคะแนนสะสมในเรซนั้นๆ โดยเด็ดขาด
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">น้ำหนักรถต่ำกว่าเกณฑ์หลังจบการแข่งขัน</span>
+            <span class="penalty-tag">ปริมาณน้ำมันเหลือไม่พอให้ตรวจสภาพ</span>
+            <span class="penalty-tag">ตัวรถละเมิดกฎทางเทคนิค (Technical Non-Conformity)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. บทลงโทษสำหรับเรซถัดไป -->
+    <div class="group-label reveal-item">
+      3. บทลงโทษสำหรับเรซถัดไป (Grid Penalties & Suspensions)
+    </div>
+    <div class="penalty-cards-grid reveal-item">
+      <!-- Card 6: Grid Drop -->
+      <div class="penalty-card severity-purple" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-purple">GRID PENALTY</span>
+            <span class="penalty-timing-tag">NEXT RACE DROP</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('Grid Drop Penalty (การลดอันดับบนกริดสตาร์ท): นักแข่งจะถูกปรับลดตำแหน่งสตาร์ทลงไปในการแข่งขันเรซถัดไป แม้ว่ารอบควอลิฟายจะทำเวลาได้อันดับ 1 ก็ตาม')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">Grid Drop Penalty (การลดอันดับบนกริดสตาร์ท)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ</span>
+          <p class="penalty-action-text">
+            นักแข่งจะถูกปรับลดตำแหน่งสตาร์ทลงไป (เช่น ลด 3 ตำแหน่ง, 5 ตำแหน่ง หรือต้องไปสตาร์ทจากท้ายแถว/ในพิทเลน) ในการแข่งขันเรซถัดไป แม้ว่ารอบควอลิฟายจะทำเวลาได้อันดับ 1 ก็ตาม
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">ขับรถชนคู่แข่งจนต้องออกจากการแข่งในเรซก่อนหน้า</span>
+            <span class="penalty-tag">เปลี่ยนชิ้นส่วนเครื่องยนต์เกินจำนวนโควตา</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Race Ban -->
+      <div class="penalty-card severity-ban" data-rule-entry>
+        <div class="penalty-card-top">
+          <div class="penalty-badge-group">
+            <span class="penalty-type-badge badge-ban">RACE BAN</span>
+            <span class="penalty-timing-tag">SUSPENSION</span>
+          </div>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('Race Ban (ห้ามลงทำการแข่งขัน): โทษขั้นรุนแรงสูงสุดต่อนักแข่ง โดยถูกสั่งห้ามลงแข่งในสนามถัดไปทันที (ทีมต้องส่งนักแข่งสำรองลงแทน)')">คัดลอก</button>
+        </div>
+        <h4 class="penalty-card-name">Race Ban (ห้ามลงทำการแข่งขันในสนามถัดไป)</h4>
+        <div class="penalty-action-box">
+          <span class="penalty-action-label">การบังคับใช้ / วิธีปฏิบัติ (โทษขั้นรุนแรงสูงสุด)</span>
+          <p class="penalty-action-text">
+            โทษขั้นรุนแรงสูงสุดต่อนักแข่ง โดยถูก <b class="hl-red">สั่งห้ามลงแข่งในสนามถัดไปทันที</b> (ทีมต้องส่งนักแข่งสำรองลงทำการแข่งขันแทน)
+          </p>
+        </div>
+        <div class="penalty-causes-box">
+          <span class="penalty-cause-label">ข้อหาที่พบบ่อย:</span>
+          <div class="penalty-cause-tags">
+            <span class="penalty-tag">สะสมแต้มใบดำ (Penalty Points) ครบตามกำหนดในรอบ 12 เดือน</span>
+            <span class="penalty-tag">จงใจขับรถชนคู่แข่งอย่างไม่ปลอดภัยหรือเจตนาร้าย</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== PART 2.5 : กฎการเปิด Story Race Zone (หน้าที่ 4 จาก Google Site) ==================== -->
+  <section id="story" class="page" data-page="story">
+    <div class="section-banner-card reveal-item" data-part="02.5" style="border-left-color: var(--neon-orange);">
+      <small>Story Regulations</small>
+      <h2>Story Race Zone (กฏการเปิด Story)</h2>
+      <p>คัดลอกจาก Google Sites ทางการ · กติกาทั่วไป รูปแบบการเกิดสตอรี่ และอัตราเงินเดิมพัน</p>
+    </div>
+
+    <!-- กติกาทั่วไป -->
+    <h3 class="section-sub-title reveal-item">กติกาทั่วไป Story Race Zone</h3>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry>รถที่จัดการแข่งขันจะเป็นรถส่วนตัว ในกรณีที่ตกลงกันไม่ได้จะเป็นรถกลางจากทีมงานให้ไปปรับแต่งเท่านั้น</li>
+      <li data-rule-entry>บางการแข่งขันอาจจะมีการบังคับเรื่องอะไหล่แต่ง เช่น เครื่อง เทอร์โบ เกียร์ ฯลฯ</li>
+      <li data-rule-entry>สามารถขอเทมเพลทรถ เพื่อทำสติกเกอร์ลายรถได้</li>
+      <li data-rule-entry>หลังจบการแข่งขันกรณีที่เป็นรถกลางแข่งขันให้นำรถมาคืนทีมงาน <span class="hl-red">ไม่คืนอะไหล่แต่งภายในทุกกรณี</span></li>
+    </ul>
+
+    <!-- รูปแบบการเกิดสตอรี่ -->
+    <h3 class="section-sub-title reveal-item">รูปแบบการเกิดสตอรี่ (4 รูปแบบ)</h3>
+    <div class="race-phases-grid reveal-item">
+      <div class="phase-card" data-rule-entry style="border-left: 3px solid var(--neon-orange);">
+        <div class="phase-name">1. ทะเลาะกันจากปากเสียง</div>
+        <div class="phase-desc">ข้อพิพาทจากการโต้เถียง หรือการท้าทายผ่านบทบาทในเมือง</div>
+      </div>
+      <div class="phase-card" data-rule-entry style="border-left: 3px solid var(--red);">
+        <div class="phase-name">2. อารมณ์ไม่พอใจ</div>
+        <div class="phase-desc">ความขัดแย้งส่วนบุคคลหรือกลุ่มที่ต้องการตัดสินด้วยความเร็วบนแทร็ก</div>
+      </div>
+      <div class="phase-card" data-rule-entry style="border-left: 3px solid var(--neon-cyan);">
+        <div class="phase-name">3. เกิดข้อข้องใจ</div>
+        <div class="phase-desc">ประเด็นข้อสงสัยเรื่องฝีมือหรือสมรรถนะรถที่ต้องประลองให้เห็นชัด</div>
+      </div>
+      <div class="phase-card" data-rule-entry style="border-left: 3px solid var(--green);">
+        <div class="phase-name">4. แข่งกระชับมิตร</div>
+        <div class="phase-desc">การประลองความเร็วเพื่อมิตรภาพ การเชื่อมสัมพันธ์ระหว่างนักแข่งหรือทีม</div>
+      </div>
+    </div>
+
+    <!-- เงินเดิมพันในการแข่งขัน -->
+    <h3 class="section-sub-title reveal-item">เงินเดิมพันในการแข่งขัน (Betting Rates)</h3>
+    <div class="tool-box-card reveal-item" style="margin-bottom:14px; background:var(--notice-bg); border:1px solid var(--neon-orange);">
+      <div style="font-weight:700; color:var(--neon-orange-bright); font-size:16px;">
+        <span class="badge-tag badge-orange" style="margin-right:8px; vertical-align:middle;">RACE CONTROL FEE</span> ค่าสนามแข่งให้ Race Control : <span class="badge-tag badge-blue" style="font-size:14px;">500,000 (500K)</span>
+      </div>
+    </div>
+
+    <div class="bet-board reveal-item">
+      <div class="bet-axis"><em>สเกลคูณ 10 ต่อขีด</em><div><span style="left:0">10K</span><span style="left:33.3%">100K</span><span style="left:66.7%">1M</span><span style="left:100%">10M</span></div><i></i></div>
+      <div class="bet-row" data-rule-entry><span>ประชาชน vs ประชาชน</span><div class="bet-track"><i class="cyan" style="--a:15.9%;--b:66.7%"></i></div><b>30K – 1M</b></div>
+      <div class="bet-row" data-rule-entry><span>ประชาชน vs ทีม (ประชาชนเรียกเงิน)</span><div class="bet-track"><i class="orange" style="--a:15.9%;--b:66.7%"></i></div><b>30K – 1M</b></div>
+      <div class="bet-row" data-rule-entry><span>ทีม vs ประชาชน (ทีมเรียกเงิน)</span><div class="bet-track"><i class="orange" style="--a:5.9%;--b:56.6%"></i></div><b>15K – 500K</b></div>
+      <div class="bet-row" data-rule-entry><span>ทีม vs ทีม</span><div class="bet-track"><i class="red" style="--a:66.7%;--b:90.0%"></i></div><b>1M – 5M</b></div>
+    </div>
+
+    <div class="tool-box-card reveal-item" style="margin-top:16px;">
+      <div style="color:var(--text-white); font-size:14px; line-height:1.6;">
+        <b>ทั้งนี้การเรียกเงินเดิมพันขึ้นอยู่กับความสมัครใจของทั้ง 2 ฝ่าย</b> โดยมีทีมงานเป็นคนตัดสินใจเป็นที่สุด
+      </div>
+    </div>
+
+    <div class="notice-box danger reveal-item" style="margin-top:14px;">
+      <span class="badge-tag badge-red" style="margin-right:8px; vertical-align:middle;">RESTRICTION</span> <b>หมายเหตุ :</b></b> ไม่สามารถมีสตอรี่กับหน่วยงานได้ทุกกรณี ถ้ามีปัญหาสามารถแจ้งร้องเรียนหรือ TK ได้ทันที
+    </div>
+  </section>
+
+  <!-- ==================== PART 3 : กฎหน่วยงาน ==================== -->
+  <section id="dept" class="page" data-page="police">
+
+    <!-- VEHICLE TRACK 3: POLICE INTERCEPTOR (ซิ่งทะลุจากซ้ายไปขวา) -->
+    <div class="section-speed-track" id="track-dept">
+      <div class="speed-track-lane"></div>
+      <svg class="speeding-car drive-across" id="car-police" viewBox="0 0 160 50" fill="none">
+        <path d="M10 32 L35 32 L48 18 L100 18 L125 28 L150 30 L154 36 L148 40 L10 40 Z" fill="#0d1b2e"/>
+        <polygon points="55,20 90,20 90,38 55,38" fill="#ffffff"/>
+        <text x="60" y="32" font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="8" fill="#0d1b2e">POLICE</text>
+        <polygon points="50,20 96,20 115,28 50,28" fill="#1e293b"/>
+        <rect x="70" y="14" width="16" height="4" rx="1" fill="#fff"/>
+        <rect x="70" y="14" width="7" height="4" rx="1" class="cop-lights-strobe" fill="#ef4444"/>
+        <rect x="79" y="14" width="7" height="4" rx="1" class="cop-lights-strobe" fill="#38bdf8"/>
+        <circle cx="38" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <circle cx="126" cy="38" r="9" fill="#111" stroke="#cbd5e1" stroke-width="2"/>
+        <polygon points="152,32 185,25 185,42 152,36" fill="rgba(239,68,68,0.4)"/>
+      </svg>
+    </div>
+
+    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+      <small>Public Services</small>
+      <h2>กฎตำรวจ (Police)</h2>
+      <p>กฎหน่วยงาน (Public Departments)</p>
+    </div>
+
+    <!-- ตำรวจ -->
+    <h3 class="section-sub-title reveal-item" id="police">กฎงานดำ Race Zone Police</h3>
+    <div class="pursuit-strip reveal-item">
+      <div><b>10<small>วินาที</small></b><span>เวลาหนีก่อนตำรวจเริ่มยิงยาง</span></div>
+      <div><b>4<small>ล้อ</small></b><span>ยางต้องแตกครบก่อนชนรถหรือยิงตัว</span></div>
+      <div><b>3<small>คัน</small></b><span>รถตำรวจสูงสุดต่อการไล่ล่าหนึ่งเคส</span></div>
+      <div><b>5<small>นาที</small></b><span>อายุความหลังหลุดการไล่ล่า</span></div>
+      <div><b>5<small>เท่า</small></b><span>ค่าปรับเมื่อหนีออกนอกเมืองหรือขึ้นภูเขา</span></div>
+    </div>
+    <ol class="numbered-rules">
+      <li class="reveal-item" data-rule-entry>
+        <span>ต้องใช้<span class="hl-red">รถ 4 ล้อ</span>ในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/รถคอนเทนต์</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 01: ต้องใช้รถ 4 ล้อในการทำงานผิดกฎหมายเท่านั้น ห้ามใช้รถ 2 ล้อ หรือรถกิจกรรม/คอนเทนต์')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>ผู้หลบหนีมีเวลาหนี <span class="hl-red">10 วินาที</span> หลังจากนั้นตำรวจจะเริ่มยิงยาง</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 02: ผู้หลบหนีมีเวลาหนี 10 วินาที หลังจากนั้นตำรวจจะเริ่มยิงยาง')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>ยางรถผู้ต้องหาต้องแตกครบ <span class="hl-red">ทั้ง 4 ล้อ</span>ก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 03: ยางรถผู้ต้องหาต้องแตกครบทั้ง 4 ล้อก่อน ตำรวจจึงจะชนรถ (บั้ม) หรือยิงตัวผู้ต้องหาได้')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>เจ้าหน้าที่ตำรวจสามารถใช้ Taser ในการจับกุมผู้ต้องหาได้เสมอ</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 04: เจ้าหน้าที่ตำรวจสามารถใช้ Taser ในการจับกุมผู้ต้องหาได้เสมอ')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 05: เจ้าหน้าที่จะใช้ Taser ยิงก่อนเข้าจับกุมทุกครั้ง')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 06: เจ้าหน้าที่สามารถชนรถ (บั้ม) ได้ หากมีผู้เข้ามาช่วยเหลือผู้ต้องหาหรือขัดขวางการไล่ล่า')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>การไล่ล่าแต่ละเคส จำกัดรถตำรวจ <span class="hl-red">3 คัน</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 07: การไล่ล่าแต่ละเคส จำกัดรถตำรวจ 3 คัน')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 08: หากทำงานผิดกฎหมายมากกว่า 1 คนแต่ใช้รถคันเดียว จะนับเคสตามจำนวนผู้ต้องหา')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากผู้ต้องหาสลบ (ไม่ว่าจากการชนรถ ตกน้ำ หรือโดน Taser) จะไม่มีการยกเลิกเคสใด ๆ ทั้งสิ้น</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 09: หากผู้ต้องหาสลบ จะไม่มีการยกเลิกเคสใด ๆ ทั้งสิ้น')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา ค่าปรับคดีนั้นจะเพิ่มเป็น <span class="hl-red">5 เท่า</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 10: หากผู้ต้องหาหลบหนีออกนอกเมืองหรือขึ้นภูเขา ค่าปรับคดีนั้นจะเพิ่มเป็น 5 เท่า')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>อายุความของแต่ละเคสคือ <span class="hl-red">5 นาที</span> นับจากหลุดพ้นการไล่ล่าของตำรวจ</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 11: อายุความของแต่ละเคสคือ 5 นาที นับจากหลุดพ้นการไล่ล่าของตำรวจ')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 12: หากตำรวจพบผู้ต้องหาก่อนครบ 5 นาที สามารถไล่ล่าและยิงยางได้ทันทีโดยไม่ต้องนับเวลาใหม่')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 13: กรณีรถพลิกคว่ำ ตำรวจสามารถยิงยางได้ทันที 1 เส้น โดยไม่ต้องรอให้รถกลับหงาย')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 14: เมื่อจับกุมสำเร็จ ตำรวจจะค้นตัวและค้นรถ รวมถึงยึดรถเข้าพาวด์ทุกครั้ง')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 15: การโพสต์ขายของผิดกฎหมายทางทวิตเตอร์ ตำรวจสามารถล่อซื้อและจับกุมได้ทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 16: ต้องเตรียมความพร้อมให้เรียบร้อยก่อนทุกครั้ง ห้ามเตรียมการระหว่างสตอรี่การจับกุมทุกกรณี')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 17: หากโพสต์ทวิตเตอร์หรือยั่วยุเจ้าหน้าที่ ตำรวจสามารถดำเนินคดีได้ทุกรูปแบบ')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 18: เมื่อปิดเคสแล้ว ผู้ต้องหาไม่สามารถนำเรื่องนั้นกลับมาโต้แย้งภายหลังได้')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งในห้องร้องเรียนตำรวจ และเข้ามอบตัวที่สถานีตำรวจ</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 19: หากเกิดเคสระหว่างสตอรี่แล้วหลบหนี ผู้ต้องหาต้องแจ้งห้องร้องเรียนตำรวจ และเข้ามอบตัว')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span><span class="hl-red">ห้ามอุ้มหรือใช้อีโมต</span>ทุกกรณีระหว่างทำงานผิดกฎหมาย</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 20: ห้ามอุ้มหรือใช้อีโมตทุกกรณีระหว่างทำงานผิดกฎหมาย')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ตำรวจ 21: หากรถผู้ต้องหายางแตกครบ 4 ล้อและถูกชนจนขับต่อไม่ได้ ผู้ต้องหาต้องลงจากรถทันที')">คัดลอก</button>
+      </li>
+    </ol>
+
+    <h4 class="section-sub-title reveal-item" id="fine">ค่าปรับและเวลาจำคุก</h4>
+    <div class="tool-box-card reveal-item" style="text-align:center; color:var(--text-muted);">
+      [ อยู่ระหว่างอัปเดตข้อมูลอัตราค่าปรับและระยะเวลาจำคุกโดยกองบังคับการตำรวจ ]
+    </div>
+
+  </section>
+  <section class="page" data-page="medic">
+    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+      <small>Public Services</small>
+      <h2>กฎหมอ (Medic)</h2>
+      <p>กฎหน่วยงาน (Public Departments)</p>
+    </div>
+
+    <h3 class="section-sub-title reveal-item" id="medic">กฎระเบียบหมอ (Medic)</h3>
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 1</span> เวลาปฏิบัติงานและการลา</h4>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry>ต้องเข้าเวรตามเวลาที่ลงชื่อไว้ หากไม่สามารถเข้าได้ต้องแจ้งล่วงหน้า</li>
+      <li data-rule-entry>ไม่เข้าเวรติดต่อกันครบ 7 วันโดยไม่ติดต่อ <span class="badge-tag badge-red">ปลดทันที</span></li>
+      <li data-rule-entry>ทำงานผิดกฎหมายได้ตั้งแต่เวลา 00.00 น. เป็นต้นไปเท่านั้น <span class="badge-tag badge-red">ฝ่าฝืน ปลดทันที</span></li>
+      <li data-rule-entry>ต้องออกเวรก่อนเข้าร่วมกิจกรรมทุกครั้ง ยกเว้นได้รับอนุญาต</li>
+    </ul>
+
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 2</span> เครื่องแต่งกายและยานพาหนะ</h4>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry>สวมชุดของหน่วยงานแพทย์เท่านั้น ห้ามสวมชุดทีม แก๊ง หรือหน่วยงานอื่น</li>
+      <li data-rule-entry>ใช้ยานพาหนะของหน่วยงานเท่านั้น หากต้องการใช้รถส่วนตัวต้องออกเวรก่อน</li>
+      <li data-rule-entry>ห้ามนำทรัพย์สินของโรงพยาบาลไปใช้นอกเวลาปฏิบัติหน้าที่ หรือให้ประชาชนยืม</li>
+      <li data-rule-entry>ต้องล็อกยานพาหนะไว้เสมอ</li>
+    </ul>
+
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 3</span> มาตรฐานการปฏิบัติงานและการให้บริการ</h4>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry><span class="hl-red">ห้ามให้ Medkit และเข็มฉีดยาแก่ประชาชนเด็ดขาด</span></li>
+      <li data-rule-entry>ห้ามขายผ้าพันแผลขณะไม่ได้เข้าเวร</li>
+      <li data-rule-entry>ห้ามออกบิลให้ผู้อื่นโดยพลการหรือไม่มีเหตุอันสมควร</li>
+      <li data-rule-entry>ห้ามยืนเหม่อหรือไม่สนใจเคสเกิน 5 นาที</li>
+      <li data-rule-entry>ห้ามคราฟต์อุปกรณ์เพื่อเอื้อประโยชน์แก่บุคคลหรือกลุ่มใด</li>
+    </ul>
+
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 4</span> ความปลอดภัยในการปฏิบัติงาน</h4>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry>ห้ามขับยานพาหนะที่เสี่ยงต่อการเสียชีวิต เช่น จักรยาน จักรยานยนต์ เครื่องบิน (ยกเว้นเฮลิคอปเตอร์แพทย์ หากเสียชีวิตจะถูกปรับตามกฎ)</li>
+      <li data-rule-entry>ห้ามนำตัวเองเข้าไปในสถานการณ์อันตราย เช่น ชิงยานพาหนะคืนด้วยตัวเอง ระงับเหตุทะเลาะวิวาทด้วยตัวเอง หรือเข้าช่วยเหลือเคสที่เข้าถึงยากโดยไม่มีเครื่องมือ (เช่น ใต้น้ำหรือบนภูเขา)</li>
+    </ul>
+
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 5</span> ขั้นตอนการรับเคสและปฏิบัติเคส</h4>
+    <ul class="bullet-rules reveal-item">
+      <li data-rule-entry>แจ้งเลขท้ายของเคสในวิทยุก่อนทุกครั้ง เพื่อป้องกันการรับเคสซ้ำกัน</li>
+      <li data-rule-entry>การชุบชีวิตหรือฉีดยาผ่านเมนู F6 จะใช้ไอเทมอย่างละ 1 ชิ้น</li>
+      <li data-rule-entry><b>เคสไม่พบศพ:</b> ตรวจสอบเบอร์โทร ติดต่อผู้เรียก และประกาศผ่านเมนู F6 หากติดต่อไม่ได้ ให้แจ้งในห้องแจ้งเคสไม่พบศพบน Discord</li>
+      <li data-rule-entry><b>ผู้สลบฟื้นเองโดยไม่แจ้ง:</b> ต้องมาชำระค่าปรับที่โรงพยาบาลภายใน 15 นาที หากเกินกำหนดจะถูกประกาศ <span class="badge-tag badge-red">Blacklist</span> ทันที</li>
+      <li data-rule-entry><b>เคสงานดำ:</b> ต้องชุบชีวิตต่อหน้าเจ้าหน้าที่ตำรวจ เพื่อให้เจ้าหน้าที่พร้อมเข้าจับกุม และ<span class="hl-red">ห้ามทำให้เคสของตำรวจหลุดเด็ดขาด</span></li>
+      <li data-rule-entry><b>เคสบนภูเขาสูงหรือพื้นที่ห่างไกล:</b> แจ้งแพทย์ผู้ชำนาญการให้รับเคสแทน เพื่อเบิกอุปกรณ์หรือเฮลิคอปเตอร์</li>
+      <li data-rule-entry><b>ศพถูกเคลื่อนย้าย:</b> หากศพถูกย้ายออกนอกพื้นที่หรือถูกกักตัว ให้ประสานเจ้าหน้าที่ตำรวจเพื่อช่วยชิงตัวผู้บาดเจ็บ</li>
+      <li data-rule-entry><b>เคสกิจกรรม / สตอรี่:</b> รอให้กิจกรรมหรือสตอรี่จบก่อน จึงเข้าไปรับเคส</li>
+      <li data-rule-entry><b>เคสจากกิจกรรมที่จัดกันเอง (แพทย์ชุบไม่ได้):</b> ให้ประกาศตักเตือนผ่านเมนู F6 หากยังเรียกเคสซ้ำ สามารถประกาศ Blacklist ได้ทันที</li>
+    </ul>
+
+    <h4 class="cat-head reveal-item"><span class="cat-no">หมวด 6</span> บทลงโทษและอัตราค่าปรับหมอ</h4>
+    <div class="table-responsive-box reveal-item">
+      <table class="race-table">
+        <thead>
+          <tr><th>ความผิด</th><th style="text-align:right;">บทลงโทษ</th></tr>
+        </thead>
+        <tbody>
+          <tr data-rule-entry><td>ฝ่าฝืนกฎทั่วไปสะสมครบ 3 ครั้ง</td><td style="text-align:right;"><span class="badge-tag badge-red">ปลดทันที</span></td></tr>
+          <tr data-rule-entry><td>ไม่ออกเวรก่อนเข้าร่วมกิจกรรม</td><td class="fee">ปรับ 5M</td></tr>
+          <tr data-rule-entry><td>ไม่ใช้ยานพาหนะของหน่วยงาน / เบิกเฮลิคอปเตอร์ผิดจุด / นำของใช้ส่วนตัวมาใช้ / ทำร้ายร่างกายผู้อื่นขณะปฏิบัติงาน</td><td class="fee">ปรับ 5M</td></tr>
+          <tr data-rule-entry><td>ออกบิลโดยไม่มีเหตุอันสมควร / เรียกเก็บเงินเกินอัตรา</td><td class="fee">ปรับ 2 เท่าของยอดบิล</td></tr>
+          <tr data-rule-entry><td>ยืนเหม่อ ครั้งที่ 1</td><td class="fee">ปรับ 2M</td></tr>
+          <tr data-rule-entry><td>ยืนเหม่อ ครั้งที่ 2</td><td class="fee">ทัณฑ์บน ปรับ 5M และยึดของ</td></tr>
+          <tr data-rule-entry><td>ยืนเหม่อ ครั้งที่ 3</td><td style="text-align:right;"><span class="badge-tag badge-red">ปลดทันที</span></td></tr>
+          <tr data-rule-entry><td>ทำรถยนต์ของหน่วยงานหลุด</td><td class="fee">ปรับ 5M</td></tr>
+          <tr data-rule-entry><td>ทำเฮลิคอปเตอร์ของหน่วยงานหลุด</td><td class="fee">ปรับ 10M</td></tr>
+          <tr data-rule-entry><td>ไม่รักษาชีวิตตัวเองขณะเข้าเวร</td><td class="fee">ปรับ 5M</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notice-box reveal-item">ผู้ที่ฝ่าฝืนกฎทั่วไปสะสมครบ 3 ครั้งจะถูกปลดทันที และต้องคืนอุปกรณ์ของหน่วยงานทั้งหมด</div>
+
+    <!-- ค่าบริการทางการแพทย์ -->
+    <h4 class="section-sub-title reveal-item" id="medic-price">อัตราค่าบริการทางการแพทย์</h4>
+    <div class="price-grid tariff reveal-item">
+      <div class="price-box" data-rule-entry><span>ชุบชีวิต · ภายในเมือง</span><b>3,000</b></div>
+      <div class="price-box" data-rule-entry><span>ชุบชีวิต · นอกเมือง</span><b>6,000</b></div>
+      <div class="price-box" data-rule-entry><span>ชุบชีวิต · จุดวาร์ป</span><b>7,000</b></div>
+      <div class="price-box" data-rule-entry><span>พื้นที่เสี่ยง ป่าเขา กิจกรรม</span><b>10,000</b></div>
+      <div class="price-box" data-rule-entry><span>ชุบชีวิต · ในน้ำ</span><b>15,000</b></div>
+      <div class="price-box" data-rule-entry><span>ยาแก้ปวด (Pain)</span><b>2,500 <small>/ ชิ้น</small></b></div>
+      <div class="price-box" data-rule-entry><span>เครื่องกระตุกหัวใจ (AED)</span><b>4,000 <small>/ ชิ้น</small></b></div>
+    </div>
+
+  </section>
+  <section class="page" data-page="mech">
+    <div class="section-banner-card reveal-item" data-part="03" style="border-left-color: var(--line-cyan);">
+      <small>Public Services</small>
+      <h2>กฎช่าง (Mechanic)</h2>
+      <p>กฎหน่วยงาน (Public Departments)</p>
+    </div>
+
+    <h3 class="section-sub-title reveal-item" id="mech">กฎเหล็กช่าง Race Zone Mechanic</h3>
+    <ol class="numbered-rules">
+      <li class="reveal-item" data-rule-entry>
+        <span>เมื่อเข้าเวร ต้อง<span class="hl-red">สวมชุดช่างทุกครั้ง</span>และตลอดเวลาที่เข้าเวร ไม่มีข้อยกเว้นทุกกรณี <span class="badge-tag badge-red">เกิน 3 ครั้ง ปลดทันที</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 01: เมื่อเข้าเวร ต้องสวมชุดช่างทุกครั้งและตลอดเวลาที่เข้าเวร เกิน 3 ครั้ง ปลดทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span><span class="hl-red">ไม่อนุญาต</span>ให้ขับรถเล่น เข้าร่วมกิจกรรม หรือฟาร์มขณะเข้าเวรทุกกรณี ต้องออกเวรก่อนเข้ากิจกรรม <span class="badge-tag badge-red">เกิน 3 ครั้ง ปลดทันที</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 02: ไม่อนุญาตให้ขับรถเล่น เข้าร่วมกิจกรรม หรือฟาร์มขณะเข้าเวรทุกกรณี เกิน 3 ครั้ง ปลดทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากมีผู้เล่นต้องการใส่อะไหล่ระหว่างเข้าเวร ต้อง<span class="hl-red">มาให้บริการทันที</span> ห้ามเพิกเฉยต่อลูกค้า <span class="badge-tag badge-red">เกิน 3 ครั้ง ปลดทันที</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 03: หากมีผู้เล่นต้องการใส่อะไหล่ระหว่างเข้าเวร ต้องมาให้บริการทันที เกิน 3 ครั้ง ปลดทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>ต้อง<span class="hl-red">แคปหน้าจอส่งหลักฐาน</span>ทุกครั้งที่ใส่อะไหล่ให้ลูกค้า <span class="badge-tag badge-red">ไม่ส่งเกิน 3 ครั้ง ปลดทันที</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 04: ต้องแคปหน้าจอส่งหลักฐานทุกครั้งที่ใส่อะไหล่ให้ลูกค้า ไม่ส่งเกิน 3 ครั้ง ปลดทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากหายเงียบ ไม่เคลื่อนไหว ไม่มีผลงาน และไม่แจ้งสาเหตุ <span class="badge-tag badge-red">เกิน 5 วัน ปลดทันที</span></span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 05: หากหายเงียบ ไม่เคลื่อนไหว ไม่มีผลงาน และไม่แจ้งสาเหตุ เกิน 5 วัน ปลดทันที')">คัดลอก</button>
+      </li>
+      <li class="reveal-item" data-rule-entry>
+        <span>หากติดธุระ OC หรือธุระอื่น สามารถ<span class="badge-tag badge-green">แจ้งลาได้</span> ที่ห้องพูดคุยช่าง</span>
+        <button class="btn-copy-chip" onclick="copyRuleText('ช่าง 06: หากติดธุระ OC หรือธุระอื่น สามารถแจ้งลาได้ที่ห้องพูดคุยช่าง')">คัดลอก</button>
+      </li>
+    </ol>
+
+    <!-- เกณฑ์การเลื่อนขั้นช่าง -->
+    <h4 class="section-sub-title reveal-item" id="mech-ranks">เกณฑ์การเลื่อนขั้นช่าง</h4>
+    <div class="price-grid rank-ladder reveal-item">
+      <div class="price-box" data-rule-entry style="border-top:3px solid var(--text-muted); flex-direction:column; align-items:flex-start; gap:6px;">
+        <div style="display:flex; justify-content:space-between; width:100%;">
+          <b>นักเรียนช่าง</b>
+          <span class="badge-tag badge-gray">ระดับ 1</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-muted);">ยศที่ได้รับตั้งแต่เริ่มเป็นช่าง</div>
+      </div>
+
+      <div class="price-box" data-rule-entry style="border-top:3px solid var(--neon-cyan); flex-direction:column; align-items:flex-start; gap:6px;">
+        <div style="display:flex; justify-content:space-between; width:100%;">
+          <b>ช่าง</b>
+          <span class="badge-tag badge-blue">ระดับ 2</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-muted);">ออนไลน์ไม่ต่ำกว่า 3 ชม./วัน · ใส่อะไหล่ 50+ ครั้ง</div>
+      </div>
+
+      <div class="price-box" data-rule-entry style="border-top:3px solid var(--neon-orange); flex-direction:column; align-items:flex-start; gap:6px;">
+        <div style="display:flex; justify-content:space-between; width:100%;">
+          <b>รองหัวหน้าช่าง</b>
+          <span class="badge-tag badge-yellow">ระดับ 3</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-muted);">ออนไลน์ไม่ต่ำกว่า 6 ชม./วัน · มีผลงานสม่ำเสมอ</div>
+      </div>
+
+      <div class="price-box" data-rule-entry style="border-top:3px solid var(--red); flex-direction:column; align-items:flex-start; gap:6px;">
+        <div style="display:flex; justify-content:space-between; width:100%;">
+          <b>หัวหน้าช่าง</b>
+          <span class="badge-tag badge-red">ระดับ 4</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-muted);">แก้อาการรถได้ · จูนรถแรงขึ้นได้ · บริหารงานช่าง</div>
+      </div>
+    </div>
+
+    <!-- ราคาค่าบริการช่าง -->
+    <h4 class="section-sub-title reveal-item" id="mech-price">ราคาค่าบริการช่าง</h4>
+    <div class="price-grid tariff reveal-item">
+      <div class="price-box" data-rule-entry><span>ใส่อะไหล่</span><b>2,000 <small>/ ชิ้น</small></b></div>
+      <div class="price-box" data-rule-entry><span>กล่องซ่อมรถ</span><b>3,000 <small>/ ชิ้น</small></b></div>
+      <div class="price-box" data-rule-entry><span>ซ่อมรถภายนอก</span><b>1,000 <small>/ ครั้ง</small></b></div>
+      <div class="price-box" data-rule-entry><span>เช็ดรถ</span><b>500 <small>/ ครั้ง</small></b></div>
+      <div class="price-box" data-rule-entry><span>เช็กอะไหล่ภายใน</span><b style="color:var(--green)">ฟรี</b></div>
+    </div>
+  </section>
+
+  <!-- Thanks Card -->
+  <div class="tool-box-card reveal-item" style="text-align:center; margin-top:50px;">
+    ขอบคุณผู้เล่นทุกท่านที่ร่วมสร้างเมือง <b style="color:var(--neon-cyan)">RACE ZONE</b> ไปด้วยกัน
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  &copy; <b>RACE ZONE PROJECT</b> · FiveM Community Server · All Rights Reserved
+</footer>
+
+<!-- TOAST -->
+<div class="toast-bar" id="toastNotice">คัดลอกข้อความกฎเรียบร้อย</div>
+
+<!-- SCRIPT -->
+<script>
+
+// ==========================================================================
+// THEME CONTROLLER (DEFAULT: LIGHT WHITE THEME, WITH SMOOTH DARK TOGGLE)
+// ==========================================================================
+function initTheme() {
+  const saved = localStorage.getItem('racezone_theme') || 'light';
+  setTheme(saved);
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('racezone_theme', theme);
+  const btnText = document.getElementById('themeToggleText');
+  if (btnText) {
+    btnText.textContent = theme === 'dark' ? 'THEME: DARK' : 'THEME: LIGHT';
+  }
+}
+
+function toggleTheme() {
+  playButtonSoundIfAtTop();
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  setTheme(current === 'light' ? 'dark' : 'light');
+}
+
+// Run immediately
+initTheme();
+
+// Progress bar
+const progressBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  if (progressBar) progressBar.style.width = pct + '%';
+});
+
+// Scroll Reveal
+const revealEls = document.querySelectorAll('.reveal-item');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+}
+
+// Side Vehicle Zoom Animation on Section Scroll
+const vehicleTracks = [
+  { trackId: 'track-city', carId: 'car-city' },
+  { trackId: 'track-race', carId: 'car-race' },
+  { trackId: 'track-dept', carId: 'car-police' }
+];
+
+if ('IntersectionObserver' in window) {
+  const vObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const car = e.target.querySelector('.speeding-car');
+        if (car && !car.classList.contains('zoom-active')) {
+          car.classList.add('zoom-active');
+        }
+      }
+    });
+  }, { threshold: 0.25 });
+
+  vehicleTracks.forEach(t => {
+    const el = document.getElementById(t.trackId);
+    if (el) vObserver.observe(el);
+  });
+}
+
+// Copy Rule Text
+let toastTimer;
+function copyRuleText(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast('คัดลอกข้อความกฎเรียบร้อย'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('คัดลอกข้อความกฎเรียบร้อย');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toastNotice');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ==========================================================================
+// LIVE ZERO-SCROLL SEARCH ENGINE
+// แสดงเฉพาะหัวข้อที่ค้นหาทันทีใต้ช่องค้นหา ไม่ต้องเลื่อนหาเองทั้งหน้า
+// ==========================================================================
+const searchInput = document.getElementById('ruleSearchInput');
+const searchDock = document.getElementById('searchResultsDock');
+const searchGrid = document.getElementById('searchResultsGrid');
+const searchEmpty = document.getElementById('searchEmptyState');
+const searchCountBadge = document.getElementById('searchCountBadge');
+const searchQueryLabel = document.getElementById('searchQueryLabel');
+const mainContentWrapper = document.querySelector('main.content-wrapper');
+const pillsDockWrap = document.querySelector('.pills-dock-wrap');
+
+function getDepartmentMeta(sectionId) {
+  switch (sectionId) {
+    case 'city':
+      return { code: 'CITY', label: 'กฎเมือง & Roleplay', bg: 'var(--neon-cyan)' };
+    case 'race':
+      return { code: 'RACE', label: 'กติกาแข่ง & FIA', bg: 'var(--neon-orange)' };
+    case 'story':
+      return { code: 'STORY', label: 'Story & เดิมพัน', bg: 'var(--neon-orange-bright)' };
+    case 'dept':
+      return { code: 'POLICE', label: 'กฎงานดำตำรวจ', bg: '#0084ff' };
+    case 'medic':
+      return { code: 'MEDIC', label: 'กฎหมอ & ค่ารักษา', bg: '#10b981' };
+    case 'mech':
+      return { code: 'GARAGE', label: 'กฎช่าง & ค่าบริการ', bg: '#00b4d8' };
+    default:
+      return { code: 'RACEZONE', label: 'กฎเซิร์ฟเวอร์', bg: 'var(--neon-cyan)' };
+  }
+}
+
+function highlightKeyword(text, keyword) {
+  if (!keyword) return text;
+  const escaped = keyword.replace(/[.*+?^$\{}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp('(' + escaped + ')', 'gi');
+  return text.replace(regex, '<mark class="search-kw">$1</mark>');
+}
+
+function clearRuleSearch() {
+  if (!searchInput) return;
+  searchInput.value = '';
+  executeLiveSearch('');
+  searchInput.focus();
+}
+
+function quickSearchTag(tag) {
+  if (!searchInput) return;
+  searchInput.value = tag;
+  executeLiveSearch(tag);
+}
+
+function jumpToOriginalRule(elementId, ruleIndex) {
+  // 1. ล้างการค้นหาเพื่อคืนค่าหน้าเว็บปกติ
+  if (searchInput) searchInput.value = '';
+  executeLiveSearch('');
+
+  // 2. เลื่อนไปยังตำแหน่งของกฎข้อนั้นอย่างนุ่มนวล
+  setTimeout(() => {
+    let target = null;
+    if (elementId) target = document.getElementById(elementId);
+    if (!target) {
+      const allEntries = document.querySelectorAll('[data-rule-entry]');
+      target = allEntries[ruleIndex];
+    }
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.classList.add('rule-target-flash');
+      setTimeout(() => target.classList.remove('rule-target-flash'), 2000);
+    }
+  }, 120);
+}
+
+function executeLiveSearch(query) {
+  const q = (query || '').trim().toLowerCase();
+
+  if (!q) {
+    if (searchDock) searchDock.style.display = 'none';
+    if (mainContentWrapper) mainContentWrapper.style.display = '';
+    if (pillsDockWrap) pillsDockWrap.style.display = '';
+
+    // รีเซ็ต display ของทุก entry เดิม
+    const ruleItems = document.querySelectorAll('[data-rule-entry]');
+    ruleItems.forEach(item => {
+      item.style.display = '';
+      item.classList.add('is-visible');
+    });
+    return;
+  }
+
+  // ซ่อนเนื้อหาเดิมทั้งหน้า ไม่ให้ผู้ใช้ต้องเลื่อนหาเอง!
+  if (mainContentWrapper) mainContentWrapper.style.display = 'none';
+  if (pillsDockWrap) pillsDockWrap.style.display = 'none';
+  if (searchDock) searchDock.style.display = 'block';
+
+  const allEntries = Array.from(document.querySelectorAll('[data-rule-entry]'));
+  let matchCount = 0;
+  let htmlCards = '';
+
+  allEntries.forEach((entry, idx) => {
+    const rawText = entry.textContent || '';
+    if (!rawText.toLowerCase().includes(q)) return;
+
+    matchCount++;
+
+    const section = entry.closest('section');
+    const secId = section ? section.id : 'city';
+    const dept = getDepartmentMeta(secId);
+
+    // สกัด Title & Description ที่กระชับและตรงประเด็น
+    let title = '';
+    let desc = '';
+
+    const defTitle = entry.querySelector('.def-title-col');
+    const flagName = entry.querySelector('.flag-name');
+    const phaseName = entry.querySelector('.phase-name');
+    const bTag = entry.querySelector('b');
+
+    if (defTitle) {
+      title = defTitle.textContent.replace(/\s+/g, ' ').trim();
+      desc = entry.querySelector('.def-desc-col')?.textContent || '';
+    } else if (flagName) {
+      title = flagName.textContent.trim();
+      desc = entry.querySelector('.flag-meaning')?.textContent || '';
+    } else if (phaseName) {
+      title = phaseName.textContent.trim();
+      desc = entry.querySelector('.phase-desc')?.textContent || '';
+    } else if (entry.tagName === 'LI' && entry.parentElement && entry.parentElement.tagName === 'OL') {
+      const liIndex = Array.from(entry.parentElement.children).indexOf(entry) + 1;
+      const ruleNum = liIndex < 10 ? '0' + liIndex : liIndex;
+      title = dept.label + ' ข้อ ' + ruleNum;
+      desc = rawText.replace('คัดลอก', '').replace(/\s+/g, ' ').trim();
+    } else if (entry.tagName === 'TR') {
+      const tds = entry.querySelectorAll('td');
+      title = (tds[0]?.textContent || '').trim() + (tds[1] ? ' (' + tds[1].textContent.trim() + ')' : '');
+      desc = tds[2]?.textContent || '';
+    } else if (bTag) {
+      title = bTag.textContent.trim();
+      desc = rawText.replace(title, '').replace('คัดลอก', '').replace(/\s+/g, ' ').trim();
+    } else {
+      title = dept.label;
+      desc = rawText.replace('คัดลอก', '').replace(/\s+/g, ' ').trim();
+    }
+
+    if (!desc && rawText) {
+      desc = rawText.replace(title, '').replace('คัดลอก', '').replace(/\s+/g, ' ').trim();
+    }
+
+    // กำหนด element id สำหรับกระโดดไปดู
+    if (!entry.id) {
+      entry.id = 'rule-entry-' + idx;
+    }
+    const targetId = entry.id;
+
+    const copySafeText = rawText.replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/\s+/g, ' ').trim();
+
+    htmlCards += `
+      <div class="search-result-card">
+        <div class="search-card-header">
+          <span class="search-dept-badge" style="background:${dept.bg};">${dept.code} · ${dept.label}</span>
+          <button type="button" class="btn-copy-chip" onclick="copyRuleText('${copySafeText}')" style="opacity:1;">คัดลอก</button>
+        </div>
+        <h4 class="search-card-title">${highlightKeyword(title, q)}</h4>
+        <div class="search-card-desc">${highlightKeyword(desc, q)}</div>
+        <div class="search-card-footer">
+          <button type="button" class="search-jump-btn" onclick="jumpToOriginalRule('${targetId}', ${idx})">
+            เปิดดูในหมวดเต็ม →
+          </button>
+        </div>
+      </div>
+    `;
+  });
+
+  if (matchCount > 0) {
+    if (searchGrid) {
+      searchGrid.innerHTML = htmlCards;
+      searchGrid.style.display = 'grid';
+    }
+    if (searchEmpty) searchEmpty.style.display = 'none';
+    if (searchCountBadge) searchCountBadge.textContent = matchCount;
+    if (searchQueryLabel) searchQueryLabel.textContent = 'พบ ' + matchCount + ' หัวข้อที่ตรงกับ "' + query + '"';
+  } else {
+    if (searchGrid) {
+      searchGrid.innerHTML = '';
+      searchGrid.style.display = 'none';
+    }
+    if (searchEmpty) searchEmpty.style.display = 'block';
+    if (searchCountBadge) searchCountBadge.textContent = '0';
+    if (searchQueryLabel) searchQueryLabel.textContent = 'ไม่พบผลการค้นหาสำหรับ "' + query + '"';
+  }
+}
+
+// ผูก Event ค้นหา Real-time
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    executeLiveSearch(e.target.value);
+  });
+
+  // รองรับการกดปุ่ม Escape เพื่อล้างการค้นหา
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      clearRuleSearch();
+    }
+  });
+}
+
+
+function toggleMobileNav() {
+  const tabs = document.querySelector('.nav-slanted-tabs');
+  if (tabs) {
+    tabs.style.display = tabs.style.display === 'flex' ? 'none' : 'flex';
+    tabs.style.flexDirection = 'column';
+    tabs.style.position = 'absolute';
+    tabs.style.top = '68px';
+    tabs.style.right = '20px';
+    tabs.style.background = '#07090e';
+    tabs.style.padding = '12px';
+    tabs.style.border = '1px solid var(--neon-cyan)';
+    tabs.style.borderRadius = '8px';
+  }
+}
+
+// ==========================================================================
+// WHEEL BURNOUT, SPARKS, AUDIO & NAVIGATION LAUNCH CONTROLLER
+// ==========================================================================
+const raceSfx = document.getElementById('raceSfx');
+
+// ฟังก์ชันเล่นเสียงตามกฎ: เล่นเฉพาะเมื่อผู้ใช้อยู่ด้านบนสุดของหน้าเว็บเท่านั้น
+function playButtonSoundIfAtTop() {
+  const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+  // หากอยู่บนสุดของหน้าเว็บ (scrollPos < 60) จะมีเสียง
+  if (scrollPos < 60 && raceSfx) {
+    try {
+      raceSfx.currentTime = 0;
+      raceSfx.volume = 0.85;
+      const playPromise = raceSfx.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    } catch (e) {}
+  }
+  // หากเลื่อนลงข้างล่างแล้ว (scrollPos >= 60) จะไม่มีเสียง
+}
+
+const mainWheel = document.getElementById('mainWheelLogo');
+const sparksCanvas = document.getElementById('sparksCanvas');
+const burnoutFlash = document.getElementById('burnoutFlash');
+let sparksCtx = sparksCanvas ? sparksCanvas.getContext('2d') : null;
+let sparksArray = [];
+let sparksAnimId = null;
+let isWheelLaunching = false;
+
+function spawnBurnoutSparks() {
+  if (!sparksCanvas || !sparksCtx) return;
+  const cx = sparksCanvas.width * 0.45;
+  const cy = sparksCanvas.height * 0.55;
+
+  for (let i = 0; i < 90; i++) {
+    const angle = Math.PI * 0.8 + (Math.random() - 0.5) * 1.5;
+    const speed = 5 + Math.random() * 16;
+    sparksArray.push({
+      x: cx + (Math.random() - 0.5) * 30,
+      y: cy + (Math.random() - 0.5) * 20,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      size: 1.5 + Math.random() * 3.5,
+      alpha: 1,
+      decay: 0.022 + Math.random() * 0.035,
+      color: Math.random() > 0.35 ? '#ff7a00' : (Math.random() > 0.5 ? '#ffea00' : '#00e5ff')
+    });
+  }
+
+  if (!sparksAnimId) {
+    renderSparks();
+  }
+}
+
+function renderSparks() {
+  if (!sparksCtx) return;
+  sparksCtx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+
+  for (let i = sparksArray.length - 1; i >= 0; i--) {
+    const p = sparksArray[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.38; // gravity
+    p.vx *= 0.95; // air drag
+    p.alpha -= p.decay;
+
+    if (p.alpha <= 0) {
+      sparksArray.splice(i, 1);
+      continue;
+    }
+
+    sparksCtx.save();
+    sparksCtx.globalAlpha = Math.max(0, p.alpha);
+    sparksCtx.fillStyle = p.color;
+    sparksCtx.shadowBlur = 10;
+    sparksCtx.shadowColor = p.color;
+    sparksCtx.beginPath();
+    sparksCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    sparksCtx.fill();
+    sparksCtx.restore();
+  }
+
+  if (sparksArray.length > 0) {
+    sparksAnimId = requestAnimationFrame(renderSparks);
+  } else {
+    sparksAnimId = null;
+    sparksCtx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+  }
+}
+
+// Function to trigger wheel rollout & smooth jump to section
+
+// ==========================================================================
+// HERO BACKGROUND VIDEO & CINEMATIC INTRO CONTROLLER (WAIT CLIP OR HOVER)
+// ==========================================================================
+const heroFrame = document.getElementById('heroShowcaseFrame');
+const heroBgVideo = document.getElementById('heroBgVideo');
+let heroIntroCompleted = false;
+const pageInitTime = Date.now();
+let initialMousePos = null;
+
+function completeHeroIntro(immediateRoll = true) {
+  if (heroIntroCompleted) return;
+  heroIntroCompleted = true;
+
+  if (heroFrame) {
+    heroFrame.classList.add('hero-revealed');
+  }
+
+  // เล่นวิดีโอวนลูปต่อเนื่องเป็นพื้นหลัง Opacity ต่ำ
+  if (heroBgVideo) {
+    heroBgVideo.loop = true;
+    heroBgVideo.play().catch(() => {});
+  }
+
+  // แสดงอนิเมชั่นโลโก้กลิ้งเข้ามาตรงกลางทันที
+  if (immediateRoll && mainWheel) {
+    mainWheel.classList.remove('wheel-roll-in');
+    void mainWheel.offsetWidth;
+    mainWheel.classList.add('wheel-roll-in');
+  }
+}
+
+// 1. ควบคุมการเล่นคลิปวิดีโอให้จบก่อน ถึงจะแสดงโลโก้กลิ้งและเนื้อหา
+if (heroBgVideo) {
+  heroBgVideo.defaultMuted = true;
+  heroBgVideo.muted = true;
+  heroBgVideo.playsInline = true;
+  heroBgVideo.setAttribute('muted', '');
+  heroBgVideo.setAttribute('playsinline', '');
+
+  // สั่งเล่นวิดีโอทันที
+  const playPromise = heroBgVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {});
+  }
+
+  // เมื่อวิดีโอจบ 1 รอบ (~10 วินาที) -> แสดงโลโก้กลิ้งและเนื้อหาทันที
+  heroBgVideo.addEventListener('ended', () => {
+    completeHeroIntro(true);
+  });
+
+  // ตรวจจับเมื่อใกล้จบของคลิป (กันกรณีบราวเซอร์ไม่ยิง ended)
+  heroBgVideo.addEventListener('timeupdate', () => {
+    if (!heroIntroCompleted && heroBgVideo.duration && heroBgVideo.currentTime >= (heroBgVideo.duration - 0.25)) {
+      completeHeroIntro(true);
+    }
+  });
+
+  // Fallback สำรอง หากคลิปเล่นครบ 10.5 วินาที
+  setTimeout(() => {
+    if (!heroIntroCompleted) {
+      completeHeroIntro(true);
+    }
+  }, 10500);
+
+  heroBgVideo.addEventListener('error', () => {
+    if (!heroIntroCompleted) {
+      completeHeroIntro(true);
+    }
+  });
+}
+
+// 2. ตรวจจับเมื่อมี Cursor เลื่อนมา Hover -> ไม่ต้องสนคลิป ลด Opacity จาก 100 ลงมาต่ำทันที พร้อมอนิเมชั่นโลโก้กลิ้งและเนื้อหา
+if (heroFrame) {
+  // เมื่อเมาส์เลื่อนเข้ามาในกรอบ Hero Showcase หลังโหลดเว็บ
+  heroFrame.addEventListener('mouseenter', (e) => {
+    if (heroIntroCompleted) return;
+    // ป้องกันกรณีเคอร์เซอร์วางค้างอยู่กลางจอก่อนเปิดเว็บ (หน่วง 600ms แรก)
+    if (Date.now() - pageInitTime < 600) return;
+    completeHeroIntro(true);
+  });
+
+  // เมื่อผู้ใช้ขยับเลื่อนเมาส์บนกรอบ Hero
+  heroFrame.addEventListener('mousemove', (e) => {
+    if (heroIntroCompleted) return;
+    if (Date.now() - pageInitTime < 600) return;
+
+    if (!initialMousePos) {
+      initialMousePos = { x: e.clientX, y: e.clientY };
+      return;
+    }
+
+    // มีการขยับเคอร์เซอร์ Hover จริงเกิน 15px
+    const dist = Math.hypot(e.clientX - initialMousePos.x, e.clientY - initialMousePos.y);
+    if (dist > 15) {
+      completeHeroIntro(true);
+    }
+  });
+
+  // ผู้ใช้คลิกบน Hero Frame เพื่อข้ามคลิปทันที
+  heroFrame.addEventListener('click', (e) => {
+    if (e.target.closest('a') || e.target.closest('button')) return;
+    if (!heroIntroCompleted) {
+      completeHeroIntro(true);
+    }
+  });
+
+  // สำหรับหน้าจอสัมผัส (Touch)
+  heroFrame.addEventListener('touchstart', () => {
+    if (!heroIntroCompleted) {
+      completeHeroIntro(true);
+    }
+  }, { passive: true });
+}
+
+// หากผู้ใช้เปิดหน้าเว็บมาโดยมี Hash กำกับอยู่แล้ว (เช่น #police) ให้แสดงเนื้อหาทันที
+if (window.location.hash && window.location.hash !== '#top') {
+  completeHeroIntro(false);
+}
+
+function launchWheelToAnchor(targetHref, e) {
+  if (!mainWheel) return;
+
+  // หากมีคนกดปุ่มก่อนวิดีโอจบ ให้จบ Intro ทันทีและปล่อยให้ล้อวิ่งพร้อมเสียงได้เลย
+  if (!heroIntroCompleted) {
+    completeHeroIntro(false);
+  }
+
+  const targetId = targetHref.replace('#', '');
+  const targetEl = document.getElementById(targetId);
+  if (!targetEl && targetHref !== '#top') return;
+
+  const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+  const isAtTop = scrollPos < 60;
+
+  // หากเลื่อนลงมาข้างล่างแล้ว และกดปุ่มบน Navigation Bar -> ให้เลื่อนอย่างเงียบๆ ทันที ไม่ต้องมีเสียงและไม่ต้องรอแอนิเมชันล้อ
+  if (!isAtTop) {
+    if (e) e.preventDefault();
+    if (targetHref === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
+    history.pushState(null, null, targetHref);
+    return;
+  }
+
+  // หากอยู่บนสุดของหน้าเว็บ -> มีเสียงและล้อพุ่งตัวพร้อมสะเก็ดไฟ!
+  if (isWheelLaunching) return;
+  if (e) e.preventDefault();
+  isWheelLaunching = true;
+
+  // เล่นเสียงเฉพาะเมื่ออยู่บนสุด
+  playButtonSoundIfAtTop();
+
+  // 1. แสงแฟลชออกตัว
+  if (burnoutFlash) {
+    burnoutFlash.classList.remove('active');
+    void burnoutFlash.offsetWidth;
+    burnoutFlash.classList.add('active');
+  }
+
+  // 2. สาดสะเก็ดไฟทันทีที่ล้อออกตัว
+  spawnBurnoutSparks();
+  setTimeout(spawnBurnoutSparks, 80);
+
+  // 3. กดปุ่มแล้ววิ่งไปเลยทันที ด้วยความเร็วที่กำลังสวย
+  mainWheel.classList.remove('wheel-roll-in');
+  void mainWheel.offsetWidth;
+  mainWheel.classList.add('wheel-launch-out');
+
+  // 4. พอล้อพุ่งหลุดจอ (~380ms) เลื่อนลงไปยังหัวข้อเป้าหมายทันที ไม่ต้องรอนาน
+  setTimeout(() => {
+    if (targetHref === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
+    history.pushState(null, null, targetHref);
+
+    // รีเซ็ตสถานะล้อ: นำคลาส launch-out ออกเงียบๆ เพื่อให้อยู่ในสถานะ Center นิ่งๆ
+    // ไม่ใส่ wheel-roll-in ซ้ำซ้อน เพื่อป้องกันอาการล้อกระตุกวาร์ปข้ามหน้าจอขณะเลื่อน
+    setTimeout(() => {
+      mainWheel.classList.remove('wheel-launch-out');
+      isWheelLaunching = false;
+    }, 900);
+  }, 380);
+}
+
+// Test trigger on clicking wheel directly
+function triggerTestLaunch() {
+  launchWheelToAnchor('#police');
+}
+
+// Attach wheel launch to all navigation links (Pills, Tabs, and Hero CTA buttons)
+function initWheelNavLinks() {
+  // หากเข้าเว็บมาโดยมี Hash กำกับอยู่แล้ว (เช่น /#police) ให้ปิด roll-in เพื่อไม่ให้กระตุกวาร์ป
+  if (window.location.hash && window.location.hash !== '#top') {
+    if (mainWheel) {
+      mainWheel.classList.remove('wheel-roll-in');
+    }
+  }
+
+  const navLinks = document.querySelectorAll('.brand-logo, .dept-pill-btn, .nav-slanted-tabs a, .hero-cta-group a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        launchWheelToAnchor(href, e);
+      }
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWheelNavLinks);
+} else {
+  initWheelNavLinks();
+}
+
+
+
+
+// ===== PAGED NAVIGATION =====
+(()=>{
+const ORDER=[['city','กฎเมือง'],['race','กฎสนามแข่ง'],['story','Story แข่งขัน'],['police','กฎตำรวจ'],['medic','กฎหมอ'],['mech','กฎช่าง']];
+const pages={};document.querySelectorAll('.page').forEach(p=>pages[p.dataset.page]=p);
+const si=document.getElementById('ruleSearchInput');
+const searchOn=()=>!!(si&&si.value.trim());
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let current='home';
+const wipe=document.createElement('div');wipe.className='page-wipe';document.body.appendChild(wipe);
+
+ORDER.forEach(([k,t],i)=>{const p=pages[k];if(!p)return;
+  const banner=p.querySelector('.section-banner-card');
+  const subs=[...p.querySelectorAll('.section-sub-title[id]')];
+  if(subs.length>1&&banner){const n=document.createElement('nav');n.className='page-jump';
+    n.innerHTML=subs.map(x=>`<a href="#${x.id}">${x.textContent.trim()}</a>`).join('');banner.after(n);}
+  const pv=ORDER[i-1],nx=ORDER[i+1],e=document.createElement('nav');e.className='page-end';
+  e.innerHTML=`<a href="#${pv?pv[0]:'top'}"><small>ก่อนหน้า</small>${pv?pv[1]:'หน้าเลือกหมวด'}</a><a href="#top" class="mid">ทุกหมวด</a>${nx?`<a href="#${nx[0]}"><small>ถัดไป</small>${nx[1]}</a>`:'<span></span>'}`;
+  p.append(e);});
+
+function resolve(h){const id=decodeURIComponent((h||'').replace('#',''));
+  if(!id||id==='top')return{page:'home'};if(id==='dept')return{page:'police'};
+  const el=document.getElementById(id),pg=el&&el.closest('.page');
+  return pg?{page:pg.dataset.page,el}:{page:'home'};}
+const inner=r=>r.el&&r.el.id!==r.page;
+function apply(r){current=r.page;document.body.dataset.view=r.page;
+  for(const k in pages)pages[k].classList.toggle('active',k===r.page);
+  document.querySelectorAll('.nav-slanted-tabs a').forEach(a=>a.classList.toggle('active',resolve(a.getAttribute('href')).page===r.page));
+  window.scrollTo({top:0,behavior:'instant'});
+  if(inner(r))setTimeout(()=>r.el.scrollIntoView({behavior:'smooth'}),60);}
+function go(h){const r=resolve(h);
+  if(location.hash!==h)history.pushState(null,'',h);
+  if(searchOn()){si.value='';si.dispatchEvent(new Event('input'));apply(r);return;}
+  if(r.page===current){inner(r)?r.el.scrollIntoView({behavior:'smooth'}):window.scrollTo({top:0,behavior:'smooth'});return;}
+  if(reduce){apply(r);return;}
+  wipe.classList.remove('run');void wipe.offsetWidth;wipe.classList.add('run');setTimeout(()=>apply(r),270);}
+
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]');if(!a)return;
+  e.preventDefault();e.stopPropagation();
+  const h=a.getAttribute('href');
+  const t=document.querySelector('.nav-slanted-tabs');if(t&&innerWidth<=960)t.style.display='none';
+  const fromHome=current==='home'&&scrollY<60&&!searchOn()&&h!=='#top'&&typeof launchWheelToAnchor==='function'&&a.matches('.dept-pill-btn,.nav-slanted-tabs a,.hero-cta-group a');
+  if(fromHome){launchWheelToAnchor(h,null);setTimeout(()=>go(h),520);}else go(h);
+},true);
+if(si)si.addEventListener('input',()=>document.body.classList.toggle('searching',searchOn()));
+addEventListener('popstate',()=>apply(resolve(location.hash)));
+addEventListener('hashchange',()=>apply(resolve(location.hash)));
+apply(resolve(location.hash));
+})();
+</script>
+
+
+
+</body>
+</html>
