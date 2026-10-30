@@ -2633,7 +2633,7 @@ mark.search-kw {
 
 
 /* ==========================================================================
-   SWEETALERT2 RACE ZONE - THEME-ADAPTIVE IMAGE & LINK MODAL
+   SWEETALERT2 RACE ZONE - HIGH-TECH MOTORSPORT THEME (NO EMOJIS)
    ========================================================================== */
 
 /* Base Overlay Backdrop */
@@ -2658,7 +2658,7 @@ div:where(.swal2-container).rz-swal-container {
 /* Base Modal Popup */
 div:where(.swal2-container) div:where(.swal2-popup).rz-swal-popup {
   border-radius: 14px !important;
-  padding: 16px !important;
+  padding: 22px 20px 20px 20px !important;
   max-width: 580px !important;
   width: 92% !important;
   overflow: visible !important;
@@ -2682,26 +2682,87 @@ div:where(.swal2-container) div:where(.swal2-popup).rz-swal-popup {
   color: #f8fafc !important;
 }
 
+/* Top Tag Badge */
+.rz-modal-top-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  width: fit-content;
+}
+:root .rz-modal-top-tag,
+[data-theme="light"] .rz-modal-top-tag {
+  background: rgba(0, 132, 255, 0.08);
+  color: #0077e6;
+  border: 1px solid rgba(0, 132, 255, 0.22);
+}
+[data-theme="dark"] .rz-modal-top-tag {
+  background: rgba(0, 180, 216, 0.12);
+  color: #00d2ff;
+  border: 1px solid rgba(0, 180, 216, 0.25);
+}
+
+.rz-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+:root .rz-tag-dot,
+[data-theme="light"] .rz-tag-dot {
+  background: #0084ff;
+  box-shadow: 0 0 6px rgba(0, 132, 255, 0.8);
+}
+[data-theme="dark"] .rz-tag-dot {
+  background: #00d2ff;
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.9);
+}
+
 /* Modal Title */
-div:where(.swal2-container) .swal2-title {
-  font-family: var(--font-heading, sans-serif) !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.5px !important;
-  transition: color 0.3s ease !important;
+.rz-modal-clean-title {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+  text-align: left;
 }
-:root div:where(.swal2-container) .swal2-title,
-[data-theme="light"] div:where(.swal2-container) .swal2-title {
-  color: #0f172a !important;
+:root .rz-modal-clean-title,
+[data-theme="light"] .rz-modal-clean-title {
+  color: #0f172a;
 }
-[data-theme="dark"] div:where(.swal2-container) .swal2-title {
-  color: #ffffff !important;
+[data-theme="dark"] .rz-modal-clean-title {
+  color: #ffffff;
+}
+
+.rz-modal-clean-sub {
+  font-family: var(--font-thai, 'Kanit', sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
+:root .rz-modal-clean-sub,
+[data-theme="light"] .rz-modal-clean-sub {
+  color: #64748b;
+}
+[data-theme="dark"] .rz-modal-clean-sub {
+  color: #94a3b8;
 }
 
 /* Close button */
 div:where(.swal2-container) .swal2-close {
-  font-size: 28px !important;
-  top: 8px !important;
-  right: 12px !important;
+  font-size: 26px !important;
+  top: 10px !important;
+  right: 14px !important;
   transition: color 0.2s ease, transform 0.2s ease !important;
   outline: none !important;
 }
@@ -2769,7 +2830,7 @@ div:where(.swal2-container) .swal2-close {
   margin-top: 14px;
   padding: 12px 20px;
   color: #ffffff !important;
-  font-family: var(--font-heading, sans-serif);
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
@@ -2812,9 +2873,14 @@ div:where(.swal2-container) .swal2-close {
 /* SweetAlert Cancel Button */
 div:where(.swal2-container) .swal2-cancel {
   border-radius: 8px !important;
-  font-weight: 600 !important;
-  padding: 10px 18px !important;
+  font-family: var(--font-heading, 'Montserrat', sans-serif) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.5px !important;
+  padding: 11px 20px !important;
   transition: all 0.2s ease !important;
+  transform: skewX(-8deg) !important;
+  border: none !important;
 }
 :root div:where(.swal2-container) .swal2-cancel,
 [data-theme="light"] div:where(.swal2-container) .swal2-cancel {
@@ -2826,29 +2892,7 @@ div:where(.swal2-container) .swal2-cancel {
   color: #cbd5e1 !important;
 }
 
-/* SweetAlert Input Labels & General Content */
-div:where(.swal2-container) .swal2-input-label {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  margin-bottom: 8px !important;
-}
-:root div:where(.swal2-container) .swal2-input-label,
-[data-theme="light"] div:where(.swal2-container) .swal2-input-label {
-  color: #334155 !important;
-}
-[data-theme="dark"] div:where(.swal2-container) .swal2-input-label {
-  color: #cbd5e1 !important;
-}
-
-:root div:where(.swal2-container) .swal2-html-container,
-[data-theme="light"] div:where(.swal2-container) .swal2-html-container {
-  color: #334155 !important;
-}
-[data-theme="dark"] div:where(.swal2-container) .swal2-html-container {
-  color: #cbd5e1 !important;
-}
-
-/* Admin Form Minimal */
+/* Form Groups & Clean Inputs */
 .rz-admin-form-clean {
   display: flex;
   flex-direction: column;
@@ -2856,61 +2900,77 @@ div:where(.swal2-container) .swal2-input-label {
   text-align: left;
   margin-top: 8px;
 }
-.rz-admin-form-clean label {
-  font-size: 13px;
-  font-weight: 700;
+.rz-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.rz-form-label {
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: color 0.3s ease;
+  gap: 7px;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
-:root .rz-admin-form-clean label,
-[data-theme="light"] .rz-admin-form-clean label {
-  color: var(--neon-cyan, #0084ff);
+:root .rz-form-label,
+[data-theme="light"] .rz-form-label {
+  color: #0077e6;
 }
-[data-theme="dark"] .rz-admin-form-clean label {
-  color: var(--neon-cyan, #00b4d8);
+[data-theme="dark"] .rz-form-label {
+  color: #00b4d8;
 }
 
-.rz-admin-form-clean input,
-div:where(.swal2-container) .swal2-input {
+.rz-label-hint {
+  font-family: var(--font-thai, 'Kanit', sans-serif);
+  font-size: 11px;
+  font-weight: 400;
+  margin-left: auto;
+  opacity: 0.75;
+}
+:root .rz-label-hint,
+[data-theme="light"] .rz-label-hint {
+  color: #64748b;
+}
+[data-theme="dark"] .rz-label-hint {
+  color: #94a3b8;
+}
+
+.rz-clean-input {
   width: 100%;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  font-family: var(--font-thai, sans-serif) !important;
-  box-sizing: border-box !important;
-  margin: 0 !important;
-  transition: background-color 0.3s, border-color 0.2s, color 0.3s, box-shadow 0.2s !important;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-family: var(--font-thai, 'Kanit', sans-serif);
+  font-size: 13.5px;
+  transition: all 0.2s ease;
 }
-:root .rz-admin-form-clean input,
-:root div:where(.swal2-container) .swal2-input,
-[data-theme="light"] .rz-admin-form-clean input,
-[data-theme="light"] div:where(.swal2-container) .swal2-input {
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #0f172a !important;
+:root .rz-clean-input,
+[data-theme="light"] .rz-clean-input {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
 }
-:root .rz-admin-form-clean input:focus,
-:root div:where(.swal2-container) .swal2-input:focus,
-[data-theme="light"] .rz-admin-form-clean input:focus,
-[data-theme="light"] div:where(.swal2-container) .swal2-input:focus {
-  border-color: #0084ff !important;
-  box-shadow: 0 0 12px rgba(0, 132, 255, 0.28) !important;
-  outline: none !important;
+:root .rz-clean-input:focus,
+[data-theme="light"] .rz-clean-input:focus {
+  border-color: #0084ff;
+  box-shadow: 0 0 12px rgba(0, 132, 255, 0.25);
+  background: #ffffff;
+  outline: none;
 }
 
-[data-theme="dark"] .rz-admin-form-clean input,
-[data-theme="dark"] div:where(.swal2-container) .swal2-input {
-  background: #080c14 !important;
-  border: 1px solid #1e293b !important;
-  color: #ffffff !important;
+[data-theme="dark"] .rz-clean-input {
+  background: #080c14;
+  border: 1px solid #1e293b;
+  color: #ffffff;
 }
-[data-theme="dark"] .rz-admin-form-clean input:focus,
-[data-theme="dark"] div:where(.swal2-container) .swal2-input:focus {
-  border-color: #00b4d8 !important;
-  box-shadow: 0 0 12px rgba(0, 180, 216, 0.35) !important;
-  outline: none !important;
+[data-theme="dark"] .rz-clean-input:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 0 14px rgba(0, 180, 216, 0.35);
+  background: #0a0f19;
+  outline: none;
 }
 
 </style>
@@ -5565,12 +5625,12 @@ apply(resolve(location.hash));
 <script>
 
 // ==========================================================================
-// UNTRACEABLE NEWS & BANNER SYSTEM (SWEETALERT2 - IMAGE & LINK ONLY)
+// UNTRACEABLE NEWS & BANNER SYSTEM (SWEETALERT2 - MOTORSPORT THEME)
 // ==========================================================================
 (function() {
   const DEFAULT_API_URL = "https://racezone-news-api.yourworker.workers.dev/news";
 
-  // Clean Fallback: Only Image and Link (No AI text / Badges)
+  // Clean Fallback: Only Image and Link
   const fallbackNews = {
     id: "banner_welcome_2026",
     image: "town.png",
@@ -5676,52 +5736,86 @@ apply(resolve(location.hash));
   async function openNewsAdminPoster() {
     if (typeof Swal === 'undefined') return;
 
+    // Step 1: Admin Authentication Dialog (No emojis)
     const { value: pass } = await Swal.fire({
-      title: '🔐 ระบบโพสต์ภาพข่าวสาร',
-      input: 'password',
-      inputLabel: 'กรุณากรอกรหัสผ่านผู้ดูแลระบบ (Admin Key)',
-      inputPlaceholder: 'ใส่รหัสผ่าน...',
-      showCancelButton: true,
-      confirmButtonText: 'เข้าสู่ระบบ',
-      cancelButtonText: 'ยกเลิก',
-      customClass: {
-        container: 'rz-swal-container',
-        popup: 'rz-swal-popup',
-        confirmButton: 'rz-modal-link-btn'
-      }
-    });
-
-    if (!pass) return;
-
-    const currentNews = getStoredNews();
-    const currentApi = getApiUrl();
-
-    const { value: formValues } = await Swal.fire({
-      title: '📢 โพสต์ภาพ & ลิงก์ข่าวสาร',
       html: `
-        <div class="rz-admin-form-clean">
-          <label>🖼️ URL รูปภาพข่าวสาร (หรือชื่อไฟล์ เช่น town.png):</label>
-          <input type="text" id="postImage" value="${currentNews.image || 'town.png'}" placeholder="https://example.com/banner.png หรือ town.png">
-
-          <label>🔗 ลิงก์รายละเอียดข่าว (Discord / เว็บข่าว / โพสต์):</label>
-          <input type="text" id="postLink" value="${currentNews.link || 'https://discord.gg/8SzDX34ca'}" placeholder="https://discord.gg/... หรือ https://...">
-
-          
+        <div style="text-align:left;">
+          <div class="rz-modal-top-tag"><span class="rz-tag-dot"></span> PADDOCK SYSTEM · ACCESS CONTROL</div>
+          <h3 class="rz-modal-clean-title">ADMIN AUTHENTICATION</h3>
+          <p class="rz-modal-clean-sub">กรุณากรอกรหัสผ่านผู้ดูแลระบบเพื่อเข้าสู่แผงควบคุมแบนเนอร์</p>
+          <div class="rz-form-group">
+            <label class="rz-form-label">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>ADMIN SECRET KEY</span>
+            </label>
+            <input type="password" id="rzAdminPassInput" class="rz-clean-input" placeholder="ใส่รหัสผ่านผู้ดูแลระบบ...">
+          </div>
         </div>
       `,
       showCancelButton: true,
-      confirmButtonText: '🚀 อัปเดตและเผยแพร่ทันที',
-      cancelButtonText: 'ยกเลิก',
+      confirmButtonText: '<span>ยืนยันสิทธิ์เข้าใช้งาน</span>',
+      cancelButtonText: '<span>ยกเลิก</span>',
       customClass: {
         container: 'rz-swal-container',
         popup: 'rz-swal-popup',
         confirmButton: 'rz-modal-link-btn'
       },
       preConfirm: () => {
-        const image = document.getElementById('postImage').value.trim();
-        const link = document.getElementById('postLink').value.trim();
+        const val = document.getElementById('rzAdminPassInput')?.value?.trim();
+        if (!val) {
+          Swal.showValidationMessage('กรุณากรอกรหัสผ่าน');
+          return false;
+        }
+        return val;
+      }
+    });
+
+    if (!pass) return;
+
+    const currentNews = getStoredNews();
+
+    // Step 2: Banner Manager Form (Zero emojis, Pure Motorsport Theme)
+    const { value: formValues } = await Swal.fire({
+      html: `
+        <div style="text-align:left;">
+          <div class="rz-modal-top-tag"><span class="rz-tag-dot"></span> BROADCAST CONTROL PANEL</div>
+          <h3 class="rz-modal-clean-title">ANNOUNCEMENT MANAGER</h3>
+          <p class="rz-modal-clean-sub">กำหนดภาพแบนเนอร์และลิงก์สำหรับผู้เล่นทุกคน</p>
+
+          <div class="rz-admin-form-clean">
+            <div class="rz-form-group">
+              <label class="rz-form-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>BANNER IMAGE URL</span>
+                <span class="rz-label-hint">ไฟล์ภาพ หรือ ลิงก์รูปภาพ</span>
+              </label>
+              <input type="text" id="postImage" class="rz-clean-input" value="${currentNews.image || 'town.png'}" placeholder="ตัวอย่าง: town.png หรือ https://...">
+            </div>
+
+            <div class="rz-form-group">
+              <label class="rz-form-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <span>TARGET LINK URL</span>
+                <span class="rz-label-hint">ลิงก์ปลายทางเมื่อคลิกดูรายละเอียด</span>
+              </label>
+              <input type="text" id="postLink" class="rz-clean-input" value="${currentNews.link || 'https://discord.gg/8SzDX34ca'}" placeholder="ตัวอย่าง: https://discord.gg/...">
+            </div>
+          </div>
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: '<span>บันทึกและเผยแพร่</span>',
+      cancelButtonText: '<span>ยกเลิก</span>',
+      customClass: {
+        container: 'rz-swal-container',
+        popup: 'rz-swal-popup',
+        confirmButton: 'rz-modal-link-btn'
+      },
+      preConfirm: () => {
+        const image = document.getElementById('postImage')?.value?.trim();
+        const link = document.getElementById('postLink')?.value?.trim();
         if (!image) {
-          Swal.showValidationMessage('กรุณากรอก URL รูปภาพข่าวสาร');
+          Swal.showValidationMessage('กรุณาระบุ URL หรือชื่อไฟล์ภาพแบนเนอร์');
           return false;
         }
         return {
@@ -5741,7 +5835,6 @@ apply(resolve(location.hash));
       active: true
     };
 
-    localStorage.setItem('rz_news_api_endpoint', formValues.api);
     localStorage.setItem('rz_cached_news', JSON.stringify(newPost));
 
     // Try posting to external API
@@ -5761,11 +5854,16 @@ apply(resolve(location.hash));
 
     await Swal.fire({
       icon: 'success',
-      title: 'อัปเดตเรียบร้อย!',
+      title: 'PUBLISH SUCCESSFUL',
       text: apiSuccess 
-        ? 'ส่งข้อมูลขึ้น Cloud API สำเร็จ ผู้เล่นทุกคนจะเห็นภาพแบนเนอร์ใหม่ทันที' 
+        ? 'ข้อมูลแบนเนอร์ถูกส่งขึ้นระบบคลาวด์เรียบร้อยแล้ว ผู้เล่นทุกคนจะเห็นข้อมูลใหม่ทันที' 
         : 'บันทึกภาพแบนเนอร์ลงระบบเรียบร้อยแล้ว (เปิดพรีวิวทันที)',
-      customClass: { container: 'rz-swal-container', popup: 'rz-swal-popup' }
+      confirmButtonText: '<span>ตกลง</span>',
+      customClass: {
+        container: 'rz-swal-container',
+        popup: 'rz-swal-popup',
+        confirmButton: 'rz-modal-link-btn'
+      }
     });
 
     // Preview
